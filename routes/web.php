@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('home', \App\Livewire\HomeComponent::class)->name('home');
+Route::get('about-us', \App\Livewire\AboutUsComponent::class)->name('about-us');
+Route::get('teachers', \App\Livewire\TeachersComponent::class)->name('teachers');

@@ -75,7 +75,7 @@
     <nav id="primary-header" class="navbar navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('images/main-logo.png') }}" class="logo img-fluid">
+                <img src="{{ asset('images/main-logo.png') }}" class="logo">
             </a>
             <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
@@ -91,22 +91,22 @@
                 <div class="offcanvas-body align-items-center justify-content-end">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link active p-0" aria-current="page" href="#">Baş sahypa</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}" wire:navigate>Baş sahypa</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0" href="#">Biz barada</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'teachers' ? 'active' : '' }}" href="{{ route('teachers') }}" wire:navigate>Mugallymlar</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0" href="#">Mugallymlar</a>
+                            <a class="nav-link p-0 " href="#">Goşmaça</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0" href="#">Jadyly sandyk</a>
+                            <a class="nav-link p-0 " href="#">Jadyly sandyk</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0" href="#">Goşmaça</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}" href="{{ route('about-us') }}" wire:navigate>Biz barada</a>
                         </li>
-
                     </ul>
+
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
 <footer id="footer" class="bg-gray">
     <div class="container text-center padding-medium">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/main-logo.png') }}" class="logo img-fluid">
+            <img src="{{ asset('images/main-logo.png') }}" class="logo img-fluid" style="width: 20%; border-radius: 0;">
         </a>
         <ul class="info text-center list-unstyled mt-4">
             <li class="location text-capitalize mb-2 d-flex justify-content-center align-items-center">

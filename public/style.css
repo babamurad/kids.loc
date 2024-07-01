@@ -74,10 +74,10 @@ CSS STRUCTURE:
 }
 
 /* Fonts */
-:root {
+/*:root {
   --heading-font: "Grand Hotel", cursive;
   --body-font: "Lora", serif;
-}
+}*/
 
 /*----------------------------------------------*/
 /* 2 GENERAL TYPOGRAPHY
@@ -980,3 +980,9 @@ iconify-icon.video-icon:hover {
     }
 }
 
+.button-wrapper {
+    display: flex; /* Enable flexbox layout */
+    flex-wrap: wrap; /* Allow buttons to wrap to next line if needed */
+    justify-content: center; /* Center buttons horizontally */
+    margin-bottom: 20px; /* Optional spacing for better visual separation */
+}
