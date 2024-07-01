@@ -112,8 +112,9 @@
         </div>
     </nav>
 </header>
-
-{{ $slot }}
+<main>
+    {{ $slot }}
+</main>
 
 <footer id="footer" class="bg-gray">
     <div class="container text-center padding-medium">

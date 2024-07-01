@@ -46,7 +46,7 @@ CSS STRUCTURE:
   4.5 Testimonial Section
   4.6 Faqs Section
   4.7 Pagination
-
+    
 /*--------------------------------------------------------------
 /** 1. VARIABLES
 --------------------------------------------------------------*/
@@ -920,63 +920,3 @@ iconify-icon.video-icon {
 iconify-icon.video-icon:hover {
   font-size: 45px;
 }
-.imageblock {
-    max-width: 100%; /* Убедитесь, что контейнер не превышает ширину родительского элемента */
-    margin: 0 auto; /* Центрирование контейнера */
-}
-
-.animated-border {
-    max-width: 100%; /* Убедитесь, что элемент с анимацией не превышает ширину родительского элемента */
-    overflow: hidden; /* Скрытие содержимого, выходящего за пределы контейнера */
-}
-
-.img-fluid {
-    max-width: 100%; /* Убедитесь, что изображение не превышает ширину родительского элемента */
-    height: auto; /* Сохраняет пропорции изображения  eastasianwidth */
-}
-.imageblock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Чтобы .animated-border::before был относительно этого контейнера */
-    width: 100%;
-    height: 100%;
-}
-
-.animated-border {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 70%; /* Ширина контейнера для изображения и рамки */
-    padding: 50px; /* Это должно соответствовать значению отступа в псевдоэлементе ::before */
-}
-
-.animated-border::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: 50%;
-    border: 25px dotted #E3EAF0;
-    animation: rotate-border 90s linear infinite;
-    z-index: -1; /* Чтобы рамка была под изображением */
-}
-
-.img-fluid {
-    width: 100%; /* Ширина изображения в пределах контейнера */
-    height: auto;
-    border-radius: 50%;
-}
-
-@keyframes rotate-border {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-

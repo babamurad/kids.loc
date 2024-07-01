@@ -1,4 +1,5 @@
 <div>
+<h2>Home Component</h2>
 
     <section id="slider">
         <div class="swiper slider ">
@@ -164,17 +165,10 @@
     <section id="about-us">
         <div class="container padding-medium pt-0">
             <div class="row align-items-center">
-
-                <!-- <div class="col-md-6">
-                  <div class="imageblock me-5">
-                    <img src="images/about-img.jpg" alt="img" class="img-fluid rounded-pill"
-                      style="border: 16px dotted #E3EAF0;">
-                  </div>
-                </div> -->
                 <div class="col-md-6">
-                    <div class="imageblock me-md-5">
+                    <div class="imageblock">
                         <div class="animated-border">
-                            <img src="images/about-img.jpg" alt="img" class="img-fluid rounded-circle ">
+                            <img src="{{ asset('images/about-img.jpg') }}" alt="img" class="img-fluid rounded-circle ">
                         </div>
                     </div>
                 </div>
@@ -191,6 +185,7 @@
             </div>
         </div>
     </section>
+
 
     <section id="cta" class="jarallax"
              style="background-image: url({{ asset('images/cta.jpg') }}); background-repeat: no-repeat; background-position: center;">
