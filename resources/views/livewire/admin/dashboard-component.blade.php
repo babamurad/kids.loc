@@ -1,3 +1,4 @@
+@section('title', 'Admin Dashboard')
 <div class="container-fluid">
 
     <!-- start page title -->

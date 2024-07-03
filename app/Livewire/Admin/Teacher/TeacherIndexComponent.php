@@ -34,7 +34,7 @@ class TeacherIndexComponent extends Component
         }
         $teacher->delete();
 
-        $this->dispatch('closeNewsModal');
+        $this->dispatch('closeModal');
         session()->flash('error', 'Deleted.');
     }
 }
