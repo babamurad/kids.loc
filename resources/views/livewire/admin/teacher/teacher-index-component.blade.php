@@ -53,8 +53,8 @@
                             @foreach($teachers as $teacher)
                             <tr>
                                 <th scope="row">1</th>
-                                <td class="pr-0 mr-0"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""> </td>
-                                <td style="width: 15%;">{{ $teacher->firstname }}</td>
+                                <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
+                                <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
                                 <td style="width: 15%;">{{ $teacher->lastname }}</td>
                                 <td>{{ $teacher->position }}</td>
                                 <td>{{ $teacher->order }}</td>

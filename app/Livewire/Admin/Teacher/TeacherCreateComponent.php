@@ -20,6 +20,7 @@ class TeacherCreateComponent extends Component
     #[Validate('required')]
     public string $position;
 
+    #[Validate('required|image|max:1024')]
     public $image = '';
 
     #[Validate('numeric')]

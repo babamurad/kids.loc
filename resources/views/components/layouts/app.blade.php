@@ -13,11 +13,11 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('js/fontawesome-free/css/all.css') }}">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" >
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
@@ -41,6 +41,7 @@
                         <svg class="me-1" width="18" height="18">
                             <use xlink:href="#location"></use>
                         </svg>State Road 54 Trinity, Florida
+
                     </li>
                     <li class="phone text-capitalize text-white d-flex align-items-center me-4">
                         <svg class="me-1" width="18" height="18">
@@ -65,6 +66,9 @@
                             <a href="#"> <svg width="18" height="18">
                                     <use xlink:href="#twitter"></use>
                                 </svg> </a>
+                        </li>
+                        <li class="social-icon text-white d-flex align-items-center">
+                            <a href="#"><i class="fas fa-user ml-2"></i></a>
                         </li>
 
                     </ul>

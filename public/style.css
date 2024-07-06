@@ -986,3 +986,6 @@ iconify-icon.video-icon:hover {
     justify-content: center; /* Center buttons horizontally */
     margin-bottom: 20px; /* Optional spacing for better visual separation */
 }
+.ml-2{
+    margin-left: 0.6rem;
+}

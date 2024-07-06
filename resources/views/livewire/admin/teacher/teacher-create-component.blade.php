@@ -71,7 +71,8 @@
                             @if($image)
                                 <img class="img-fluid" src="{{ $image->temporaryUrl() }}" alt="Teachers Foto">
                             @else
-                                <img class="img-fluid" src="{{ asset('images/team-item2.jpg') }}" alt="Teachers Foto">
+                                <img class="img-fluid" src="{{ asset('images/default-avatar.jpg') }}" alt="Teachers Foto"
+                                @error('image')style="border: solid 1px red;" @enderror>
                             @endif
 
                         </div>

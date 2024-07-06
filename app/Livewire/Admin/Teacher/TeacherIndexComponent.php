@@ -15,7 +15,7 @@ class TeacherIndexComponent extends Component
 
     public function render()
     {
-        $teachers = Teacher::published()->paginate(5);
+        $teachers = Teacher::orderBy('id', 'desc')->paginate(5);
         return view('livewire.admin.teacher.teacher-index-component', compact('teachers'))
             ->layout('components.layouts.admin-app');
     }
