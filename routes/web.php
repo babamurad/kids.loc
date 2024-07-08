@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Admin\About\AboutComponent;
+use App\Livewire\Admin\Teacher\TeacherViewComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +29,7 @@ Route::prefix('admin')->group(function(){
     Route::get('teachers', \App\Livewire\Admin\Teacher\TeacherIndexComponent::class)->name('admin.teachers');
     Route::get('teachers/create', \App\Livewire\Admin\Teacher\TeacherCreateComponent::class)->name('admin.teachers.create');
     Route::get('teachers/edit/{id}', \App\Livewire\Admin\Teacher\TeacherEditComponent::class)->name('admin.teachers.edit');
+    Route::get('teachers/view/{id}', TeacherViewComponent::class)->name('admin.teachers.view');
 
+    Route::get('about', AboutComponent::class)->name('admin.about.index');
 });

@@ -52,7 +52,7 @@
                             <tbody>
                             @foreach($teachers as $teacher)
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
                                 <td style="width: 15%;">{{ $teacher->lastname }}</td>
@@ -61,7 +61,7 @@
                                 <td>{{ $teacher->published }}</td>
                                 <td style="width: 12%;">
                                     <a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
-                                    <button class="btn btn-sm btn-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Show Employee"><i class="fas fa-eye"></i></button>
+                                    <a href="{{ route('admin.teachers.view', ['id' => $teacher->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>
                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $teacher->id }})"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
@@ -69,6 +69,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{ $teachers->links() }}
                 </div>
                 <!-- end card-body-->
             </div>
@@ -96,7 +97,7 @@
         Launch demo modal
     </button>
 
-    <div class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -110,7 +111,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light">Удалить</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
                 </div>
             </div>
         </div>

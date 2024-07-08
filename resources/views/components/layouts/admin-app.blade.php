@@ -16,6 +16,11 @@
     <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/css/theme.min.css') }}" rel="stylesheet" type="text/css" />
+    @stack('editor-css')
+    <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />  
+    
 
 </head>
 
@@ -43,12 +48,17 @@
 
                     <li>
                         <a href="{{ route('admin.dashboard') }}" class="waves-effect">
-                            <i class="bx bx-user-circle"></i><span>Dashboard</span>
+                            <i class="bx bx-home-circle"></i><span>Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.teachers') }}" class="waves-effect">
                             <i class="bx bx-user-circle"></i><span>Teachers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{  route('admin.about.index') }}" class="waves-effect">
+                            <i class="bx bx-building"></i><span>About</span>
                         </a>
                     </li>
 
@@ -202,7 +212,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                2020 © Opatix.
+                2024 © Opatix.
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-right d-none d-sm-block">
@@ -220,15 +230,37 @@
 <script src="{{ asset('admin/assets/js/simplebar.min.js') }}"></script>
 
 <!-- Morris Js-->
-<script src="{{ asset('admin/assets/plugins/morris-js/morris.min.js') }}"'></script>
+<script src="{{ asset('admin/assets/plugins/morris-js/morris.min.js') }}"></script>
 <!-- Raphael Js-->
-<script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"'></script>
+<script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>
 
+@stack('editor-js')
 <!-- Morris Custom Js-->
 <script src="{{ asset('admin/assets/pages/dashboard-demo.js') }}"></script>
 
 <!-- App js -->
 <script src="{{ asset('admin/assets/js/theme.js') }}"></script>
+
+<script>
+    // Snow theme editor
+var quill = new Quill('#snow-editor', {
+    theme: 'snow',
+    modules: {
+        'toolbar': [[{ 'font': [] }, { 'size': [] }], ['bold', 'italic', 'underline', 'strike'], [{ 'color': [] }, { 'background': [] }], [{ 'script': 'super' }, { 'script': 'sub' }], [{ 'header': [false, 1, 2, 3, 4, 5, 6] }, 'blockquote', 'code-block'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], ['direction', { 'align': [] }], ['link', 'image', 'video', 'formula'], ['clean']]
+    },
+});
+
+// Bubble theme
+var quill = new Quill('#bubble-editor', {
+    theme: 'bubble'
+});
+
+<!-- Plugins js -->
+<script src="{{ asset('admin/assets/plugins/katex/katex.min.js') }}"></script>
+<script src="{{ asset('admin/assets/plugins/quill/quill.min.js')}}"></script>
+<!-- Init js-->
+// <script src="{{ asset('admin/assets/pages/quilljs-demo.js') }}"></script>
+</script> 
 
 </body>
 

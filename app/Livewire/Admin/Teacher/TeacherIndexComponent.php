@@ -12,6 +12,7 @@ class TeacherIndexComponent extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $del_id;
+    public $image;
 
     public function render()
     {
@@ -36,5 +37,10 @@ class TeacherIndexComponent extends Component
 
         $this->dispatch('closeModal');
         session()->flash('error', 'Deleted.');
+    }
+
+    public function cancel()
+    {
+        $this->del_id = '';
     }
 }

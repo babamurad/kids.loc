@@ -31,11 +31,12 @@
         <div class="container">
             <h2 class="display-4 text-center mb-5">Our Teachers</h2>
 
-            <div class="row">
+            <div class="row justify-content-center">
+            @forelse ($teachers as $teacher)
                 <div class="col-md-4 mt-5 ">
                     <div class="team-member position-relative">
                         <div class="image-holder zoom-effect">
-                            <img src="images/team-item3.jpg" alt="team member">
+                            <img src="{{ asset('images/teachers/' . $teacher->image) }}" alt="team member">
                             <ul class="social-links list-unstyled position-absolute">
                                 <li>
                                     <a href="#">
@@ -68,234 +69,17 @@
                             </ul>
                         </div>
                         <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">Genna Fisher</h2>
-                            <span class="text-primary fs-6">Owner and Director</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
+                            <h2 class="lh-sm m-0 ">{{ $teacher->firstname . ' ' . $teacher->lastname }}</h2>
+                            <span class="text-primary fs-6">{{ $teacher->position }}</span>
+                            <p class="mt-2">{{ $teacher->desc }}</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                    <div class="team-member position-relative">
-                        <div class="image-holder zoom-effect">
-                            <img src="images/team-item2.jpg" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">Rebeca Saturn</h2>
-                            <span class="text-primary fs-6">Assistant Director</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                    <div class="team-member position-relative">
-                        <div class="image-holder zoom-effect">
-                            <img src="{{ asset('images/team-item6.jpg') }}" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">ester ian</h2>
-                            <span class="text-primary fs-6">Kindergarten Lead Teacher</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                    <div class="team-member position-relative">
-                        <div class="image-holder zoom-effect">
-                            <img src="{{ asset('images/team-item1.jpg') }}" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">Alex Smith</h2>
-                            <span class="text-primary fs-6">Toddler Lead Teacher</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                    <div class="team-member position-relative">
-                        <div class="image-holder zoom-effect">
-                            <img src="{{ asset('images/team-item5.jpg') }}" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">Allena Will</h2>
-                            <span class="text-primary fs-6">Pre-K Assistant Teacher</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5 ">
-                    <div class="team-member position-relative">
-                        <div class="image-holder zoom-effect">
-                            <img src="{{ asset('images/team-item4.jpg') }}" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="member-info pt-4 ">
-                            <h2 class="lh-sm m-0 ">Milly Taylor</h2>
-                            <span class="text-primary fs-6">Preschool Lead Teacher</span>
-                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, libero
-                                corrupti. Nemo quis sint commodi nulla praesentium recusandae molestiae, ducimus
-                                incidunt.</p>
-                        </div>
-                    </div>
-                </div>
+                </div>                
+            @empty
+                
+            @endforelse                    
+
+
             </div>
         </div>
     </section>
