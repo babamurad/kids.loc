@@ -24,8 +24,11 @@
                             <h4 class="">About</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="#" class="btn btn-primary waves-effect waves-light">
-                                Update
+                            <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="'edit">
+                                Edit
+                            </a>
+                            <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="update">
+                                Save
                             </a>
                         </div>
                     </div>
@@ -36,8 +39,9 @@
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile" wire:model="newImage">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
-                                </div>            
-                            </div>                            
+                                </div>
+                            </div>
+
                             <div class="form-group text-left">
                                 <label for="title">Title</label>
                                 <input type="text" id="title" class="form-control" placeholder="Enter title" wire:model="title">
@@ -45,28 +49,27 @@
                         </div>
                         <div class="col-sm-6">
                             @if ($newImage)
-                            <img class="rounded" src="{{ $newImage->temporaryUrl() }}" alt="News Image" >
+                            <img class="rounded mb-2 w-25" src="{{ $newImage->temporaryUrl() }}" alt="News Image" >
                             @else
-                            <img class="rounded" src="{{ asset('images/about') . '/' . $image }}" alt="Image" >    
+                            <img class="rounded mb-2 w-25" src="{{ asset('images/about') . '/' . $image }}" alt="Image" >
                             @endif
-                        </div>                        
-                        
+                        </div>
+
                     </div>
-                    <p>{{ $text }}</p>
                     <div wire:ignore>
-                        <div id="summernote" wire:model="text"></div>
-                    </div>                    
+                        <textarea id="summernote" wire:model="content"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     @push('editor-css')
     <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />
     @endpush
-    
+
     @push('editor-js')
  <script>
     $(document).ready(function() {
@@ -80,4 +83,3 @@ $('#summernote').on('summernote.change', function(we, contents, $editable){
 });
  </script>
     @endpush
-    

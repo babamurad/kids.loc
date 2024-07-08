@@ -12,9 +12,10 @@ class AboutComponent extends Component
 
     use WithFileUploads;
     public $title;
-    public $text;
+    public $content;
     public $image;
     public $newImage;
+    public $isEdit = false;
 
     public function render()
     {
@@ -27,7 +28,7 @@ class AboutComponent extends Component
     {
         $about = About::first();
         $this->title = $about->title;
-        $this->text = $about->text;
+        $this->content = $about->content;
         $this->image = $about->image;
     }
 
@@ -35,7 +36,7 @@ class AboutComponent extends Component
     {
         $about = About::first();
         $about->title = $this->title;
-        $about->text = $this->text;
+        $about->content = $this->content;
         if ($this->newImage){
             if (file_exists('about/'.$this->image)){
                 unlink('about/'.$this->image);
@@ -51,5 +52,16 @@ class AboutComponent extends Component
         return redirect()->to('/admin/about');
     }
 
-    
+    public function edit()
+    {
+        $this->isEdit = !$this->isEdit;
+    }
+
+    public function resetInputFields()
+    {
+        $this->title = '';
+        $this->content = '';
+        $this->image = '';
+    }
+
 }
