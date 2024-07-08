@@ -76,7 +76,7 @@
 });
 
 $('#summernote').on('summernote.change', function(we, contents, $editable){
-    @this.set('text', contents)
+    @this.set('content', contents)
 });
  </script>
     @endpush
