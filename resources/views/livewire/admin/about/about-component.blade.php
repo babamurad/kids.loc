@@ -24,7 +24,7 @@
                             <h4 class="">About</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="#" class="btn btn-primary waves-effect waves-light">
+                            <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="update">
                                 Update
                             </a>
                         </div>
@@ -52,9 +52,9 @@
                         </div>                        
                         
                     </div>
-                    <p>{{ $text }}</p>
+                    <p></p>
                     <div wire:ignore>
-                        <div id="summernote" wire:model="text"></div>
+                        <textarea id="summernote" wire:model="content"></textarea>
                     </div>                    
                 </div>
             </div>
@@ -76,7 +76,7 @@
 });
 
 $('#summernote').on('summernote.change', function(we, contents, $editable){
-    @this.set('text', contents)
+    @this.set('content', contents)
 });
  </script>
     @endpush

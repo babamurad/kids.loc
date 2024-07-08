@@ -56,22 +56,14 @@
             <div class="col-md-6 pe-md-5">
                 <div class="imageblock">
                     <div class="animated-border">
-                        <img src="images/about-img.jpg" alt="img" class="img-fluid rounded-circle ">
+                        <img src="{{ asset('/images/about/').'/'.$about->image }}" alt="img" class="img-fluid rounded-circle ">
                     </div>
                 </div>
             </div>
             <div class="col-md-6 mt-5 mt-md-0">
-                <h2 class="display-4">Learn as you play in Kindergarten</h2>
+                <h2 class="display-4">{{ $about->title }}</h2>
 
-                <p>Aliquet nunc vitae interdum mauris pretium lectus mauris viverra ornare quam diam felis. Ultrices
-                    eget pretium sit euismod mi id risus, aliquam odio posuere ac in in nisl sed augue. Porta aenean
-                    egestas malesuada in pulvinar enim viverra. ipsum dolor sit amet consectetur. Ipsum ipsum ut
-                    pulvinar ipsum cras metus purus mattis integer. Tellus ipsum viverra semper quisque eget nisl
-                    vel congue consectetur. </p>
-                <p>Ultrices eget pretium sit euismod mi id risus, aliquam odio posuere ac in in nisl sed augue. Porta aenean
-                    egestas malesuada in pulvinar enim viverra. ipsum dolor sit amet consectetur. Ipsum ipsum ut
-                    pulvinar ipsum cras metus purus mattis integer. Tellus ipsum viverra semper quisque eget nisl
-                    vel congue consectetur. </p>
+                {!! $about->content !!}
 
             </div>
         </div>
