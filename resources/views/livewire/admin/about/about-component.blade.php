@@ -20,13 +20,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row card-title">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <h4 class="">About</h4>
                         </div>
-                        <div class="col-sm-3 mb-2">
-                            <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="'edit">
-                                Edit
-                            </a>
+                        <div class="col-sm-2 mb-2">
                             <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="update">
                                 Save
                             </a>
