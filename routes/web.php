@@ -32,4 +32,8 @@ Route::prefix('admin')->group(function(){
     Route::get('teachers/view/{id}', TeacherViewComponent::class)->name('admin.teachers.view');
 
     Route::get('about', AboutComponent::class)->name('admin.about.index');
+
+    Route::get('articles', \App\Livewire\Admin\Article\ArticleIndexComponent::class)->name('admin.article.index');
+    Route::get('articles/create', \App\Livewire\Admin\Article\ArticleCreateComponent::class)->name('admin.article.create');
+    Route::get('articles/edit/{id}', \App\Livewire\Admin\Article\ArticleEditComponent::class)->name('admin.article.edit');
 });

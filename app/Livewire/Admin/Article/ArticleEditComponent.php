@@ -8,6 +8,7 @@ class ArticleEditComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.article.article-edit-component');
+        return view('livewire.admin.article.article-edit-component')
+            ->layout('components.layouts.admin-app');
     }
 }

@@ -62,21 +62,21 @@
     </div>
 
     @push('editor-css')
-    <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css"/>
     @endpush
 
     @push('editor-js')
- <script>
-    $(document).ready(function() {
-  $('#summernote').summernote({
-    height: 200,
-  });
-});
+        <script>
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    height: 400,
+                });
+            });
 
-$('#summernote').on('summernote.change', function(we, contents, $editable){
-    @this.set('content', contents)
-});
- </script>
+            $('#summernote').on('summernote.change', function (we, contents, $editable) {
+            @this.set('content', contents)
+            });
+        </script>
     @endpush

@@ -16,7 +16,8 @@ class ArticleIndexComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.article.article-index-component')
+        $articles = Article::paginate();
+        return view('livewire.admin.article.article-index-component', compact('articles'))
             ->layout('components.layouts.admin-app');
     }
 

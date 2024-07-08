@@ -37,7 +37,7 @@
         <div data-simplebar class="h-100">
 
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo">
+                <a href="{{ route('admin.dashboard') }}" class="logo">
                     <img src="{{ asset('admin/assets/images/logo-dark.png') }}" />
                 </a>
             </div>
@@ -61,6 +61,11 @@
                     <li>
                         <a href="{{  route('admin.about.index') }}" class="waves-effect">
                             <i class="bx bx-building"></i><span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{  route('admin.article.index') }}" class="waves-effect">
+                            <i class="bx bxs-notepad"></i><span>Articles</span>
                         </a>
                     </li>
 

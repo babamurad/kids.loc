@@ -55,7 +55,7 @@
                                 <th scope="row">{{ $loop->index + 1 }}</th>
                                 <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
-                                <td style="width: 15%;">{{ $teacher->lastname }}</td>
+                                <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->lastname }}</a></td>
                                 <td>{{ $teacher->position }}</td>
                                 <td>{{ $teacher->order }}</td>
                                 <td>{{ $teacher->published }}</td>
@@ -63,7 +63,6 @@
                                     <a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
                                     <a href="{{ route('admin.teachers.view', ['id' => $teacher->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>
                                     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $teacher->id }})"><i class="fas fa-trash-alt"></i></button>
-                                    <button wire:confirm="Are you sure?" wire:click="destroy">Delete post</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -93,10 +92,6 @@
         Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
     </p>
 
-
-    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">
