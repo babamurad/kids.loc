@@ -50,4 +50,6 @@ class AboutComponent extends Component
         session()->flash('success', 'Data updated!');
         return redirect()->to('/admin/about');
     }
+
+    
 }

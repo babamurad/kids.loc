@@ -16,11 +16,13 @@
     <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/assets/css/theme.min.css') }}" rel="stylesheet" type="text/css" />
-    @stack('editor-css')
-    <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css" />  
-    
+    <!-- jQuery  -->
+    <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- @stack('editor-css') --}}
+    {{-- @livewireStyles   --}}
+    {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
+
 
 </head>
 
@@ -196,12 +198,6 @@
 
     </div>
 
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-
-    <!-- end main content-->
-
 </div>
 <!-- END layout-wrapper -->
 
@@ -222,9 +218,7 @@
         </div>
     </div>
 </footer>
-<!-- jQuery  -->
-<script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+
 <script src="{{ asset('admin/assets/js/metismenu.min.js') }}"></script>
 <script src="{{ asset('admin/assets/js/waves.js') }}"></script>
 <script src="{{ asset('admin/assets/js/simplebar.min.js') }}"></script>
@@ -241,26 +235,10 @@
 <!-- App js -->
 <script src="{{ asset('admin/assets/js/theme.js') }}"></script>
 
-<script>
-    // Snow theme editor
-var quill = new Quill('#snow-editor', {
-    theme: 'snow',
-    modules: {
-        'toolbar': [[{ 'font': [] }, { 'size': [] }], ['bold', 'italic', 'underline', 'strike'], [{ 'color': [] }, { 'background': [] }], [{ 'script': 'super' }, { 'script': 'sub' }], [{ 'header': [false, 1, 2, 3, 4, 5, 6] }, 'blockquote', 'code-block'], [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], ['direction', { 'align': [] }], ['link', 'image', 'video', 'formula'], ['clean']]
-    },
-});
+<!-- include summernote css/js -->
+<link href="{{ asset('admin/assets/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet">
+<script src="{{ asset('admin/assets/plugins/summernote/summernote-bs4.js') }}"></script>
 
-// Bubble theme
-var quill = new Quill('#bubble-editor', {
-    theme: 'bubble'
-});
-
-<!-- Plugins js -->
-<script src="{{ asset('admin/assets/plugins/katex/katex.min.js') }}"></script>
-<script src="{{ asset('admin/assets/plugins/quill/quill.min.js')}}"></script>
-<!-- Init js-->
-// <script src="{{ asset('admin/assets/pages/quilljs-demo.js') }}"></script>
-</script> 
 
 </body>
 
