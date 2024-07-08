@@ -52,11 +52,6 @@ class AboutComponent extends Component
         return redirect()->to('/admin/about');
     }
 
-    public function edit()
-    {
-        $this->isEdit = !$this->isEdit;
-    }
-
     public function resetInputFields()
     {
         $this->title = '';
