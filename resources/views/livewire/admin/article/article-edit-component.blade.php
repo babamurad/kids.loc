@@ -1,5 +1,6 @@
 @section('title', 'Admin Article Create')
 <div class="container-fluid">
+    @include('components.alerts')
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
@@ -45,18 +46,20 @@
            <div class="card">
             <div class="card-body">
                 @if($newImage)
-                <img wire:model="newImage" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Articles Foto">
+                    <img wire:model="newImage" class="img-fluid rounded" src="{{ $newImage->temporaryUrl() }}" alt="Articles Foto"
+                    @error('newImage') style="border: solid 1px red;" @enderror>
                 @else
-                <img wire:model="image" class="img-fluid rounded" src="{{ asset('images/articles') . '/' . $image }}" alt="Articles Foto"
-                     @error('image')style="border: solid 1px red;" @enderror>
+                    <img wire:model="image" class="img-fluid rounded" src="{{ asset('images/articles') . '/' . $image }}" alt="Articles Foto"
+                     @error('image') style="border: solid 1px red;" @enderror>
                 @endif
+
                 <div class="form-group mt-1">
-                <label>Main picture</label>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="image" wire:model="image">
-                    <label class="custom-file-label" for="image">Choose file</label>
-                    @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                </div>
+                    <label>Main picture</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror" id="newImage" wire:model="newImage">
+                        <label class="custom-file-label" for="newImage">Choose file</label>
+                        @error('newImage')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                    </div>
                 </div>        
             
                 <div class="row mt-4">

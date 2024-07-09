@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Article;
 
 use App\Models\Article;
 use App\Models\Teacher;
+use Carbon\Carbon;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -15,9 +16,8 @@ class ArticleEditComponent extends Component
     public string $title;
     #[Validate('required|min:20')]
     public string $content;
-    #[Validate('required|image|max:1024')]
-    public $image;
-    
+    //#[Validate('required|image|max:1024')]
+    public $image;    
     public $newImage;
     #[Validate('numeric')]
     public int $order = 0;
@@ -37,18 +37,19 @@ class ArticleEditComponent extends Component
     public function mount($id)
     {
         $article = Article::findOrFail($id);
+        $this->editId = $article->id;
         $this->title = $article->title;
         $this->content = $article->content;
         $this->published = $article->published;
         $this->order = $article->order;
         $this->publish_date = $article->publish_date;
         $this->author = $article->author;
-        $this->image = $article->image;
-       
+        $this->image = $article->image;       
     }
 
     public function update()
     {
+        $this->validate();
         $article = Article::findOrFail($this->editId);
         $article->title = $this->title;
         $article->content = $this->content;
@@ -56,8 +57,28 @@ class ArticleEditComponent extends Component
         $article->order = $this->order;
         $article->publish_date = $this->publish_date;
         $article->author = $this->author;
-        $article->image = $this->image;
+        if ($this->newImage){
+            if (file_exists('articles/'.$this->image)){
+                unlink('articles/'.$this->image);
+            }
+            $imageName = Carbon::now()->timestamp.'.'.$this->newImage->extension();
+            $this->newImage->storeAs('articles/', $imageName);
+            $article->image = $imageName;
+        }
+        $article->update();
+        $this->resetInputFields();
+        session()->flash('success', 'Data updated!');
+        return redirect()->to('/admin/articles');
+    }
 
-        
+    public function resetInputFields()
+    {
+        $this->title ='';
+        $this->content ='';
+        $this->published ='';
+        $this->order =0;
+        $this->publish_date ='';
+        $this->author ='';
+        $this->image ='';
     }
 }

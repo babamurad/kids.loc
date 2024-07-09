@@ -1,5 +1,6 @@
 @section('title', 'Admin Article Create')
 <div class="container-fluid">
+    @include('components.alerts')
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
