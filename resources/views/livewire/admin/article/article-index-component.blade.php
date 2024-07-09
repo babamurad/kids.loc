@@ -32,7 +32,7 @@
 
 
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
+                        <table class="table mb-0">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -46,20 +46,47 @@
                             </thead>
                             <tbody>
                             @foreach($articles as $article)
-                                <tr>
+                                <tr wire:key="{{ $article->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}"><img style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt=""></a>  </td>
                                     <td style="width: 15%;"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">{{ $article->title }}</a></td>
-                                    <td style="width: 15%;">
-                                        @if ( $article->published )
-                                            <span class="badge badge-success">Published</span>
-                                        @else
-                                            <span class="badge badge-danger">Not Published</span>
-                                        @endif
+                                    <td style="width: 15%;">                                        
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck{{ $article->id }}" wire:model.live="published" 
+                                            wire:click="PubUnPub({{ $article->id }})"
+                                            @if ($article->published)
+                                               checked  
+                                            @endif>
+                                            <label class="custom-control-label" for="customCheck{{ $article->id }}">
+                                               @if ( $article->published )
+                                                    <span class="badge badge-success">Published</span>
+                                                @else
+                                                    <span class="badge badge-danger">Not Published</span>
+                                                @endif 
+                                            </label>
+                                        </div>
+                                        
                                         
                                     </td>
-                                    <td>{{ $article->order }}</td>
-                                    <td style="width: 10%;">{{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}</td>
+                                    <td style="width: 7%;">                                        
+                                            <div class="row">
+                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $article->id }})" style="padding: 0.5rem 0.7rem;">-</span>
+                                            <span class="mt-2">{{ $article->order }}</span>
+                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $article->id }})" style="padding: 0.5rem 0.7rem;">+</span>                                                
+                                            </div>
+
+                                            {{-- 
+                                            <div class="icon-stack-container">
+                                            <div class="icon-stack">
+                                                <i class="bx bx-up-arrow" wire:click="IncOrder({{ $article->id }})"></i>
+                                                <i class="bx bx-down-arrow" wire:click="DecOrder({{ $article->id }})"></i>
+                                            </div>
+                                            </div> --}}
+                                                                                
+                                    </td>
+                                    <td style="width: 10%;">
+                                        {{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}
+                                    </td>
                                     <td style="width: 12%;">
                                         <a href="{{ route('admin.article.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
                                         {{-- <a href="{{ route('admin.teachers.view', ['id' => $article->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}

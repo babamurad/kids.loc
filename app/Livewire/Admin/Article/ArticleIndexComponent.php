@@ -14,6 +14,7 @@ class ArticleIndexComponent extends Component
     public $del_id;
     public $image;
 
+
     public function render()
     {
         $articles = Article::paginate();
@@ -42,5 +43,26 @@ class ArticleIndexComponent extends Component
     public function cancel()
     {
         $this->del_id = '';
+    }
+
+    public function PubUnPub($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->published = !$article->published;
+        $article->update();
+    }
+
+    public function IncOrder($id)
+    {
+        $article = Article::findOrFail($id);        
+        $article->order = ++$article->order;
+        $article->update();
+    }
+
+    public function DecOrder($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->order = --$article->order;
+        $article->update();
     }
 }
