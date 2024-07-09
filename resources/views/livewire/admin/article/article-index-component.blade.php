@@ -48,7 +48,9 @@
                             @foreach($articles as $article)
                                 <tr wire:key="{{ $article->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}"><img style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt=""></a>  </td>
+                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">ID: <strong>{{ $article->id }}</strong>  Title: <strong>{{ $article->title }}</strong>
+                                            <img style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt=""> </a>
+                                    </td>
                                     <td style="width: 15%;"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">{{ $article->title }}</a></td>
                                     <td style="width: 15%;">
                                         <div class="custom-control custom-checkbox">
@@ -86,12 +88,13 @@
 
                                     </td>
                                     <td style="width: 10%;">
-                                        {{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}
+                                        <div class="mt-2">{{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}</div>
+
                                     </td>
                                     <td style="width: 12%;">
-                                        <a href="{{ route('admin.article.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.article.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
                                         {{-- <a href="{{ route('admin.teachers.view', ['id' => $article->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $article->id }})">
+                                        <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $article->id }})">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </td>
