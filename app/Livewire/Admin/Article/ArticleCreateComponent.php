@@ -3,9 +3,11 @@
 namespace App\Livewire\Admin\Article;
 
 use App\Models\Article;
+use App\Models\Teacher;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use Livewire\Attributes\Validate;
 
 class ArticleCreateComponent extends Component
 {
@@ -15,18 +17,27 @@ class ArticleCreateComponent extends Component
     #[Validate('required|min:20')]
     public string $content;
     #[Validate('required|image|max:1024')]
-    public string $image;
+    public $image;
+    
+    public $newImage;
     #[Validate('numeric')]
     public int $order = 0;
     #[Validate('required')]
     public bool $published = false;
-    public $published_date;
+    public $publish_date;
     public $author;
 
     public function render()
     {
-        return view('livewire.admin.article.article-create-component')
+        $teachers = Teacher::all();
+        return view('livewire.admin.article.article-create-component', compact('teachers'))
             ->layout('components.layouts.admin-app');
+    }
+
+    public function mount()
+    {
+        $this->publish_date =  Carbon::create(now())->format('d.m.Y');
+        $this->image = '';
     }
 
     public function create()
@@ -38,7 +49,7 @@ class ArticleCreateComponent extends Component
         $article->content = $this->content;
         $article->published = $this->published;
         $article->order = $this->order;
-        $article->published_date = $this->published_date;
+        $article->publish_date = $this->publish_date? Carbon::create($this->publish_date)->format('Y-m-d') : Carbon::create(now())->format('Y-m-d');
         $article->author = $this->author;
 
         $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();

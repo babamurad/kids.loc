@@ -31,7 +31,6 @@
                     </div>
 
 
-
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
@@ -41,7 +40,7 @@
                                 <th>Title</th>
                                 <th>Published</th>
                                 <th>Order</th>
-                                <th>Published date</th>
+                                <th>Date</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -49,16 +48,24 @@
                             @foreach($articles as $article)
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $article->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$article->image) }}" alt=""></a>  </td>
-                                    <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $article->id]) }}">{{ $article->firstname }}</a></td>
-                                    <td style="width: 15%;">{{ $article->lastname }}</td>
+                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}"><img style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt=""></a>  </td>
+                                    <td style="width: 15%;"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">{{ $article->title }}</a></td>
+                                    <td style="width: 15%;">
+                                        @if ( $article->published )
+                                            <span class="badge badge-success">Published</span>
+                                        @else
+                                            <span class="badge badge-danger">Not Published</span>
+                                        @endif
+                                        
+                                    </td>
                                     <td>{{ $article->order }}</td>
-                                    <td>{{ $article->published }}</td>
+                                    <td style="width: 10%;">{{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}</td>
                                     <td style="width: 12%;">
-                                        <a href="{{ route('admin.teachers.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('admin.teachers.view', ['id' => $article->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $article->id }})"><i class="fas fa-trash-alt"></i></button>
-                                        <button wire:confirm="Are you sure?" wire:click="destroy">Delete post</button>
+                                        <a href="{{ route('admin.article.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
+                                        {{-- <a href="{{ route('admin.teachers.view', ['id' => $article->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
+                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $article->id }})">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -80,18 +87,6 @@
     </script>
 
     <!-- Modal -->
-    <p>
-        git clone babamurad2010@yandex.ru:babamurad/repo.git
-
-        git remote add origin git@github.com:babamurad/dum.loc
-        fatal: not a git repository (or any parent up to mount point /)
-        Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-    </p>
-
-
-    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">
