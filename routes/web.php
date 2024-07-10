@@ -21,7 +21,7 @@ Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-a
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
 
     Route::get('teachers', \App\Livewire\Admin\Teacher\TeacherIndexComponent::class)->name('admin.teachers');
