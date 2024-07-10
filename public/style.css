@@ -165,6 +165,11 @@ a:hover {
 --------------------------------------------------------------*/
 /* - Section Padding
 --------------------------------------------------------------*/
+.padding-ex-small {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
 .padding-small {
   padding-top: 8.125em;
   padding-bottom: 8.125em;
@@ -929,11 +934,6 @@ iconify-icon.video-icon:hover {
     max-width: 100%; /* Убедитесь, что элемент с анимацией не превышает ширину родительского элемента */
     overflow: hidden; /* Скрытие содержимого, выходящего за пределы контейнера */
 }
-
-.img-fluid {
-    max-width: 100%; /* Убедитесь, что изображение не превышает ширину родительского элемента */
-    height: auto; /* Сохраняет пропорции изображения  eastasianwidth */
-}
 .imageblock {
     display: flex;
     justify-content: center;
@@ -965,11 +965,6 @@ iconify-icon.video-icon:hover {
     z-index: -1; /* Чтобы рамка была под изображением */
 }
 
-.img-fluid {
-    width: 100%; /* Ширина изображения в пределах контейнера */
-    height: auto;
-    border-radius: 50%;
-}
 
 @keyframes rotate-border {
     from {
@@ -990,4 +985,12 @@ iconify-icon.video-icon:hover {
     margin-left: 0.6rem;
 }
 
-    
+.img-fluid {
+  max-width: 100%;     
+  height: auto;
+}    
+
+.note-float-right,
+.note-float-left {
+  padding: 10px;
+}

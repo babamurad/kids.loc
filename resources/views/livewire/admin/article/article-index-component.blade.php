@@ -36,8 +36,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image</th>
-                                <th>Title</th>
+                                <th>Image/Title</th>                               
                                 <th>Published</th>
                                 <th>Order</th>
                                 <th>Date</th>
@@ -48,10 +47,11 @@
                             @foreach($articles as $article)
                                 <tr wire:key="{{ $article->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">ID: <strong>{{ $article->id }}</strong>  Title: <strong>{{ $article->title }}</strong>
-                                            <img style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt=""> </a>
-                                    </td>
-                                    <td style="width: 15%;"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">{{ $article->title }}</a></td>
+                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">
+                                            <img class="mr-3" style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt="">
+                                            <strong>{{ $article->title }}</strong> 
+                                        </a>
+                                    </td>                                   
                                     <td style="width: 15%;">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck{{ $article->id }}" wire:model.live="published"
@@ -72,9 +72,9 @@
                                     </td>
                                     <td style="width: 7%;">
                                             <div class="row">
-                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $article->id }})" style="padding: 0.5rem 0.7rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
+                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $article->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
                                             <span class="mt-2">{{ $article->order }}</span>
-                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $article->id }})" style="padding: 0.5rem 0.7rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
+                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $article->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
                                             </div>
 
 

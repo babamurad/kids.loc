@@ -102,7 +102,7 @@
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'teachers' ? 'active' : '' }}" href="{{ route('teachers') }}" wire:navigate>Mugallymlar</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 " href="#">Goşmaça</a>
+                            <a class="nav-link p-0 " href="{{ route('articles') }}" wire:navigate>Goşmaça</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
                             <a class="nav-link p-0 " href="#">Jadyly sandyk</a>

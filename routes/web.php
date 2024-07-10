@@ -2,6 +2,8 @@
 
 use App\Livewire\Admin\About\AboutComponent;
 use App\Livewire\Admin\Teacher\TeacherViewComponent;
+use App\Livewire\Article\ArticlesComponent;
+use App\Livewire\Article\SingleArticleComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,8 @@ Route::get('/', function () {
 Route::get('home', \App\Livewire\HomeComponent::class)->name('home');
 Route::get('about-us', \App\Livewire\AboutUsComponent::class)->name('about-us');
 Route::get('teachers', \App\Livewire\TeachersComponent::class)->name('teachers');
+Route::get('articles', ArticlesComponent::class)->name('articles');
+Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-article');
 
 Route::prefix('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
