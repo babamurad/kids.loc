@@ -5,18 +5,8 @@ use App\Livewire\Admin\Teacher\TeacherViewComponent;
 use App\Livewire\Article\ArticlesComponent;
 use App\Livewire\Article\SingleArticleComponent;
 use App\Livewire\User\UserRagisterComponent;
+use App\Livewire\User\UserLoginComponent;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -29,6 +19,7 @@ Route::get('articles', ArticlesComponent::class)->name('articles');
 Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-article');
 
 Route::get('register', UserRagisterComponent::class)->name('register');
+Route::get('login', UserLoginComponent::class)->name('login');
 
 Route::prefix('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');

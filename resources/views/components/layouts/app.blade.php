@@ -53,22 +53,13 @@
                 <div class="social">
                     <ul class="info d-flex flex-wrap list-unstyled m-0">
                         <li class="social-icon text-white d-flex align-items-center me-3">
-                            <a href="#"> <svg width="18" height="18">
-                                    <use xlink:href="#facebook"></use>
-                                </svg> </a>
+                            <a href="{{ route('login') }}" wire:navigate>Login</a>
                         </li>
                         <li class="social-icon text-white d-flex align-items-center me-3">
-                            <a href="#"> <svg width="18" height="18">
-                                    <use xlink:href="#instagram"></use>
-                                </svg> </a>
+                            /
                         </li>
                         <li class="social-icon text-white d-flex align-items-center ">
-                            <a href="#"> <svg width="18" height="18">
-                                    <use xlink:href="#twitter"></use>
-                                </svg> </a>
-                        </li>
-                        <li class="social-icon text-white d-flex align-items-center">
-                            <a href="#"><i class="fas fa-user ml-2"></i></a>
+                            <a href="{{ route('register') }}" wire:navigate>Register</a>
                         </li>
 
                     </ul>
