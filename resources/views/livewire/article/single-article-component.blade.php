@@ -111,7 +111,7 @@
             <div class="comment-list mt-5">
               <article class="comment-item pb-3 row">
                 <div class="col-md-1">
-                  <img src="{{ asset('images/commentor-item1.jpg') }}" alt="default" class="commentor-image img-fluid rounded-circle">
+                  <img src="images/commentor-item1.jpg" alt="default" class="commentor-image img-fluid rounded-circle">
                 </div>
                 <div class="col-md-10">
                   <div class="author-post mb-4">
@@ -133,7 +133,7 @@
               </article>
               <article class="comment-item pb-3 row child-comments">
                 <div class="col-md-1">
-                  <img src="{{ asset('images/commentor-item2.jpg') }}" alt="default" class="commentor-image img-fluid rounded-circle">
+                  <img src="images/commentor-item2.jpg" alt="default" class="commentor-image img-fluid rounded-circle">
                 </div>
                 <div class="col-md-10">
                   <div class="author-post mb-4">
@@ -155,7 +155,7 @@
               </article>
               <article class="comment-item pb-3 row">
                 <div class="col-md-1">
-                  <img src="{{ asset('images/commentor-item3.jpg') }}" alt="default" class="commentor-image img-fluid rounded-circle">
+                  <img src="images/commentor-item3.jpg" alt="default" class="commentor-image img-fluid rounded-circle">
                 </div>
                 <div class="col-md-10">
                   <div class="author-post mb-4">
@@ -281,29 +281,69 @@
 
             <div class="widget sidebar-popular-posts bg-gray border rounded-3 p-3 mb-5">
               <h3 class="widget-title  border-bottom pb-2 mb-4">Related Posts</h3>
-              @foreach ($articles as $article)
               <div class="sidebar-post-item d-flex justify-content-center">
                 <div class="row mb-3">
                   <div class="col-md-4">
                     <div class="image-holder">
                       <a href="#">
-                        <img src="{{ asset('images/articles/') . '/' . $article->image }}" alt="blog" class="img-fluid rounded-2">
+                        <img src="images/blog1.jpg" alt="blog" class="img-fluid rounded-2">
                       </a>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="sidebar-post-content ">
                       <div class="post-meta text-secondary">
-                        <span class="meta-date">{{ Carbon\Carbon::create($article->created_at)->format('F j, Y') }}</span>
+                        <span class="meta-date">jul 11, 2024</span>
                       </div>
                       <h5 class="lh-sm post-title">
-                        <a href="{{ route('single-article', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                        <a href="#">How to make childern play well</a>
                       </h5>
                     </div>
                   </div>
                 </div>
-              </div>                  
-              @endforeach
+              </div>
+              <div class="sidebar-post-item d-flex justify-content-center">
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <a href="#">
+                        <img src="images/blog2.jpg" alt="blog" class="img-fluid rounded-2">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="sidebar-post-content ">
+                      <div class="post-meta text-secondary">
+                        <span class="meta-date">jul 18, 2024</span>
+                      </div>
+                      <h5 class="lh-sm post-title">
+                        <a href="#">Top 10 hacks for parenting</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-post-item d-flex justify-content-center">
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <div class="image-holder">
+                      <a href="#">
+                        <img src="images/blog3.jpg" alt="blog" class="img-fluid rounded-2">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="sidebar-post-content ">
+                      <div class="post-meta text-secondary">
+                        <span class="meta-date">Aug 21, 2024</span>
+                      </div>
+                      <h5 class="lh-sm post-title">
+                        <a href="#">Best ways to interact with child</a>
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="widget sidebar-any-questions bg-gray border rounded-3 p-3 mb-5">
