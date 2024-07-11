@@ -50,19 +50,25 @@
                     </li>
 
                 </ul>
-                <div class="social">
-                    <ul class="info d-flex flex-wrap list-unstyled m-0">
-                        <li class="social-icon text-white d-flex align-items-center me-3">
-                            <a href="{{ route('login') }}" wire:navigate>Login</a>
-                        </li>
-                        <li class="social-icon text-white d-flex align-items-center me-3">
-                            |
-                        </li>
-                        <li class="social-icon text-white d-flex align-items-center ">
-                            <a href="{{ route('register') }}" wire:navigate>Register</a>
-                        </li>
+                <div class="social">                    
+                        @auth                        
+                            @livewire('user.logout-component')                                                 
+                        @endauth
+                        @guest
+                        <ul class="info d-flex flex-wrap list-unstyled m-0">
+                            <li class="social-icon text-white d-flex align-items-center me-3">
+                                <a href="{{ route('login') }}" wire:navigate>Login</a>
+                            </li>
+                            <li class="social-icon text-white d-flex align-items-center me-3">
+                                |
+                            </li>
+                            <li class="social-icon text-white d-flex align-items-center ">
+                                <a href="{{ route('register') }}" wire:navigate>Register</a>
+                            </li>  
+                        </ul>
+                        @endguest                            
 
-                    </ul>
+                    
                 </div>
             </div>
         </div>

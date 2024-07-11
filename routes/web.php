@@ -8,6 +8,7 @@ use App\Livewire\Admin\Teacher\TeacherViewComponent;
 use App\Livewire\Article\ArticlesComponent;
 use App\Livewire\Article\SingleArticleComponent;
 use App\Livewire\CarouselComponent;
+use App\Livewire\User\LogoutComponent;
 use App\Livewire\User\UserRagisterComponent;
 use App\Livewire\User\UserLoginComponent;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-a
 
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');
+Route::get('logout', LogoutComponent::class)->name('logout');
 
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');

@@ -30,7 +30,7 @@ class UserLoginComponent extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             // Redirect or do something after successful login
             if(Auth::user()->type == 'ADM') {
-                $this->redirect('admin/dashboard', navigate: true);
+                $this->redirect('/', navigate: true);
             } else {
                 return redirect()->intended('/');
             }
