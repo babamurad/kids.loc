@@ -277,7 +277,7 @@
                         <p class="m-0">{{ $teacher->position }}</p>
 
                     </div>
-                </div>                    
+                </div>
                 @endforeach
             </div>
         </div>
@@ -583,54 +583,23 @@
         <div class="container padding-medium">
             <h2 class="display-4 text-center mb-5">News & Articles</h2>
             <div class="row">
+                @foreach($articles as $article)
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                     <div class="card bg-white rounded-4">
-                        <a href="#"><img src="{{ asset('images/blog1.jpg') }}" class="img-fluid rounded-top-4 " alt="image"></a>
+                        <a href="#"><img src="{{ asset('images/articles') . '/' . $article->image }}" class="img-fluid rounded-top-4 " alt="image"></a>
                         <div class="card-body p-3">
-                            <p class="mb-2">10 Feb, Sun</p>
-                            <a href="single-post.html" class="hover-color">
-                                <h2 class="m-0 lh-sm">The Benefits of Play-Based Learning for Kindergarteners</h2>
+                            <p class="mb-2">{{ \Carbon\Carbon::create($article->created_at)->locale('ru')->format('j F, Y') }}</p>
+                            <a href="{{ route('single-article', ['id' => $article->id]) }}"  wire:navigate class="hover-color">
+                                <h2 class="m-0 lh-sm">{{ $article->title }}</h2>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="card bg-white rounded-4">
-                        <a href="#"><img src="{{ asset('images/blog3.jpg') }}" class="img-fluid rounded-top-4 " alt="image"></a>
-                        <div class="card-body p-3">
-                            <p class="mb-2">15 Mar, Mon</p>
-                            <a href="single-post.html" class="hover-color">
-                                <h2 class="m-0 lh-sm">Creating a Safe and Inclusive Kindergarten Environment</h2>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="card bg-white rounded-4">
-                        <a href="#"><img src="{{ asset('images/blog2.jpg') }}" class="img-fluid rounded-top-4 " alt="image"></a>
-                        <div class="card-body p-3">
-                            <p class="mb-2">22 Feb, Fri</p>
-                            <a href="single-post.html" class="hover-color">
-                                <h2 class="m-0 lh-sm">Nutrition Tips for Healthy Kindergarten Snacks</h2>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                    <div class="card bg-white rounded-4">
-                        <a href="#"><img src="{{ asset('images/blog4.jpg') }}" class="img-fluid rounded-top-4 " alt="image"></a>
-                        <div class="card-body p-3">
-                            <p class="mb-2">26 Apr, Tue</p>
-                            <a href="#" class="hover-color">
-                                <h2 class="m-0 lh-sm">Craft Ideas for Kindergarten Art Projects</h2>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
             <div class="text-center">
-                <a class="btn btn-primary mt-5" href="#">Read All News</a>
+                <a class="btn btn-primary mt-5" href="{{ route('articles') }}" wire:navigate>Read All News</a>
             </div>
         </div>
 
