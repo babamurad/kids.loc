@@ -49,32 +49,32 @@
                     <li class="menu-title">Menu</li>
 
                     <li>
-                        <a href="{{ route('admin.dashboard') }}" class="waves-effect">
+                        <a href="{{ route('admin.dashboard') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-home-circle"></i><span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.teachers') }}" class="waves-effect">
+                        <a href="{{ route('admin.teachers') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-user-circle"></i><span>Teachers</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{  route('admin.about.index') }}" class="waves-effect">
+                        <a href="{{  route('admin.about.index') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-building"></i><span>About</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{  route('admin.article.index') }}" class="waves-effect">
+                        <a href="{{  route('admin.article.index') }}" class="waves-effect" wire:navigate>
                             <i class="bx bxs-notepad"></i><span>Articles</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{  route('admin.carousel') }}" class="waves-effect">
+                        <a href="{{  route('admin.carousel') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-image-alt"></i>Carousel</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{  route('admin.gallery') }}" class="waves-effect">
+                        <a href="{{  route('admin.gallery') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-images"></i>Gallery</span>
                         </a>
                     </li>
