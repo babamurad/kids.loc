@@ -18,8 +18,7 @@ class ArticleCreateComponent extends Component
     public string $content;
     #[Validate('required|image|max:1024')]
     public $image;
-    
-    public $newImage;
+
     #[Validate('numeric')]
     public int $order = 0;
     #[Validate('required')]

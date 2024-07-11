@@ -9,8 +9,6 @@ use Livewire\WithPagination;
 class GalleryIndexComponent extends Component
 {
     use WithPagination;
-//    public $image, $desc, $order, $status;
-
     protected $paginationTheme = 'bootstrap';
     public $delId;
     public $image;
@@ -43,5 +41,26 @@ class GalleryIndexComponent extends Component
     public function cancel()
     {
         $this->delId = '';
+    }
+
+    public function PubUnPub($id)
+    {
+        $item = Gallery::findOrFail($id);
+        $item->status = !$item->status;
+        $item->update();
+    }
+
+    public function IncOrder($id)
+    {
+        $item = Gallery::findOrFail($id);
+        $item->order = ++$item->order;
+        $item->update();
+    }
+
+    public function DecOrder($id)
+    {
+        $item = Gallery::findOrFail($id);
+        $item->order = --$item->order;
+        $item->update();
     }
 }

@@ -46,11 +46,34 @@
                             @foreach($galleries as $item)
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.gallery.edit', ['id' => $item->id]) }}"><img style="width: 15%;" src="{{ asset('images/gallery/'.$item->image) }}" alt=""></a></td>
-                                    <td style="width: 15%;"><a href="{{ route('admin.gallery.edit', ['id' => $item->id]) }}">{{ $item->firstname }}</a></td>
-                                    <td>{{ $item->order }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td class="pr-0 mr-0">
+                                        <a href="{{ route('admin.gallery.edit', ['id' => $item->id]) }}">
+                                            <img style="width: 15%;" src="{{ asset('images/gallery/'.$item->image) }}" alt="">
+                                        </a>
+                                    </td>
+                                    <td style="width: 25%;">{{ $item->desc }}</td>
                                     <td style="width: 12%;">
+                                        <div class="row">
+                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
+                                            <span class="mt-2" wire:click="editOrder">{{ $item->order }}</span>
+                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
+                                        </div>
+                                    </td>
+                                    <td style="width: 10%;">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck{{ $item->id }}" wire:model.live="status"
+                                                   wire:click="PubUnPub({{ $item->id }})"
+                                                   @if ($item->status) checked @endif>
+                                            <label class="custom-control-label" for="customCheck{{ $item->id }}">
+                                                @if ( $item->status )
+                                                    <span class="badge badge-success">Published</span>
+                                                @else
+                                                    <span class="badge badge-danger">Not Published</span>
+                                                @endif
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td style="width: 10%;">
                                         <a href="{{ route('admin.gallery.edit', ['id' => $item->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
 {{--                                        <a href="{{ route('admin.gallery.view', ['id' => $item->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>--}}
                                         <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $item->id }})"><i class="fas fa-trash-alt"></i></button>
@@ -80,7 +103,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удалениеe</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

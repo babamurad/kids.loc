@@ -12,6 +12,11 @@ class CarouselCreateComponent extends Component
     use WithFileUploads;
     public $title, $image, $status, $order;
 
+    protected $rules = [
+        'title' => 'required|string|max:50',
+        'image' => 'required|image|max:1024',
+    ];
+
     public function render()
     {
         return view('livewire.admin.carousel.carousel-create-component')
@@ -20,6 +25,7 @@ class CarouselCreateComponent extends Component
 
     public function create()
     {
+        $this->validate();
         $item = new Carousel();
         $item->title = $this->title;
         $item->order = $this->order;
