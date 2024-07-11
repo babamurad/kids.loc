@@ -166,18 +166,19 @@
                 <div class="col-md-6">
                     <div class="imageblock">
                         <div class="animated-border">
-                            <img src="{{ asset('images/about-img.jpg') }}" alt="img" class="img-fluid rounded-circle ">
+                            <img src="{{ asset('/images/about/').'/'.$about->image }}" alt="img" class="img-fluid rounded-circle ">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 mt-5 mt-md-0">
                     <div class="section-title">
-                        <h2 class="display-4 mb-3">welcome to our kindergarten</h2>
+                        <h2 class="display-4 mb-3">{{ $about->title }}</h2>
                     </div>
-                    <p>Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent pellentesque.
-                        Porta sit porta ridiculus faucibus. Curabitur lacus pretium pellentesque interdum urna blandit.</p>
-                    <a class="btn btn-primary mt-3" href="about.html">About Us</a>
+                    <p>
+                        {!! $about->content !!}
+                    </p>
+                    <a class="btn btn-primary mt-3" href="{{ route('about-us') }}" wire:navigate>About Us</a>
                 </div>
 
             </div>
@@ -388,51 +389,20 @@
     <section id="teacher">
         <div class="container padding-medium pt-0">
             <h2 class="display-4 text-center mb-5">Meet our educators</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 my-4 my-lg-0">
+            <div class="row justify-content-center">
+                @foreach ($teachers as $teacher)
+                <div class="col-md-6 col-lg-3 my-4 my-lg-3">
                     <div class="text-center ">
-                        <a href="teachers.html"><img src="images/teacher1.jpg" class="img-fluid rounded-4" alt="image"></a>
+                        <a href="{{ route('teachers') }}"><img src="{{ asset('images/teachers') . '/' . $teacher->image }}" class="img-fluid rounded-4" alt="{{ $teacher->firstname }}"></a>
 
-                        <a href="teachers.html" class="hover-color">
-                            <h2 class="mt-3 m-0">Sophia Anderson</h2>
+                        <a href="{{ route('teachers') }}" class="hover-color">
+                            <h2 class="mt-3 m-0">{{ $teacher->firstname . ' ' . $teacher->lastname }}</h2>
                         </a>
-                        <p class="m-0">Active Learning Teacher</p>
+                        <p class="m-0">{{ $teacher->position }}</p>
 
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 my-4 my-lg-0">
-                    <div class="text-center ">
-                        <a href="teachers.html"><img src="images/teacher2.jpg" class="img-fluid rounded-4" alt="image"></a>
-
-                        <a href="teachers.html" class="hover-color">
-                            <h2 class="mt-3 m-0">Emily Johnson</h2>
-                        </a>
-                        <p class="m-0">Science Teacher</p>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 my-4 my-lg-0">
-                    <div class="text-center ">
-                        <a href="teachers.html"><img src="images/teacher3.jpg" class="img-fluid rounded-4" alt="image"></a>
-
-                        <a href="teachers.html" class="hover-color">
-                            <h2 class="mt-3 m-0">Ava Martin</h2>
-                        </a>
-                        <p class="m-0">Art Teacher</p>
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 my-4 my-lg-0">
-                    <div class="text-center ">
-                        <a href="teachers.html"><img src="images/teacher4.jpg" class="img-fluid rounded-4" alt="image"></a>
-
-                        <a href="teachers.html" class="hover-color">
-                            <h2 class="mt-3 m-0">Olivia Smith</h2>
-                        </a>
-                        <p class="m-0">Literacy Teacher</p>
-
-                    </div>
-                </div>
+                </div>                    
+                @endforeach
             </div>
         </div>
     </section>

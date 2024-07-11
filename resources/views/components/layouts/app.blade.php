@@ -56,7 +56,7 @@
                             <a href="{{ route('login') }}" wire:navigate>Login</a>
                         </li>
                         <li class="social-icon text-white d-flex align-items-center me-3">
-                            /
+                            |
                         </li>
                         <li class="social-icon text-white d-flex align-items-center ">
                             <a href="{{ route('register') }}" wire:navigate>Register</a>

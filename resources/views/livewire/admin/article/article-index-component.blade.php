@@ -36,7 +36,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image/Title</th>                               
+                                <th>Image | Title</th>                               
                                 <th>Published</th>
                                 <th>Order</th>
                                 <th>Date</th>

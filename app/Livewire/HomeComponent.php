@@ -2,12 +2,16 @@
 
 namespace App\Livewire;
 
+use App\Models\About;
+use App\Models\Teacher;
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
     public function render()
     {
-        return view('livewire.home-component');
+        $teachers = Teacher::published()->orderBy('order')->get();
+        $about = About::first();
+        return view('livewire.home-component',compact('teachers', 'about'));
     }
 }
