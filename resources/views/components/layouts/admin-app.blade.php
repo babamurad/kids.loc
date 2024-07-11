@@ -68,6 +68,11 @@
                             <i class="bx bxs-notepad"></i><span>Articles</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{  route('admin.carousel') }}" class="waves-effect">
+                            <i class="bx bx-image-alt"></i>Carousel</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>
