@@ -41,10 +41,13 @@ class CarouselEditComponent extends Component
         $item->title = $this->title;
         $item->status = $this->status;
         $item->order = $this->order;
+        
         if ($this->newImage){
-            if (file_exists('carousel/'.$this->image)){
-                unlink('carousel/'.$this->image);
-            }
+            
+            if (file_exists('images/carousel/'.$this->image)){
+                //dd('images/carousel/'.$this->image);
+                unlink('images/carousel/'.$this->image);
+            }// else {dd('yok');}
             $imageName = Carbon::now()->timestamp.'.'.$this->newImage->extension();
             $this->newImage->storeAs('carousel/', $imageName);
             $item->image = $imageName;

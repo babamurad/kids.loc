@@ -13,11 +13,18 @@ class CarouselIndexComponent extends Component
 
     public $del_id;
     public $image;
+    public $orEdit = false;
+
     public function render()
     {
         $carousels = Carousel::paginate();
         return view('livewire.admin.carousel.carousel-index-component', compact('carousels'))
         ->layout('components.layouts.admin-app');
+    }
+
+    public function orderEdit()
+    {
+        $this->orEdit = !$this->orEdit;
     }
 
     public function deleteId($id)
