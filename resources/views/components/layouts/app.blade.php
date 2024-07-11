@@ -50,9 +50,9 @@
                     </li>
 
                 </ul>
-                <div class="social">                    
-                        @auth                        
-                            @livewire('user.logout-component')                                                 
+                <div class="social">
+                        @auth
+                            @livewire('user.logout-component')
                         @endauth
                         @guest
                         <ul class="info d-flex flex-wrap list-unstyled m-0">
@@ -64,11 +64,11 @@
                             </li>
                             <li class="social-icon text-white d-flex align-items-center ">
                                 <a href="{{ route('register') }}" wire:navigate>Register</a>
-                            </li>  
+                            </li>
                         </ul>
-                        @endguest                            
+                        @endguest
 
-                    
+
                 </div>
             </div>
         </div>
@@ -119,67 +119,47 @@
 </main>
 
 <footer id="footer" class="bg-gray">
-    <div class="container text-center padding-medium">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('images/main-logo.png') }}" class="logo img-fluid" style="width: 20%; border-radius: 0;">
-        </a>
-        <ul class="info text-center list-unstyled mt-4">
-            <li class="location text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                <svg class="text-primary me-1" width="18" height="18">
-                    <use xlink:href="#location"></use>
-                </svg>Dallas, Texas
-            </li>
-            <li class="email text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                <svg class="text-primary me-1" width="18" height="18">
-                    <use xlink:href="#email"></use>
-                </svg>youremail@gmail.com
-            </li>
-            <li class="phone text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                <svg class="text-primary me-1" width="18" height="18">
-                    <use xlink:href="#phone"></use>
-                </svg>888 333 9999
-            </li>
-            <li class="clock text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                <svg class="text-primary me-1" width="18" height="18">
-                    <use xlink:href="#clock"></use>
-                </svg>8:00-18:00, Sat: Closed
-            </li>
-        </ul>
-        <div class="social-links mt-5">
-            <ul class="d-flex justify-content-center list-unstyled gap-2 m-0">
-                <li class="social">
-                    <a href="#">
-                        <iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="#">
-                        <iconify-icon class="social-icon" icon="ri:twitter-fill"></iconify-icon>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="#">
-                        <iconify-icon class="social-icon" icon="ri:pinterest-fill"></iconify-icon>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="#">
-                        <iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon>
-                    </a>
-                </li>
-                <li class="social">
-                    <a href="#">
-                        <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
-                    </a>
-                </li>
 
-            </ul>
+    <div class="container text-center padding-medium">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Mekdebe çenli bilim we terbiýe</h2>
+                <h5>Türkmenistanyň Bilim Ministrligi</h5>
+            </div>
+            <div class="col-sm-6">
+                <a class="navbar-brand" href="#">
+                    <h2>Ministrlik</h2>
+                </a>
+                <ul class="info text-center list-unstyled mt-4">
+                    <li class="location text-capitalize mb-2 d-flex justify-content-center align-items-center">
+                        <svg class="text-primary me-1" width="18" height="18">
+                            <use xlink:href="#location"></use>
+                        </svg>744000, Aşgabat ş., Arçabil şaýoly, 104
+                    </li>
+                    <li class="email text-capitalize mb-2 d-flex justify-content-center align-items-center">
+                        <svg class="text-primary me-1" width="18" height="18">
+                            <use xlink:href="#email"></use>
+                        </svg>info@education.gov.tm
+                    </li>
+                    <li class="phone text-capitalize mb-2 d-flex justify-content-center align-items-center">
+                        <svg class="text-primary me-1" width="18" height="18">
+                            <use xlink:href="#phone"></use>
+                        </svg>+(99312) 44-86-93
+                    </li>
+                    <li class="clock text-capitalize mb-2 d-flex justify-content-center align-items-center">
+                        <svg class="text-primary me-1" width="18" height="18">
+                            <use xlink:href="#clock"></use>
+                        </svg>8:00-18:00, Sat: Closed
+                    </li>
+                </ul>
+
+            </div>
         </div>
     </div>
     <div class="bg-gray border-top">
         <div class="text-center py-4">
-            <p class="mb-0">©2024 Kindergarten. Free HTML Template by:
-                <a href="#" target="_blank" class="text-decoration-underline fw-semibold"> TemplatesJungle</a>
+            <p class="mb-0">©2024 © Ähli hukuklar goralan
+                <a href="https://www.education.gov.tm/" target="_blank" class="text-decoration-underline fw-semibold"> Türkmenistanyň Bilim Ministrlig</a>
             </p>
         </div>
     </div>
