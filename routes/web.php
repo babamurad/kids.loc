@@ -45,4 +45,10 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('carousel', CarouselIndexComponent::class)->name('admin.carousel');
     Route::get('carousel/create', CarouselCreateComponent::class)->name('admin.carousel.create');
     Route::get('carousel/edit/{id}', CarouselEditComponent::class)->name('admin.carousel.edit');
+
+    Route::get('gallery', \App\Livewire\Admin\Gallery\GalleryIndexComponent::class)->name('admin.gallery');
+    Route::get('gallery/create', \App\Livewire\Admin\Gallery\GalleryCreateComponent::class)->name('admin.gallery.create');
+    Route::get('gallery/edit/{id}', \App\Livewire\Admin\Gallery\GalleryEditComponent::class)->name('admin.gallery.edit');
+
+
 });

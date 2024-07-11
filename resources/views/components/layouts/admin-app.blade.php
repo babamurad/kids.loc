@@ -73,6 +73,11 @@
                             <i class="bx bx-image-alt"></i>Carousel</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{  route('admin.gallery') }}" class="waves-effect">
+                            <i class="bx bx-images"></i>Gallery</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>
