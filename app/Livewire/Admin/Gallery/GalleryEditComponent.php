@@ -8,6 +8,7 @@ class GalleryEditComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.gallery.gallery-edit-component');
+        return view('livewire.admin.gallery.gallery-edit-component')
+            ->layout('components.layouts.admin-app');
     }
 }
