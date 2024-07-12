@@ -203,34 +203,6 @@
     </div>
 </section>
 
-<section id="enroll">
-    <div class="container padding-medium pt-0">
+@livewire('contact-component')
 
-        <div class="offset-md-3 col-md-6 text-center ">
-
-            <h2 class="display-4 mb-3">How to enroll your child?</h2>
-            <p class="fw-bold">Call: 666 333 9999 or Fill in the form below</p>
-            <p>Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent pellentesque.
-                Porta sit porta ridiculus faucibus.</p>
-
-            <form class="contact-form row mt-5">
-
-                <div class="col-md-12 col-sm-12 mb-4">
-                    <input type="text" name="Parents" placeholder="Parents name" class="w-100 border ps-4 py-2 rounded-3">
-                </div>
-                <div class="col-md-12 col-sm-12 mb-4">
-                    <input type="number" name="Phone" placeholder="Contact phone" class="w-100 border ps-4 py-2 rounded-3">
-                </div>
-
-                <div class="col-md-12 col-sm-12 mb-4">
-            <textarea type="text" name="message" placeholder="Your message"
-                      class="w-100 border ps-4 py-2 rounded-3"></textarea>
-                </div>
-            </form>
-
-            <button class="btn btn-primary mt-3" href="#">Submit</button>
-        </div>
-
-    </div>
-</section>
 </div>

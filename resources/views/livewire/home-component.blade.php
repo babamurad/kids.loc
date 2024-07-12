@@ -554,7 +554,7 @@
 </section>
 
     <section id="news">
-        <div class="container padding-medium">
+        <div class="container">
             <h2 class="display-4 text-center mb-5">News & Articles</h2>
             <div class="row">
                 @foreach($articles as $article)
