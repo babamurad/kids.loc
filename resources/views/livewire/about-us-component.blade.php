@@ -86,40 +86,9 @@
         </div>
     </section>
 
-<section id="gallery">
-    <div class="container padding-medium">
-        <h2 class="display-4 text-center mb-5">View our gallery</h2>
-        <div class="row entry-container">
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item1.jpg" title="Kindergarten" class="image-link"><img src="images/item1.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item3.jpg" title="Kindergarten" class="image-link"><img src="images/item3.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item5.jpg" title="Kindergarten" class="image-link"><img src="images/item5.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item2.jpg" title="Kindergarten" class="image-link"><img src="images/item2.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item6.jpg" title="Kindergarten" class="image-link"><img src="images/item6.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-            <div class="entry-item col-md-4 my-3">
-                <a href="images/item4.jpg" title="Kindergarten" class="image-link"><img src="images/item4.jpg"
-                                                                                        class=" post-image img-fluid rounded-4"></a>
-            </div>
-        </div>
-        <div class="text-center">
-            <a class="btn btn-primary mt-4" href="gallery.html">View Gallery</a>
-        </div>
-    </div>
-</section>
+{{-- Gallery --}}
+@livewire('gallery-component', ['limit' => 6])
+{{-- /Gallery --}}
 
 <section id="testimonial" class="jarallax"
          style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-repeat: no-repeat; background-position: center;">

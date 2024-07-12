@@ -1,4 +1,5 @@
 <div>
+    @if ($type === 'carousel')
     <section id="slider">
         <div class="swiper slider ">
             <div class="swiper-wrapper">
@@ -57,4 +58,43 @@
             </div>
         </div>
     </section>
+    @elseif ($type === 'banner')
+    <section id="banner" class="jarallax position-relative" 
+    style="background-image: none; background-size: cover; background-repeat: no-repeat; background-position: center center;" 
+    data-jarallax-original-styles="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover; 
+    background-repeat: no-repeat; background-position: center;">
+
+        <div class="d-none d-md-flex justify-content-between position-absolute w-100 px-5 pt-5 mt-lg-5">
+          <div> <iconify-icon icon="solar:cloud-sun-2-outline" class="icon-float1 text-info-emphasis opacity-75"></iconify-icon></div>
+          <div> </div>
+          <div> </div>
+          <div> </div>
+          <div> <iconify-icon icon="solar:ufo-outline" class="icon-float2 text-warning opacity-75"></iconify-icon> </div>
+          <div> </div>
+          <div> <iconify-icon icon="ph:rainbow-cloud" class="icon-float1 text-success opacity-75"></iconify-icon></div>
+          <div> </div>
+          <div> <iconify-icon icon="solar:sun-2-outline" class="icon-float2 text-danger opacity-75"></iconify-icon> </div>
+        </div>
+    
+        <div class="container padding-medium">
+          <div class="hero-content ">
+            <h2 class="banner-title display-2 text-white">Gallery</h2>
+            <nav class="breadcrumb">
+              <a class="breadcrumb-item nav-link text-white banner-title" href="index.html">Home</a>
+              <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>
+              <span class="breadcrumb-item text-white banner-title active" aria-current="page">Gallery</span>
+            </nav>
+          </div>
+        </div>
+      <div id="jarallax-container-0" 
+      style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; 
+      clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
+      <div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; 
+      background-image: url({{ asset('images/testimonial-bg.jpg') }}); position: fixed; top: 0px; left: 0px; 
+      width: 1519.2px; height: 484px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; 
+      backface-visibility: hidden; will-change: transform, opacity; margin-top: -18px; transform: translate3d(0px, 77.1188px, 0px);">
+      </div>
+    </div>
+</section>
+    @endif
 </div>

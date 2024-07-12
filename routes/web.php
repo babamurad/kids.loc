@@ -8,6 +8,7 @@ use App\Livewire\Admin\Teacher\TeacherViewComponent;
 use App\Livewire\Article\ArticlesComponent;
 use App\Livewire\Article\SingleArticleComponent;
 use App\Livewire\CarouselComponent;
+use App\Livewire\GalleryComponent;
 use App\Livewire\User\LogoutComponent;
 use App\Livewire\User\UserRagisterComponent;
 use App\Livewire\User\UserLoginComponent;
@@ -23,6 +24,7 @@ Route::get('teachers', \App\Livewire\TeachersComponent::class)->name('teachers')
 Route::get('carousel', CarouselComponent::class)->name('carousel');
 Route::get('articles', ArticlesComponent::class)->name('articles');
 Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-article');
+Route::get('gallery', GalleryComponent::class)->name('gallery');
 
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');

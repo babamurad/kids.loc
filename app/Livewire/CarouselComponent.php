@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class CarouselComponent extends Component
 {
+    public $type;
+
+    public function mount($type = 'carousel')
+    {
+        $this->type = $type;
+    }
+
     public function render()
     {
         $carousel = Carousel::status()->orderBy('order')->get();
