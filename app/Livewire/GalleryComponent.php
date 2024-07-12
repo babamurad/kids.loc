@@ -8,6 +8,7 @@ use Livewire\Component;
 class GalleryComponent extends Component
 {
     public $limit;
+    public $btn;
 
     public function mount($limit = null)
     {

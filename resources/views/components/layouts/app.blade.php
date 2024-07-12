@@ -120,7 +120,7 @@
 
 <footer id="footer" class="bg-gray">
 
-    <div class="container text-center padding-medium">
+    <div class="container text-center pt-4">
         <div class="row">
             <div class="col-sm-6">
                 <h2>Mekdebe çenli bilim we terbiýe</h2>
@@ -130,7 +130,7 @@
                 <a class="navbar-brand" href="#">
                     <h2>Ministrlik</h2>
                 </a>
-                <ul class="info text-center list-unstyled mt-4">
+                <ul class="info list-unstyled mt-4">
                     <li class="location text-capitalize mb-2 d-flex justify-content-center align-items-center">
                         <svg class="text-primary me-1" width="18" height="18">
                             <use xlink:href="#location"></use>

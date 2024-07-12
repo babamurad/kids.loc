@@ -176,8 +176,8 @@ a:hover {
 }
 
 .padding-medium {
-  padding-top: 3em;
-  padding-bottom: 2em;
+  padding-top: 10em;
+  padding-bottom: 10em;
 }
 
 .padding-large {
@@ -986,9 +986,9 @@ iconify-icon.video-icon:hover {
 }
 
 .img-fluid {
-  max-width: 100%;     
+  max-width: 100%;
   height: auto;
-}    
+}
 
 .note-float-right,
 .note-float-left {

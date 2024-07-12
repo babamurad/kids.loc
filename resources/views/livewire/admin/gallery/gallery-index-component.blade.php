@@ -1,6 +1,8 @@
 @section('title', 'Admin Gallery')
 <div class="container-fluid">
+
     <div class="row">
+        <div class="col-sm-4">@include('components.alerts')</div>
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Gallery</h4>
@@ -35,8 +37,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image</th>
-                                <th>Note</th>
+                                <th>Image | Note</th>
                                 <th>Order</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -48,10 +49,9 @@
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td class="pr-0 mr-0">
                                         <a href="{{ route('admin.gallery.edit', ['id' => $item->id]) }}">
-                                            <img style="width: 15%;" src="{{ asset('images/gallery/'.$item->image) }}" alt="">
+                                            <img class="mr-5" style="width: 12%;" src="{{ asset('images/gallery/'.$item->image) }}" alt="">
                                         </a>
-                                    </td>
-                                    <td style="width: 25%;">{{ $item->desc }}</td>
+                                    {{ $item->desc }}</td>
                                     <td style="width: 12%;">
                                         <div class="row">
                                             <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>

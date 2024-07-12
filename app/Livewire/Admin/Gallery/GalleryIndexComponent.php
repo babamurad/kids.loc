@@ -15,7 +15,7 @@ class GalleryIndexComponent extends Component
 
     public function render()
     {
-        $galleries = Gallery::orderBy('id', 'desc')->paginate(6);
+        $galleries = Gallery::orderBy('id', 'desc')->paginate(4);
         return view('livewire.admin.gallery.gallery-index-component', compact('galleries'))
             ->layout('components.layouts.admin-app');
     }

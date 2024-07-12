@@ -1,10 +1,10 @@
 <div>
 
 @if (Route::currentRouteName() == 'home')
-@livewire('carousel-component', ['type' => 'carousel'])    
+@livewire('carousel-component', ['type' => 'carousel'])
 @else
-@livewire('carousel-component', ['type' => 'banner'])    
-@endif    
+@livewire('carousel-component', ['type' => 'banner'])
+@endif
 
 
     <section id="categories">
@@ -274,13 +274,13 @@
                 @foreach ($teachers as $teacher)
                 <div class="col-md-6 col-lg-3 my-4 my-lg-3">
                     <div class="text-center ">
-                        <a href="{{ route('teachers') }}"><img src="{{ asset('images/teachers') . '/' . $teacher->image }}" class="img-fluid rounded-4" alt="{{ $teacher->firstname }}"></a>
-
+                        <a href="{{ route('teachers') }}">
+                            <img src="{{ asset('images/teachers') . '/' . $teacher->image }}" class="img-fluid rounded-4" alt="{{ $teacher->firstname }}">
+                        </a>
                         <a href="{{ route('teachers') }}" class="hover-color">
                             <h2 class="mt-3 m-0">{{ $teacher->firstname . ' ' . $teacher->lastname }}</h2>
                         </a>
                         <p class="m-0">{{ $teacher->position }}</p>
-
                     </div>
                 </div>
                 @endforeach
@@ -491,9 +491,9 @@
         </div>
     </section>
 
-{{-- Gallery --}}
-@livewire('gallery-component', ['limit' => 6])
-{{-- /Gallery --}}
+    {{-- Gallery --}}
+    @livewire('gallery-component', ['limit' => 6, 'btn' => true])
+    {{-- /Gallery --}}
 
     <section id="testimonial" class="jarallax"
              style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-repeat: no-repeat; background-position: center;">

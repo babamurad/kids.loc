@@ -35,6 +35,7 @@ class GalleryCreateComponent extends Component
         $item->save();
 
         session()->flash('success', 'Успешно добавлен!');
-        return redirect()->to('/admin/gallery');
+        //return redirect()->to('/admin/gallery');
+        $this->redirect('/admin/gallery', true);
     }
 }
