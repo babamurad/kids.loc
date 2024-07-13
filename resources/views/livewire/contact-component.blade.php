@@ -29,21 +29,21 @@
                     <p>Use the form below to get in touch with us.</p>
                     <form id="form" class="form-group flex-wrap mt-4">
                         <div class="form-input col-lg-12 d-flex mb-3">
-                            <input type="text" name="email" placeholder="Write Your Name Here" class="form-control ps-3 me-3">
-                            <input type="text" name="email" placeholder="Write Your Email Here" class="form-control ps-3">
+                            <input wire:model="name" type="text" name="name" placeholder="Write Your Name Here" class="form-control ps-3 me-3">
+                            <input wire:model="email" type="email" name="email" placeholder="Write Your Email Here" class="form-control ps-3">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <input type="text" name="email" placeholder="Phone Number" class="form-control ps-3">
+                            <input wire:model="phone" type="text" name="phone" placeholder="Phone Number" class="form-control ps-3">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <input type="text" name="email" placeholder="Write Your Subject Here" class="form-control ps-3">
+                            <input wire:model="subject" type="text" name="subject" placeholder="Write Your Subject Here" class="form-control ps-3">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <textarea placeholder="Write Your Message Here" class="form-control ps-3" style="height:150px;"></textarea>
+                            <textarea wire:model="text" placeholder="Write Your Message Here" class="form-control ps-3" style="height:150px;"></textarea>
                         </div>
                     </form>
                     <div class="d-grid">
-                        <button class="btn btn-primary px-5 py-3 ">Submit</button>
+                        <button class="btn btn-primary px-5 py-3" wire:click="send">Submit</button>
                     </div>
                 </div>
             </div>

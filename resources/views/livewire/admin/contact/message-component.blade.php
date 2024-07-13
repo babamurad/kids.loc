@@ -50,10 +50,10 @@
                                     <td><strong>{{ $message->name }}</strong></td>                                   
                                     <td>{{ $message->email }}</td>
                                     <td>{{ $message->phone }}</td>
-                                    <td{{ $message->subject }}</td>
+                                    <td>{{ $message->subject }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
-                                        {{-- <a href="{{ route('admin.teachers.view', ['id' => $message->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
+                                        {{-- <a href="#" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a> --}}
+                                        <a wire:navigate href="{{ route('admin.message.view', ['id' => $message->id]) }}" class="btn btn-sm btn-warning mr-2 mt-2"><i class="fas fa-eye"></i></a>
                                         <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $message->id }})">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
