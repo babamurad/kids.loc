@@ -9,8 +9,21 @@ class CompanyComponent extends Component
 {
     public $ofname, $ofaddress, $ofphone, $ofemail;
     public $maname, $maaddress, $maphone, $maemail;
-    public $isEdit = false;
-    public $editId;
+    public $EditOffice = false;
+    public $EditManage = false;
+    
+    public $rules = [
+        'office' => [
+            'ofname' => 'required|min:3|max:255',
+            'ofemail' => 'required|email',
+            'ofaddress' => 'required|min:3|max:255',
+        ],
+        'manage' => [
+            'maname' => 'required|min:3|max:255',
+            'maemail' => 'required|email',
+            'maaddress' => 'required|min:3|max:255',
+        ],
+    ];
 
     public function render()
     {
@@ -35,6 +48,7 @@ class CompanyComponent extends Component
 
     public function updateOffice()
     {
+        $this->validate($this->rules['office']);
         $ofis = Company::first();
         $ofis->name = $this->ofname;
         $ofis->address = $this->ofaddress;
@@ -46,6 +60,7 @@ class CompanyComponent extends Component
 
     public function updateManage()
     {
+        $this->validate($this->rules['manage']);
         $manage = Company::where('id', '=', 2)->first();
         $manage->name = $this->maname;
         $manage->address = $this->maaddress;
