@@ -4,6 +4,7 @@ use App\Livewire\Admin\About\AboutComponent;
 use App\Livewire\Admin\Carousel\CarouselCreateComponent;
 use App\Livewire\Admin\Carousel\CarouselEditComponent;
 use App\Livewire\Admin\Carousel\CarouselIndexComponent;
+use App\Livewire\Admin\Contact\MessageComponent;
 use App\Livewire\Admin\Teacher\TeacherViewComponent;
 use App\Livewire\Article\ArticlesComponent;
 use App\Livewire\Article\SingleArticleComponent;
@@ -53,4 +54,5 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('gallery/edit/{id}', \App\Livewire\Admin\Gallery\GalleryEditComponent::class)->name('admin.gallery.edit');
 
     Route::get('company', \App\Livewire\Admin\Contact\CompanyComponent::class)->name('admin.company');
+    Route::get('messages', MessageComponent::class)->name('admin.messages');
 });

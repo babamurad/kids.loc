@@ -55,6 +55,7 @@ class CompanyComponent extends Component
         $ofis->phone = $this->ofphone;
         $ofis->email = $this->ofemail;
         $ofis->update();
+        $this->EditOffice = false;
         session()->flash('success', 'Office info Saved.');
     }
 
@@ -67,6 +68,17 @@ class CompanyComponent extends Component
         $manage->phone = $this->maphone;
         $manage->email = $this->maemail;
         $manage->update();
+        $this->EditManage = false;
         session()->flash('success', 'Managment info Saved.');
+    }
+
+    public function CanEditOffice()
+    {
+        $this->EditOffice = !$this->EditOffice;
+    }
+
+    public function CanEditManage()
+    {
+        $this->EditManage = !$this->EditManage;
     }
 }

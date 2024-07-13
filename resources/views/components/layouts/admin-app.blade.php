@@ -84,7 +84,7 @@
                         </a>
                         <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
                             <li><a href="{{ route('admin.company') }}" wire:navigate>Company Info</a></li>
-                            <li><a href="#">Messages</a></li>
+                            <li><a href="{{ route('admin.messages') }}">Messages</a></li>
                             <li><a href="#">Archive</a></li>
                         </ul>
                     </li>
