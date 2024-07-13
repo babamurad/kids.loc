@@ -52,5 +52,5 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('gallery/create', \App\Livewire\Admin\Gallery\GalleryCreateComponent::class)->name('admin.gallery.create');
     Route::get('gallery/edit/{id}', \App\Livewire\Admin\Gallery\GalleryEditComponent::class)->name('admin.gallery.edit');
 
-
+    Route::get('company', \App\Livewire\Admin\Contact\CompanyComponent::class)->name('admin.company');
 });
