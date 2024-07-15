@@ -8,7 +8,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('admin.teachers') }}">Message</a> </li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.messages') }}">Message</a> </li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
@@ -33,7 +33,10 @@
                         <input disabled type="text" id="phone" class="form-control" wire:model="phone">
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="read" wire:model="read">
+                        <input type="checkbox" class="custom-control-input" id="read"
+                               @if($read) checked @endif
+                               wire:model.live="read"
+                               wire:click="readUpdate">
                         <label class="custom-control-label" for="read">Is read</label>
                     </div>
                 </div>
@@ -58,6 +61,6 @@
                     </a>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>

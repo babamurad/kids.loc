@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Company;
+use App\Models\Message;
 use Livewire\Component;
 use Mail;
 
@@ -70,6 +71,13 @@ class ContactComponent extends Component
 
         // Sending the email
         if (mail($to, $this->subject, $message, $headers)) {
+            $msg = new Message();
+            $msg->name = $this->name;
+            $msg->email = $this->email;
+            $msg->phone = $this->phone;
+            $msg->subject = $this->subject;
+            $msg->text = $this->text;
+            $msg->save();
             $this->reset('name', 'email', 'phone', 'subject', 'text');
             session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy.');
         } else {
