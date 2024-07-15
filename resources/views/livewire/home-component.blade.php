@@ -1,3 +1,4 @@
+@section('title', 'Esasy')
 <div>
 
 @if (Route::currentRouteName() == 'home')
