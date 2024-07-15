@@ -174,5 +174,5 @@
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
-
+@stack('close-btn')
 </html>

@@ -2,23 +2,25 @@
 
 namespace App\Livewire;
 
+use App\Models\Company;
 use Livewire\Component;
 use Mail;
 
 class ContactComponent extends Component
 {
     public $name, $email, $phone, $subject, $text;
-    public $res;
+
     protected $rules = [
         'name' => 'required|string|min:2',
         'email' => 'required|email',
         'text' => 'required|string|min:5',
+        'subject' => 'required|string|min:2',
     ];
 
     public function render()
     {
-
-        return view('livewire.contact-component');
+        $companies = Company::all();
+        return view('livewire.contact-component', compact('companies'));
     }
 
     public function send()
@@ -43,6 +45,7 @@ class ContactComponent extends Component
 
     public function mailSend()
     {
+        $this->validate();
         $to = 'korpe@korpe.com';
         // HTML email message
         $message = '
@@ -67,16 +70,21 @@ class ContactComponent extends Component
 
         // Sending the email
         if (mail($to, $this->subject, $message, $headers)) {
-            echo "Email sent successfully.";
             $this->reset('name', 'email', 'phone', 'subject', 'text');
-            session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy. Tiz wagtyn içinde jogap bereris.');
-            $this->res = 'Siziň hatynyz üstunlikli ugradyldy. Tiz wagtyn içinde jogap bereris.';
-            //dd('Siziň hatynyz üstunlikli ugradyldy. Tiz wagtyn içinde jogap bereris.');
+            session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy.');
         } else {
-            echo "Failed to send email.";
-            $this->res = 'Siziň hatynyz ugradylmady.';
             session()->flash('error', 'Siziň hatynyz ugradylmady.');
         }
-
     }
+
+    public function closeAlert()
+    {
+        $this->dispatch('alert-hidden');
+    }
+
+    public function CloseErrorAlert()
+    {
+        $this->dispatch('error-alert-hidden');
+    }
+
 }
