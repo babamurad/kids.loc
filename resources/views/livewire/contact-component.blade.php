@@ -25,8 +25,10 @@
             </div>
             <div class="inquiry-item col-lg-6 mt-5 mt-md-0">
                 <div class="rounded-5">
+                    @include('components.alerts')
                     <h2>Get in Touch</h2>
                     <p>Use the form below to get in touch with us.</p>
+                    <p>{{ $res }}</p>
                     <form id="form" class="form-group flex-wrap mt-4">
                         <div class="form-input col-lg-12 d-flex mb-3">
                             <input wire:model="name" type="text" name="name" placeholder="Write Your Name Here" class="form-control ps-3 me-3">
@@ -41,10 +43,11 @@
                         <div class="col-lg-12 mb-3">
                             <textarea wire:model="text" placeholder="Write Your Message Here" class="form-control ps-3" style="height:150px;"></textarea>
                         </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary px-5 py-3" wire:click.prevent="mailSend">Submit</button>
+                        </div>
                     </form>
-                    <div class="d-grid">
-                        <button class="btn btn-primary px-5 py-3" wire:click="send">Submit</button>
-                    </div>
+
                 </div>
             </div>
         </div>

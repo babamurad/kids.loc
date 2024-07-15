@@ -16,10 +16,6 @@ use App\Livewire\User\UserRagisterComponent;
 use App\Livewire\User\UserLoginComponent;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
 Route::get('about-us', \App\Livewire\AboutUsComponent::class)->name('about-us');
 Route::get('teachers', \App\Livewire\TeachersComponent::class)->name('teachers');
