@@ -577,7 +577,9 @@
                 <a class="btn btn-primary mt-5" href="{{ route('articles') }}" wire:navigate>Read All News</a>
             </div>
         </div>
-
+{{-- 6071235610 --}}
+{{-- 123456 --}}
+{{-- kurs --}}
     </section>
 
     <section id="enroll">
