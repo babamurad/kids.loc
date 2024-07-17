@@ -1,3 +1,4 @@
+@section('title', 'Login')
 <div class="container">
     <div class="col-sm-4 offset-4">
         <form name="contactform" class="form-group contact-form mt-4">
