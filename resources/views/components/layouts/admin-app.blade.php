@@ -79,6 +79,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{  route('admin.users') }}" class="waves-effect" wire:navigate>
+                            <i class="bx bx-user"></i>Users</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" class="has-arrow waves-effect mm-active" aria-expanded="false">
                             <i class="bx bx-aperture"></i><span>Contacts</span>
                         </a>

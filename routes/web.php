@@ -53,4 +53,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('company', \App\Livewire\Admin\Contact\CompanyComponent::class)->name('admin.company');
     Route::get('messages', MessageComponent::class)->name('admin.messages');
     Route::get('message/view/{id}', MessageViewComponent::class)->name('admin.message.view');
+
+    Route::get('users', \App\Livewire\Admin\User\UserIndexComponent::class)->name('admin.users');
+    Route::get('users/edit/{id}', \App\Livewire\Admin\User\UserEditComponent::class)->name('admin.users.edit');
 });

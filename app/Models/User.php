@@ -41,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getTypeLabelAttribute()
+    {
+        switch ($this->type) {
+            case 'ADM':
+                return 'Administrator';
+            case 'TCH':
+                return 'Teacher';
+            case 'USR':
+                return 'User';
+            default:
+                return $this->type;
+        }
+    }
 }

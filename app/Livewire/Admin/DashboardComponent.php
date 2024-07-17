@@ -27,21 +27,6 @@ class DashboardComponent extends Component
 
     public function resetPassword()
     {
-//        $this->validate();
-
-//        // Use Auth::user() to get the current user
-//        $user = Auth::user();
-//
-//        if (Hash::check($this->currentPassword, $user->password)) {
-//            $user->password = Hash::make($this->newPassword);
-//            $user->save();
-//
-//            session()->flash('success', 'Ваш пароль успешно изменен!');
-//            // Optionally, redirect the user to a login page
-//        } else {
-//            session()->flash('success', 'екущий пароль введен неправильно.');
-//        }
-
         //****
         try {
             $this->validate([
@@ -59,4 +44,6 @@ class DashboardComponent extends Component
             session()->flash('error', 'Текущий пароль введен неправильно.');
         }
     }
+
+
 }

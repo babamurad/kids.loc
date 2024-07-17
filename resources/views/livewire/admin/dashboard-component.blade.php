@@ -132,89 +132,18 @@
                             <li><a href="#" class="dropdown-item">Separated link</a></li>
                         </ul>
                     </div>
-                    <h4 class="card-title d-inline-block">All Projects</h4>
 
-                    <div class="table-responsive">
-                        <table class="table table-borderless table-hover mb-0">
-                            <thead class="thead-light">
-                            <tr>
-                                <th>No</th>
-                                <th>Project Name</th>
-                                <th>Client Name</th>
-                                <th>Deadline</th>
-                                <th>Income</th>
-                                <th>Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>App design and development</td>
-                                <td>Arthur Powell</td>
-                                <td>Sun, 08/10</td>
-                                <td>$8,532</td>
-                                <td class="text-warning">In Process</td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Coffee detail page - Main Page</td>
-                                <td>Joan Lennox</td>
-                                <td>Fri, 17/10</td>
-                                <td>$5,350</td>
-                                <td class="text-success">Done</td>
-                            </tr>
-                            <tr>
-                                <th>3</th>
-                                <td>Poster illustation design</td>
-                                <td>Ronald Roesler</td>
-                                <td>Tue, 13/08</td>
-                                <td>$2,250</td>
-                                <td class="text-danger">Hold</td>
-                            </tr>
-                            <tr>
-                                <th>4</th>
-                                <td>Drinking bottle graphics</td>
-                                <td>Mickey Cochran</td>
-                                <td>Mon, 10/08</td>
-                                <td>$4,532</td>
-                                <td class="text-success">Done</td>
-                            </tr>
-                            <tr>
-                                <th>5</th>
-                                <td>Landing page design - Home</td>
-                                <td>Barry Trahan</td>
-                                <td>Thus, 03/09</td>
-                                <td>$1,555</td>
-                                <td class="text-warning">In Process</td>
-                            </tr>
-                            <tr>
-                                <th>6</th>
-                                <td>Company logo design</td>
-                                <td>James Grimes</td>
-                                <td>Sat, 07/19</td>
-                                <td>$9,352</td>
-                                <td class="text-success">Done</td>
-                            </tr>
-                            <tr>
-                                <th>7</th>
-                                <td>Product page redesign</td>
-                                <td>Philip Jetton</td>
-                                <td>Wed, 09/08</td>
-                                <td>$6,895</td>
-                                <td class="text-danger">Hold</td>
-                            </tr>
-                            <tr>
-                                <th>8</th>
-                                <td>Hero page - Main Page</td>
-                                <td>Amanda Salinas</td>
-                                <td>Sun, 02/20</td>
-                                <td>$3,895</td>
-                                <td class="text-success">Done</td>
-                            </tr>
-
-                            </tbody>
-                        </table>
+                    <div class="card-title">
+                        <div class="row">
+                            <h4 class="d-inline-block mr-3">
+                                All Projects
+                            </h4>
+                            <button type="button" class="btn btn-primary mr-3">Create</button>
+                            <button type="button" class="btn btn-success waves-effect waves-light mr-3">Edit</button>
+                        </div>
                     </div>
+
+
 
                 </div>
             </div>
