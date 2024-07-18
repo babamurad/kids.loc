@@ -21,40 +21,91 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">users List</h4>
+                            <h4 class="">Users List</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            {{-- <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary waves-effect waves-light">
-                                Create
-                            </a> --}}
+                            <div class="input-group">
+                                <input wire:model.live="searchTerm" type="text" class="form-control"
+                                    id="validationCustomUsername" placeholder="Search ...minimum 3 characters"
+                                    aria-describedby="inputGroupPrepend">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">
+                                        <i class="bx bx-search-alt-2"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th><a href="" type="button">Email<i class="bx bx-sort-up ml-1"></i></a> </th>
-                                <th>Type<i class="bx bx-sort-down"></i></th>
-                                <th>Actions</th>
-                            </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>
+                                        <span wire:click.prevent="sortField('name')" href="" type="button"
+                                            class="@if ($sortBy == 'name') text-primary @endif">Name
+                                            @if ($sortBy == 'name')
+                                                {!! $sortIcon !!}
+                                            @else
+                                                <i class="bx bx-sort-up ml-1"></i>
+                                            @endif
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span wire:click.prevent="sortField('email')" href="" type="button"
+                                            class="@if ($sortBy == 'email') text-primary @endif">Email
+                                            @if ($sortBy == 'email')
+                                                {!! $sortIcon !!}
+                                            @else
+                                                <i class="bx bx-sort-up ml-1"></i>
+                                            @endif
+                                        </span>
+
+                                    </th>
+                                    <th>
+                                        <span wire:click.prevent="sortField('type')" href="" type="button"
+                                            class="@if ($sortBy == 'type') text-primary @endif">Type
+                                            @if ($sortBy == 'type')
+                                                {!! $sortIcon !!}
+                                            @else
+                                                <i class="bx bx-sort-up ml-1"></i>
+                                            @endif
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span wire:click.prevent="sortField('created_at')" href="" type="button"
+                                            class="@if ($sortBy == 'created_at') text-primary @endif">Date
+                                            @if ($sortBy == 'created_at')
+                                                {!! $sortIcon !!}
+                                            @else
+                                                <i class="bx bx-sort-up ml-1"></i>
+                                            @endif
+                                        </span>
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->type_label }}</td>
-                                    <td style="width: 12%;">
-                                        <a href="{{ route('admin.users.edit', ['id' => $user->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <th scope="row" style="width: 5%;">{{ $loop->index + 1 }}</th>
+                                        <td style="width: 20%;">{{ $user->name }}</td>
+                                        <td style="width: 20%;">{{ $user->email }}</td>
+                                        <td style="width: 20%;">{{ $user->type_label }}</td>
+                                        <td style="width: 15%;">
+                                            {{ Carbon\Carbon::create($user->created_at)->format('d.m.Y') }}</td>
+                                        <td style="width: 20%;">
+                                            <a href="{{ route('admin.users.edit', ['id' => $user->id]) }}"
+                                                class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
 
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $user->id }})"><i class="fas fa-trash-alt"></i></button>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                            <button class="btn btn-sm btn-danger" data-toggle="modal"
+                                                data-target="#ConfirmDelete"
+                                                wire:click="deleteId({{ $user->id }})"><i
+                                                    class="fas fa-trash-alt"></i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -66,20 +117,21 @@
     </div>
 
     <script>
-        window.addEventListener('closeModal', event=> {
+        window.addEventListener('closeModal', event => {
             $('#ConfirmDelete').modal('hide');
         })
-
     </script>
 
     <!-- Modal -->
 
-    <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog"
+        aria-labelledby="ConfirmDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="ConfirmDelete">Modal title</h5>
-                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                        aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -87,8 +139,10 @@
                     <p>Вы действительно хотите удалить?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light"
+                        data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light"
+                        wire:click="destroy">Удалить</button>
                 </div>
             </div>
         </div>

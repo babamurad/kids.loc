@@ -116,6 +116,7 @@
             </div>
         </div> <!-- end col -->
 
+        @if (Auth::user()->type == 'ADM')
         <div class="col-lg-8">
             <div class="card card-animate">
                 <div class="card-body">
@@ -162,7 +163,6 @@
                                             <td>{{ $teacher->order }}</td>
                                             <td>{{ $teacher->published }}</td>
                                             <td style="width: 12%;">
-{{--                                                <a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>--}}
                                                 <a href="{{ route('admin.teachers.view', ['id' => $teacher->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>
                                                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $teacher->id }})"><i class="fas fa-trash-alt"></i></button>
                                             </td>
@@ -178,7 +178,9 @@
 
                 </div>
             </div>
-        </div> <!-- end col -->
+        </div>
+        <!-- end col -->
+        @endif
 
     </div>
     <!-- end row-->

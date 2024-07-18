@@ -31,6 +31,17 @@
                                 Create
                             </a>
                         </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="input-group">
+                                <input wire:model.live="searchTerm" type="text" class="form-control" id="validationCustomUsername" placeholder="Search ... min 3 characters" aria-describedby="inputGroupPrepend">
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="bx bx-search-alt-2"></i></span>
+                                  </div>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -41,11 +52,27 @@
                             <tr>
                                 <th>#</th>
                                 <th>Image</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>
+                                    <span wire:click.prevent="sortField('firstname')" href="" type="button" class="@if($sortBy=='firstname') text-primary @endif">First Name
+                                        @if($sortBy=='firstname') {!!$sortIcon!!} @else <i class="bx bx-sort-up ml-1"></i> @endif
+                                    </span>
+                                </th>
+                                <th>
+                                    <span wire:click.prevent="sortField('lastname')" href="" type="button" class="@if($sortBy=='lastname') text-primary @endif">Last Name
+                                        @if($sortBy=='lastname') {!!$sortIcon!!} @else <i class="bx bx-sort-up ml-1"></i> @endif
+                                    </span>
+                                </th>
                                 <th>Position</th>
-                                <th>Order</th>
-                                <th>Published</th>
+                                <th>
+                                    <span wire:click.prevent="sortField('order')" href="" type="button" class="@if($sortBy=='order') text-primary @endif">Order
+                                        @if($sortBy=='order') {!!$sortIcon!!} @else <i class="bx bx-sort-up"></i> @endif
+                                    </span>
+                                </th>
+                                <th>
+                                    <span wire:click.prevent="sortField('published')" href="" type="button" class="@if($sortBy=='published') text-primary @endif">Published
+                                        @if($sortBy=='published') {!!$sortIcon!!} @else <i class="bx bx-sort-up"></i> @endif
+                                    </span>
+                                </th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -56,7 +83,7 @@
                                 <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->lastname }}</a></td>
-                                <td>{{ $teacher->position }}</td>
+                                <td style="width: 10%;">{{ $teacher->position }}</td>
                                 <td>{{ $teacher->order }}</td>
                                 <td>{{ $teacher->published }}</td>
                                 <td style="width: 12%;">
@@ -84,14 +111,6 @@
     </script>
 
     <!-- Modal -->
-    <p>
-        git clone babamurad2010@yandex.ru:babamurad/repo.git
-
-        git remote add origin git@github.com:babamurad/dum.loc
-        fatal: not a git repository (or any parent up to mount point /)
-        Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-    </p>
-
 
     <div wire:ignore.self class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="ConfirmDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">

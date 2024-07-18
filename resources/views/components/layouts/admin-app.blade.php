@@ -47,12 +47,13 @@
                 <!-- Left Menu Start -->
                 <ul class="metismenu list-unstyled" id="side-menu">
                     <li class="menu-title">Menu</li>
-
                     <li>
                         <a href="{{ route('admin.dashboard') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-home-circle"></i><span>Dashboard</span>
                         </a>
                     </li>
+                    @if (Auth::user()->type == 'ADM')
+
                     <li>
                         <a href="{{ route('admin.teachers') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-user-circle"></i><span>Teachers</span>
@@ -90,10 +91,15 @@
                         <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
                             <li><a href="{{ route('admin.company') }}" wire:navigate>Company Info</a></li>
                             <li><a href="{{ route('admin.messages') }}">Messages</a></li>
-{{--                            <li><a href="#">Archive</a></li>--}}
                         </ul>
                     </li>
-
+                    @elseif (Auth::user()->type == 'TCH')
+                    <li>
+                        <a href="{{  route('admin.gallery') }}" class="waves-effect" wire:navigate>
+                            <i class="bx bx-images"></i>Gallery</span>
+                        </a>
+                    </li>
+                    @endif
                 </ul>
             </div>
             <!-- Sidebar -->

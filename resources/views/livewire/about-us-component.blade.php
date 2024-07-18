@@ -29,30 +29,7 @@
         </div>
     </section>
 
-    <div class="container padding-medium">
-        <div class="row ">
-            <div class="col-md-6 pe-md-5">
-                <h2 class="display-4">How Kindergarten Started </h2>
-                <p>In commodo auctor eget congue sit. Ultrices eget pretium sit euismod mi id. Risus, aliquam odio
-                    posuere ac in in nisl sed augue. Porta aenean egestas malesuada in pulvinar enim viverra.</p>
-                <a href="#" class="btn btn-primary py-3 px-5"> Read Blog </a>
-            </div>
-            <div class="col-md-6 mt-5 mt-md-0">
-                <h2 class="display-4">More About Us </h2>
-                <p>In commodo auctor aenean egestas malesuada in pulvinar enim viverra.</p>
-                <p class="m-0 mb-2"> <span class="text-primary">✓</span> Porta aenean egestas malesuada in pulvinar enim
-                    viverra.</p>
-                <p class="m-0 mb-2"> <span class="text-primary">✓</span> Ultrices eget pretium sit euismod mi id.</p>
-                <p class="m-0 mb-2"> <span class="text-primary">✓</span> Risus, aliquam odio posuere ac in in nisl sed augue.
-                </p>
-                <p class="m-0 mb-2"> <span class="text-primary">✓</span> Commodo aenean egestas malesuada in pulvinar enim
-                    viverra.</p>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container padding-medium pt-0">
+       <div class="container padding-medium">
         <div class="row ">
             <div class="col-md-6 pe-md-5">
                 <div class="imageblock">
