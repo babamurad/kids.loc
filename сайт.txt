@@ -43,3 +43,15 @@
 Яркие цвета и простые интерфейсы: Дизайн должен быть привлекательным и интуитивно понятным для маленьких детей.
 Анимация и звуковые эффекты: Использование анимации и звуков для привлечения внимания и обучения.
 Мультисенсорный подход: Включение различных сенсорных стимулов (зрительных, слуховых, тактильных) для лучшего восприятия информации.
+
+
+            $table->string('title');
+            $table->longText('content');
+            $table->string('image')->nullable();
+            $table->string('video')->nullable();
+
+            $table->bigInteger('teacher_id');
+            $table->bigInteger('category_id');
+
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
