@@ -136,10 +136,41 @@
                     <div class="card-title">
                         <div class="row">
                             <h4 class="d-inline-block mr-3">
-                                All Projects
+                                Teachers
                             </h4>
-                            <button type="button" class="btn btn-primary mr-3">Create</button>
-                            <button type="button" class="btn btn-success waves-effect waves-light mr-3">Edit</button>
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Image</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Position</th>
+                                        <th>Order</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($teachers as $teacher)
+                                        <tr>
+                                            <th scope="row">{{ $loop->index + 1 }}</th>
+                                            <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
+                                            <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
+                                            <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->lastname }}</a></td>
+                                            <td>{{ $teacher->position }}</td>
+                                            <td>{{ $teacher->order }}</td>
+                                            <td>{{ $teacher->published }}</td>
+                                            <td style="width: 12%;">
+{{--                                                <a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>--}}
+                                                <a href="{{ route('admin.teachers.view', ['id' => $teacher->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>
+                                                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $teacher->id }})"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 

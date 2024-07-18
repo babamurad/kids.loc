@@ -496,65 +496,9 @@
     @livewire('gallery-component', ['limit' => 6, 'btn' => true])
     {{-- /Gallery --}}
 
-    <section id="testimonial" class="jarallax"
-             style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-repeat: no-repeat; background-position: center;">
-        <div class="container padding-medium">
 
-            <div class="offset-md-1 col-md-10 ">
-                <div class="swiper testimonial-swiper py-3 py-md-5 bg-white rounded-4">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="review px-md-5">
-                                <div class="review-content px-5 d-lg-flex align-items-center ">
-                                    <img src="{{ asset('images/reviewer1.jpg') }}" alt="reviewer" class="img-fluid rounded-circle">
-                                    <div class="ms-md-4 mt-3 mt-lg-0">
-                                        <p>“Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent
-                                            pellentesque. Porta sit porta ridiculus faucibus. Curabitur lacus pretium pellentesque interdum
-                                            urna blandit.”</p>
-                                        <h2 class="name m-0 lh-sm">Emily Smith</h2>
-                                            <p class="m-0">Serene mom</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="review px-md-5">
-                                <div class="review-content px-5 d-lg-flex align-items-center ">
-                                    <img src="{{ asset('images/reviewer3.jpg') }}" alt="reviewer" class="img-fluid rounded-circle">
-                                    <div class="ms-md-4 mt-3 mt-lg-0">
-                                        <p>“Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent
-                                            pellentesque. Porta sit porta ridiculus faucibus. Curabitur lacus pretium pellentesque interdum
-                                            urna blandit.”</p>
-                                        <h2 class="name m-0 lh-sm">Jenny Will</h2>
-                                            <p class="m-0">Hanay mom</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="review px-md-5">
-                                <div class="review-content px-5 d-lg-flex align-items-center ">
-                                    <img src="{{ asset('images/reviewer2.jpg') }}" alt="reviewer" class="img-fluid rounded-circle">
-                                    <div class="ms-md-4 mt-3 mt-lg-0">
-                                        <p>“Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent
-                                            pellentesque. Porta sit porta ridiculus faucibus. Curabitur lacus pretium pellentesque interdum
-                                            urna blandit.”</p>
-                                        <h2 class="name m-0 lh-sm">Noran Shara</h2>
-                                            <p class="m-0">Sam mom</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination position-relative pt-4 pt-md-5"></div>
-                </div>
-            </div>
 
-        </div>
-
-</section>
-
-    <section id="news">
+    <section id="news" class="mb-3">
         <div class="container">
             <h2 class="display-4 text-center mb-5">News & Articles</h2>
             <div class="row">
@@ -582,39 +526,6 @@
 {{-- kurs --}}
     </section>
 
-    <section id="enroll">
-        <div class="container padding-medium pt-0">
 
-            <div class="offset-md-3 col-md-6 text-center ">
-
-                <h2 class="display-4 mb-3">How to enroll your child?</h2>
-                <p class="fw-bold">Call: 666 333 9999 or Fill in the form below</p>
-                <p>Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent
-                    pellentesque.
-                    Porta sit porta ridiculus faucibus.</p>
-
-                <form class="contact-form row mt-5">
-
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <input type="text" name="Parents" placeholder="Parents name"
-                               class="w-100 border ps-4 py-2 rounded-3">
-                    </div>
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <input type="number" name="Phone" placeholder="Contact phone"
-                               class="w-100 border ps-4 py-2 rounded-3">
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 mb-4">
-            <textarea type="text" name="message" placeholder="Your message"
-                      class="w-100 border ps-4 py-2 rounded-3"></textarea>
-                    </div>
-                </form>
-
-                <button class="btn btn-primary mt-3" href="#">Submit</button>
-            </div>
-
-        </div>
-
-    </section>
 
 </div>

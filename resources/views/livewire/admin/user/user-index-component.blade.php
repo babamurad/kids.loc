@@ -24,13 +24,11 @@
                             <h4 class="">users List</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary waves-effect waves-light">
+                            {{-- <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary waves-effect waves-light">
                                 Create
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
-
-
 
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
@@ -38,8 +36,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Type</th>
+                                <th><a href="" type="button">Email<i class="bx bx-sort-up ml-1"></i></a> </th>
+                                <th>Type<i class="bx bx-sort-down"></i></th>
                                 <th>Actions</th>
                             </tr>
                             </thead>

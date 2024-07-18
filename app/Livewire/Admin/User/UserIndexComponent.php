@@ -11,6 +11,11 @@ class UserIndexComponent extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
+    public $searchTerm;
+
+    public $sortIcon = 
+    public $sortDirection, $sortField;
+
     public $delId;
 
     public function render()
