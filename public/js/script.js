@@ -10,6 +10,8 @@
       layoutMode: 'masonry'
     });
 
+
+
     var $grid = $('.entry-container').isotope({
       itemSelector: '.entry-item',
       layoutMode: 'masonry'

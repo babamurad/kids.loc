@@ -53,7 +53,6 @@
                         </a>
                     </li>
                     @if (Auth::user()->type == 'ADM')
-
                     <li>
                         <a href="{{ route('admin.teachers') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-user-circle"></i><span>Teachers</span>
@@ -69,6 +68,11 @@
                             <i class="bx bxs-notepad"></i><span>Articles</span>
                         </a>
                     </li>
+                        <li>
+                            <a href="{{  route('admin.categories') }}" class="waves-effect" wire:navigate>
+                                <i class="bx bx-clipboard"></i><span>Categories</span>
+                            </a>
+                        </li>
                     <li>
                         <a href="{{  route('admin.carousel') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-image-alt"></i>Carousel</span>
@@ -94,11 +98,11 @@
                         </ul>
                     </li>
                     @elseif (Auth::user()->type == 'TCH')
-                    <li>
-                        <a href="{{  route('admin.gallery') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-images"></i>Gallery</span>
-                        </a>
-                    </li>
+                        <li>
+                            <a href="{{  route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="waves-effect" wire:navigate>
+                                <i class="bx bxs-notepad"></i><span>Lessons</span>
+                            </a>
+                        </li>
                     @endif
                 </ul>
             </div>
@@ -206,11 +210,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                2024 © Opatix.
+                2024 © S.Seydi ad. TDMI
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-right d-none d-sm-block">
-                    Design & Develop by Myra
+                    Design & Develop by Bobo
                 </div>
             </div>
         </div>

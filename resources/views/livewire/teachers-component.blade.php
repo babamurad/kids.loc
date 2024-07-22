@@ -1,3 +1,4 @@
+@section('title', 'Mugallymlar')
 <div>
     <section id="banner" class="jarallax position-relative"
              style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
@@ -74,10 +75,10 @@
                             <p class="mt-2">{{ $teacher->desc }}</p>
                         </div>
                     </div>
-                </div>                
+                </div>
             @empty
-                
-            @endforelse                    
+
+            @endforelse
 
 
             </div>

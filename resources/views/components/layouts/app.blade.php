@@ -26,6 +26,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Lora:wght@400;500;700&display=swap"
           rel="stylesheet">
+
+    <script>
+        document.addEventListener('livewire:navigated', () => {
+            //isotope
+            $('.isotope-container').isotope({
+                // options
+                itemSelector: '.item',
+                layoutMode: 'masonry'
+            });
+
+
+            var $grid = $('.entry-container').isotope({
+                itemSelector: '.entry-item',
+                layoutMode: 'masonry'
+            });
+
+
+            // Initialize Isotope
+            var $container = $('.isotope-container').isotope({
+                // options
+                itemSelector: '.item',
+                layoutMode: 'masonry'
+            });
+
+            console.log('navigated');
+        })
+    </script>
 </head>
 
 <body>
@@ -93,7 +120,7 @@
                 <div class="offcanvas-body align-items-center justify-content-end">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Baş sahypa</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}" wire:navigate>Baş sahypa</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'teachers' ? 'active' : '' }}" href="{{ route('teachers') }}" wire:navigate>Mugallymlar</a>
@@ -166,13 +193,13 @@
 </footer>
 
 <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>--}}
+<script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="{{ asset('js/iconify-icon.min.js') }}"></script>
 </body>
 @stack('close-btn')
+
 </html>

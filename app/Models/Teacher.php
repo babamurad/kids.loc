@@ -14,4 +14,9 @@ class Teacher extends Model
     {
         return $query->where('published', true);
     }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }

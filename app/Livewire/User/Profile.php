@@ -49,6 +49,6 @@ class Profile extends Component
         session()->regenerateToken();
 
         // return redirect()->route('/');
-        return $this->redirect('/', navigate:true);
+        return $this->redirect('/login', navigate:true);
     }
 }
