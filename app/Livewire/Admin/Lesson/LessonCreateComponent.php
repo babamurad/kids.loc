@@ -14,6 +14,7 @@ class LessonCreateComponent extends Component
     protected $rules = [
       'title' => 'required|string|min:5',
       'content' => 'required|min:50',
+      'video' => 'required|mimes:mp4,mov,avi|max:100MB',
       'available' => 'required',
       'category_id' => 'required|integer',
     ];

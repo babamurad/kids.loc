@@ -8,8 +8,8 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>
+{{--                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>--}}
+{{--                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>--}}
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
@@ -21,6 +21,7 @@
         <div class="col-sm-9">
             <div class="card">
                 <div class="card-body">
+{{--                    <p><?php phpinfo(); ?></p>--}}
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
@@ -59,19 +60,12 @@
                     </div>
 
                     <div class="form-group mt-1">
-                        <label for="video">Upload Video</label>
-                        <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
-
-                        @error('video')
-                        <span class="invalid-feedback">{{ $message }}</span>
-                        @enderror
-
+                        <label>Video {{ $video }}</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="image" wire:model="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
-                            @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
+                            <label class="custom-file-label" for="video">Choose video</label>
+                            @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
-
                     </div>
 
                     @if ($video)
