@@ -61,7 +61,7 @@
 
                             <div class="banner-content text-center m-auto" data-aos="zoom-out">
                                 <h2 class="banner-title display-1 text-white mb-4">{{ $item->title }}</h2>
-                                <a href="{{ route('about-us') }}" class="btn btn-primary mt-3">about us</a>
+                                <button class="btn btn-primary mt-3" wire:click.prevent="toAboutUs">about us</button>
                             </div>
 
                         </div>

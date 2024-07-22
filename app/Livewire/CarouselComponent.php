@@ -19,4 +19,9 @@ class CarouselComponent extends Component
         $carousel = Carousel::status()->orderBy('order')->get();
         return view('livewire.carousel-component', compact('carousel'));
     }
+
+    public function toAboutUs()
+    {
+        return $this->redirect('/about-us', navigate: true);
+    }
 }
