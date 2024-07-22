@@ -44,12 +44,9 @@
         <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
-{{--                    @if($image)--}}
-{{--                        <img wire:model="newImage" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Articles Foto">--}}
-{{--                    @else--}}
-{{--                        <img wire:model="image" class="img-fluid rounded" src="{{ asset('images/placeholder.jpg') }}" alt="Articles Foto"--}}
-{{--                             @error('image')style="border: solid 1px red;" @enderror>--}}
-{{--                    @endif--}}
+                    @if($image)
+                        <img wire:model="image" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Articles Foto">
+                    @endif
                     <div class="form-group mt-1">
                         <label>Main picture</label>
                         <div class="custom-file">
@@ -58,6 +55,16 @@
                             @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
+
+                        @if ($video)
+                            <div class="mt-3">
+                                <h5>Video Preview:</h5>
+                                <video width="320" height="240" controls>
+                                    <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        @endif
 
                     <div class="form-group mt-1">
                         <label>Video {{ $video }}</label>
@@ -68,15 +75,6 @@
                         </div>
                     </div>
 
-                    @if ($video)
-                        <div class="mt-3">
-                            <h5>Video Preview:</h5>
-                            <video width="320" height="240" controls>
-                                <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    @endif
 
                     <div class="row mt-4">
                         <div class="form-group row mb-3">
