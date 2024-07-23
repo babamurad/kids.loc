@@ -89,6 +89,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{  route('admin.admin-lessons') }}" class="waves-effect" wire:navigate>
+                            <i class="bx bxs-notepad"></i><span>Lessons</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" class="has-arrow waves-effect mm-active" aria-expanded="false">
                             <i class="bx bx-aperture"></i><span>Contacts</span>
                         </a>

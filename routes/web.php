@@ -64,4 +64,6 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('teacher-lessons/{teacherId}', \App\Livewire\Admin\Lesson\LessonIndexComponent::class)->name('admin.teacher-lessons');
     Route::get('teacher-lessons/{teacherId}/create', \App\Livewire\Admin\Lesson\LessonCreateComponent::class)->name('admin.teacher-lessons.create');
     Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Admin\Lesson\LessonEditComponent::class)->name('admin.teacher-lessons.edit');
+
+    Route::get('admin-lessons', \App\Livewire\Admin\Lessons\LessonsIndexComponent::class)->name('admin.admin-lessons');
 });

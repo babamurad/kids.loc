@@ -1,4 +1,4 @@
-@section('title', 'Admin Lessons')
+@section('title', 'Teacher Lessons')
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
