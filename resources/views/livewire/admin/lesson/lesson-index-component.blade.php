@@ -24,13 +24,14 @@
                             <h4 class="">Lessons List</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="{{ route('admin.teacher-lessons.create', ['teacherId' => auth()->user()->id]) }}" class="btn btn-primary waves-effect waves-light">
+                            <a href="{{ route('admin.teacher-lessons.create', ['teacherId' => auth()->user()->teacher->id]) }}" class="btn btn-primary waves-effect waves-light">
                                 Create
                             </a>
                         </div>
                     </div>
 
                     <div class="table-responsive">
+
                         <table class="table mb-0">
                             <thead>
                             <tr>
@@ -45,10 +46,11 @@
                             <tbody>
                             @if($lessons)
                             @foreach($lessons as $lesson)
+
                                 <tr wire:key="{{ $lesson->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $lesson->id]) }}">
-                                            <img class="mr-3" style="width: 15%;" src="{{ asset('images/articles/'.$lesson->image) }}" alt="">
+                                    <td class="pr-0 mr-0"><a href="{{ route('admin.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}">
+                                            <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/image/'.$lesson->image) }}" alt="">
                                             <strong>{{ $lesson->title }}</strong>
                                         </a>
                                     </td>
@@ -77,22 +79,13 @@
                                             <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
                                         </div>
 
-
-                                        {{--
-                                        <div class="icon-stack-container">
-                                        <div class="icon-stack"> wire:click="IncOrder({{ $lesson->id }})"
-                                            <i class="bx bx-up-arrow"></i>
-                                            <i class="bx bx-down-arrow" wire:click="DecOrder({{ $lesson->id }})"></i>
-                                        </div>
-                                        </div> --}}
-
                                     </td>
                                     <td style="width: 10%;">
                                         <div class="mt-2">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</div>
 
                                     </td>
                                     <td style="width: 12%;">
-                                        <a href="{{ route('admin.article.edit', ['id' => $lesson->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
                                         {{-- <a href="{{ route('admin.teachers.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
                                         <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $lesson->id }})">
                                             <i class="fas fa-trash-alt"></i>

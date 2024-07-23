@@ -26,7 +26,6 @@
                         <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
-                    <p>{{ $content }}</p>
                     <div class="border-danger" @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>
                         <div wire:ignore class="form-group">
                             <textarea class="@error('content') is-invalid @enderror" id="summernote" wire:model.live="content"></textarea>
