@@ -90,7 +90,7 @@
                                 @foreach ($users as $user)
                                     <tr>
                                         <th scope="row" style="width: 5%;">{{ $loop->index + 1 }}</th>
-                                        <td style="width: 20%;">{{ $user->name }}</td>
+                                        <td style="width: 20%;"><a href="{{ route('admin.users.edit', ['id' => $user->id]) }}">{{ $user->name }}</a></td>
                                         <td style="width: 20%;">{{ $user->email }}</td>
                                         <td style="width: 20%;">{{ $user->type_label }}</td>
                                         <td style="width: 15%;">

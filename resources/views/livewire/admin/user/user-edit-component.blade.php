@@ -32,12 +32,24 @@
                         </div>
                         <div class="form-group">
                             <label for="type">Select</label>
-                            <select class="form-control" id="type" wire:model="type">
+                            <select class="form-control" id="type" wire:model.live="type">
                                 <option value="ADM">Administrator</option>
                                 <option value="TCH">Teacher</option>
                                 <option value="USR">User</option>
                             </select>
                         </div>
+                    @if($type == 'TCH')
+                        @if($teachers)
+                            <div class="form-group">
+                                <label for="type">Teachers</label>
+                                <select class="form-control" id="teacherId" wire:model="teacherId">
+                                    @foreach($teachers as $teacher)
+                                        <option value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endif
+                    @endif
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.users') }}" class="btn btn-secondary waves-effect waves-light" wire:navigate>Close</a>
@@ -46,10 +58,4 @@
             </div>
         </div>
     </div>
-    <script>
-        window.addEventListener('redirect', event=> {
-            alert('redirect')
-        // @this.wire:navigate('admin.users');
-        })
-    </script>
 </div>

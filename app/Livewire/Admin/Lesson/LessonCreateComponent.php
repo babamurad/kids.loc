@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Lesson;
 
 use App\Models\Category;
+use App\Models\Lesson;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -25,5 +27,30 @@ class LessonCreateComponent extends Component
         $categories = Category::all();
         return view('livewire.admin.lesson.lesson-create-component', compact('categories'))
             ->layout('components.layouts.admin-app');
+    }
+
+    public function create()
+    {
+        $lesson = new Lesson();
+        $lesson->title = $this->title;
+        $lesson->content = $this->content;
+        $lesson->status = $this->status;
+        $lesson->order = $this->order;
+        $lesson->until_date = $this->until_date;
+        $lesson->available = $this->available;
+        $lesson->category_id = $this->category_id;
+        $lesson->teacher_id = 2;//auth()->user()->id;
+
+        $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+        $this->image->storeAs('/lesson/images', $imageName);
+        $lesson->image = $imageName;
+
+        $videoName = Carbon::now()->timestamp.'.'.$this->video->extension();
+        $this->video->storeAs('/lesson/video', $videoName);
+        $lesson->video = $videoName;
+
+        $lesson->save();
+        session()->flash('success', 'User data updated!');
+        return $this->redirect('admin/lessons');
     }
 }

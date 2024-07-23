@@ -3,6 +3,8 @@ Gaming Playground videolar, taze sapaklar, oyunlar, careler
 search, filter for users and teachers
 sort teachers
 
+Сделать связку с таблицами users - teachers
+
 Нужно создать сущность Категорий Admin CRUD and front view
 Нужно создать сущность для Уроков, связи с категориями и авторами - учителями
 Сделать имитацию системы оплаты, Платной подписки с ограниченным сроком для просмотра уроков.

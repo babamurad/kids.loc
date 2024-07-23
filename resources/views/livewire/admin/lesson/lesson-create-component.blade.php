@@ -8,8 +8,8 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-{{--                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>--}}
-{{--                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>--}}
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
@@ -18,18 +18,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
-{{--                    <p><?php phpinfo(); ?></p>--}}
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
+                    <p>{{ $content }}</p>
                     <div class="border-danger" @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>
                         <div wire:ignore class="form-group">
-                            <textarea class="@error('content') is-invalid @enderror" id="summernote" wire:model="content"></textarea>
+                            <textarea class="@error('content') is-invalid @enderror" id="summernote" wire:model.live="content"></textarea>
                         </div>
                     </div>
                     @error('content')<div class="invalid-feedback" style="display: block;">{{ $message }}</div>@enderror
@@ -41,17 +41,17 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-body">
                     @if($image)
-                        <img wire:model="image" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Articles Foto">
+                        <img wire:model="image" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Lessons Foto">
                     @endif
                     <div class="form-group mt-1">
                         <label>Main picture</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="image" wire:model="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
+                            <label class="custom-file-label" for="image">@if($image){{ $image->getClientOriginalName() }}@else Choose file @endif</label>
                             @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
@@ -67,30 +67,55 @@
                         @endif
 
                     <div class="form-group mt-1">
-                        <label>Video {{ $video }}</label>
+                        <label>Video</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
-                            <label class="custom-file-label" for="video">Choose video</label>
+                            <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Choose video @endif</label>
                             @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
 
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row mt-4">
+                                    <div class="form-group pl-5">
+                                        <div class="custom-control custom-checkbox mt-2 pl-2">
+                                            <input type="checkbox" class="custom-control-input" id="status" wire:model="status">
+                                            <label class="custom-control-label" for="status">Published</label>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div class="row mt-4">
-                        <div class="form-group row mb-3">
-                            <label for="order" class="col-4 col-form-label pl-3">Order</label>
-                            <div class="col-8">
-                                <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="0" wire:model="order">
-                                @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row mt-4">
+                                    <div class="form-group row mb-3">
+                                        <label for="order" class="col-4 col-form-label pl-3">Order</label>
+                                        <div class="col-8">
+                                            <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="0" wire:model="order">
+                                            @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group pl-2">
-                        <div class="custom-control custom-checkbox mt-2 pl-2">
-                            <input type="checkbox" class="custom-control-input" id="published" wire:model="published">
-                            <label class="custom-control-label" for="published">Published</label>
+
+                        <div class="row my-3">
+                            <div class="col-sm-6">
+                                <div class="row form-group pl-5">
+                                    <div class="custom-control custom-checkbox mt-2 pl-2">
+                                        <input type="checkbox" class="custom-control-input" id="available" wire:model="available">
+                                        <label class="custom-control-label" for="available">Available</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="mr-2" for="until_date">Gutarýan wagty</label>
+                                <input class="form-control" type="date" name="until_date" wire:model="until_date">
+                            </div>
                         </div>
-                    </div>
+
 
                     <div class="form-group">
                         <label>Category</label>
