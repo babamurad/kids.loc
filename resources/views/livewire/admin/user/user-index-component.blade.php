@@ -8,7 +8,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.users') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">users</li>
+                        <li class="breadcrumb-item active">Users</li>
                     </ol>
                 </div>
 

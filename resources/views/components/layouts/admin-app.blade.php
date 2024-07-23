@@ -99,7 +99,7 @@
                     </li>
                     @elseif (Auth::user()->type == 'TCH')
                         <li>
-                            <a href="{{  route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="waves-effect" wire:navigate>
+                            <a href="{{  route('admin.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}" class="waves-effect" wire:navigate>
                                 <i class="bx bxs-notepad"></i><span>Lessons</span>
                             </a>
                         </li>

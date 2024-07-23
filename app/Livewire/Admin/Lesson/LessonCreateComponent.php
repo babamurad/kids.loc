@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Lesson;
 
 use App\Models\Category;
 use App\Models\Lesson;
+use App\Models\Teacher;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -39,7 +40,7 @@ class LessonCreateComponent extends Component
         $lesson->until_date = $this->until_date;
         $lesson->available = $this->available;
         $lesson->category_id = $this->category_id;
-        $lesson->teacher_id = 2;//auth()->user()->id;
+        $lesson->teacher_id = $this->Teacher(auth()->user()->id);
 
         $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
         $this->image->storeAs('/lesson/images', $imageName);
@@ -51,6 +52,12 @@ class LessonCreateComponent extends Component
 
         $lesson->save();
         session()->flash('success', 'User data updated!');
-        return $this->redirect('admin/lessons');
+        return redirect()->route('admin.lessons');
+    }
+
+    public function Teacher($id)
+    {
+        $teacher = Teacher::where('user_id', '=', $id)->first();
+        return $teacher->id;
     }
 }
