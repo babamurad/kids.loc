@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 class LessonIndexComponent extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $teacherId;
     public $delId;
     public $image;
@@ -18,7 +19,7 @@ class LessonIndexComponent extends Component
 
     public function render()
     {
-        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->paginate(10) : collect();
+        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->paginate(10) : collect();
 
         return view('livewire.admin.lesson.lesson-index-component', compact('lessons'))
             ->layout('components.layouts.admin-app');

@@ -42,7 +42,7 @@
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body text-center">
                     @if($image)
                         <img wire:model="image" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Lessons Foto">
                     @endif

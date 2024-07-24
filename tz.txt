@@ -16,3 +16,5 @@ sort teachers
 
 
 Сделать фронт страницу для отображения уроков
+
+Admin Lessons Index delete

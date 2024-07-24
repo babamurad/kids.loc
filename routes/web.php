@@ -23,6 +23,7 @@ Route::get('carousel', CarouselComponent::class)->name('carousel');
 Route::get('articles', ArticlesComponent::class)->name('articles');
 Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-article');
 Route::get('gallery', GalleryComponent::class)->name('gallery');
+Route::get('lessons', \App\Livewire\FrontLessonsComonent::class)->name('lessons');
 
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');

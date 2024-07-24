@@ -10,10 +10,11 @@ use Livewire\WithPagination;
 class LessonsIndexComponent extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        $lessons = Lesson::paginate(10);
+        $lessons = Lesson::with('category')->with('teacher')->paginate(10);
         return view('livewire.admin.lessons.lessons-index-component', compact('lessons'))
             ->layout('components.layouts.admin-app');
     }

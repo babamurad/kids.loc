@@ -37,6 +37,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Title</th>
+                                <th>Category</th>
                                 <th>Published</th>
                                 <th>Order</th>
                                 <th>Date</th>
@@ -54,33 +55,18 @@
                                             <strong>{{ $lesson->title }}</strong>
                                         </a>
                                     </td>
-                                    <td style="width: 15%;">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck{{ $lesson->id }}" wire:model.live="published"
-                                                   wire:click="PubUnPub({{ $lesson->id }})"
-                                                   @if ($lesson->published)
-                                                       checked
-                                                @endif>
-                                            <label class="custom-control-label" for="customCheck{{ $lesson->id }}">
-                                                @if ( $lesson->published )
-                                                    <span class="badge badge-success">Published</span>
-                                                @else
-                                                    <span class="badge badge-danger">Not Published</span>
-                                                @endif
-                                            </label>
-                                        </div>
-
-
+                                    <th scope="row">{{ $lesson->category->name }}</th>
+                                    <td>
+                                        <label>
+                                            @if ( $lesson->status )
+                                                <span class="badge badge-success">Published</span>
+                                            @else
+                                                <span class="badge badge-danger">Not Published</span>
+                                            @endif
+                                        </label>
                                     </td>
-                                    <td style="width: 7%;">
-                                        <div class="row">
-                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
-                                            <span class="mt-2">{{ $lesson->order }}</span>
-                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
-                                        </div>
-
-                                    </td>
-                                    <td style="width: 10%;">
+                                    <td>{{ $lesson->order }}</td>
+                                    <td>
                                         <div class="mt-2">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</div>
 
                                     </td>

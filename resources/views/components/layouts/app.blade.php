@@ -50,6 +50,26 @@
                 layoutMode: 'masonry'
             });
 
+            $(document).ready(function () {
+                //active button
+                $('.filter-button').click(function () {
+                    $('.filter-button').removeClass('active');
+                    $(this).addClass('active');
+                });
+            });
+
+            // Filter items on button click
+            $('.filter-button').click(function () {
+                var filterValue = $(this).attr('data-filter');
+                if (filterValue === '*') {
+                    // Show all items
+                    $container.isotope({ filter: '*' });
+                } else {
+                    // Show filtered items
+                    $container.isotope({ filter: filterValue });
+                }
+            });
+
             console.log('navigated');
         })
     </script>
@@ -129,7 +149,7 @@
                             <a class="nav-link p-0 " href="{{ route('articles') }}" wire:navigate>Goşmaça</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 " href="#">Jadyly sandyk</a>
+                            <a class="nav-link p-0 " href="{{ route('lessons') }}" wire:navigate>Jadyly sandyk</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}" href="{{ route('about-us') }}" wire:navigate>Biz barada</a>
@@ -193,7 +213,7 @@
 </footer>
 
 <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
-{{--<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>--}}
+
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/plugins.js') }}"></script>

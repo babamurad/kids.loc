@@ -35,8 +35,10 @@
                         <table class="table mb-0">
                             <thead>
                             <tr>
-                                <th>#</th>
+                                <th>#ID</th>
                                 <th>Title</th>
+                                <th>Teacher</th>
+                                <th>Category</th>
                                 <th>Published</th>
                                 <th>Order</th>
                                 <th>Date</th>
@@ -50,25 +52,20 @@
                                     <tr wire:key="{{ $lesson->id }}">
                                         <th scope="row">{{ $loop->index + 1 }}</th>
                                         <td class="pr-0 mr-0"><a href="#">
-                                                <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/image/'.$lesson->image) }}" alt="">
+                                                <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
                                                 <strong>{{ $lesson->title }}</strong>
                                             </a>
                                         </td>
-                                        <td style="width: 15%;">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck{{ $lesson->id }}" wire:model.live="published"
-                                                       wire:click="PubUnPub({{ $lesson->id }})"
-                                                       @if ($lesson->published)
-                                                           checked
-                                                    @endif>
-                                                <label class="custom-control-label" for="customCheck{{ $lesson->id }}">
-                                                    @if ( $lesson->published )
-                                                        <span class="badge badge-success">Published</span>
-                                                    @else
-                                                        <span class="badge badge-danger">Not Published</span>
-                                                    @endif
-                                                </label>
-                                            </div>
+                                        <th scope="row">{{ $lesson->teacher->firstname . ' ' . $lesson->teacher->lastname }}</th>
+                                        <th scope="row">{{ $lesson->category->name }}</th>
+                                        <td>
+                                            <label class="mt-2">
+                                                @if ( $lesson->status )
+                                                    <span class="badge badge-success">Published</span>
+                                                @else
+                                                    <span class="badge badge-danger">Not Published</span>
+                                                @endif
+                                            </label>
 
 
                                         </td>
@@ -81,7 +78,7 @@
 
                                         </td>
                                         <td style="width: 10%;">
-                                            <div class="mt-2">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</div>
+                                            <div class="mt-2">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
 
                                         </td>
                                         <td style="width: 12%;">
