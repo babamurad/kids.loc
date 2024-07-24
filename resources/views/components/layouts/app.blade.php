@@ -146,10 +146,10 @@
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'teachers' ? 'active' : '' }}" href="{{ route('teachers') }}" wire:navigate>Mugallymlar</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 " href="{{ route('articles') }}" wire:navigate>Goşmaça</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'articles' ? 'active' : '' }}" href="{{ route('articles') }}" wire:navigate>Goşmaça</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 " href="{{ route('lessons') }}" wire:navigate>Jadyly sandyk</a>
+                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'lessons' ? 'active' : '' }}" href="{{ route('lessons') }}" wire:navigate>Jadyly sandyk</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}" href="{{ route('about-us') }}" wire:navigate>Biz barada</a>
