@@ -32,6 +32,8 @@ class LessonCreateComponent extends Component
 
     public function create()
     {
+        $this->validate();
+
         $lesson = new Lesson();
         $lesson->title = $this->title;
         $lesson->content = $this->content;

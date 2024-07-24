@@ -12,6 +12,9 @@ class LessonIndexComponent extends Component
 {
     use WithPagination;
     public $teacherId;
+    public $delId;
+    public $image;
+    public $video;
 
     public function render()
     {
@@ -31,4 +34,25 @@ class LessonIndexComponent extends Component
         }
     }
 
+    public function deleteId($id)
+    {
+        $this->delId = $id;
+    }
+
+    public function destroy()
+    {
+        $lesson = Lesson::findOrFail($this->delId);
+        $this->image = $lesson->image;
+        if (file_exists('images/lesson/images/'.$this->image)){
+            unlink('images/lesson/images/'.$this->image);
+        }
+        $this->video = $lesson->video;
+        if (file_exists('images/lesson/video/'.$this->video)){
+            unlink('images/lesson/video/'.$this->video);
+        }
+        $lesson->delete();
+
+        $this->dispatch('closeModal');
+        session()->flash('error', 'Deleted.');
+    }
 }
