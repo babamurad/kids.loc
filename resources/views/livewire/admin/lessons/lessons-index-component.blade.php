@@ -124,9 +124,9 @@
                                         </td>
                                         <td style="width: 7%;">
                                             <div class="row">
-                                                <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
-                                                <span class="mt-2">{{ $lesson->order }}</span>
-                                                <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
+                                                {{-- <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span> --}}
+                                                <span class="badge badge-secondary badge-pill mt-2">{{ $lesson->order }}</span>
+                                                {{-- <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $lesson->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span> --}}
                                             </div>
 
                                         </td>
