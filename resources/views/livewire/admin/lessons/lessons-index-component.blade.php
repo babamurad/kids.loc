@@ -2,9 +2,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
+            @include('components.alerts')
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Lessons</h4>
-
+                <h5 class="h5">Category: <span class="badge badge-primary badge-pill">{{ $categoryId != 0 ? $categoryName : '' }}</span>
+                    /
+                    Teacher: <span class="badge badge-success badge-pill">{{ $teacherId != 0 ? $teacherName : '' }}</span> </h5>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
@@ -21,13 +24,63 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Lessons List</h4>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select class="form-control mb-3" wire:model.live="categoryId">
+                                        <option value="0">Select Category</option>
+                                        @foreach ($categories as $category)
+                                            <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Teacher</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select class="form-control mb-3" wire:model.live="teacherId">
+                                        <option value="0">Select Teacher</option>
+                                        @foreach ($teachers as $teacher)
+                                            <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="#" class="btn btn-primary waves-effect waves-light">
-                                Create
-                            </a>
+                            <div class="input-group">
+                                <input wire:model.live="search" type="text" class="form-control" id="validationCustomUsername"
+                                       placeholder="Search ...minimum 3 characters" aria-describedby="inputGroupPrepend">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">
+                                        <i class="bx bx-search-alt-2"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="row justify-content-end">
+                                <div class="col-sm-3"><label for="perPage">Per Page</label></div>
+                                <div class="col-sm-3">
+                                    <select name="perPage" class="form-control form-control-sm" wire:model.live="perPage">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>50</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+
                     </div>
 
                     <div class="table-responsive">
@@ -51,7 +104,7 @@
 
                                     <tr wire:key="{{ $lesson->id }}">
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td class="pr-0 mr-0"><a href="#">
+                                        <td class="pr-0 mr-0"><a href="{{ route('admin.admin-lessons.view', ['id' => $lesson->id]) }}">
                                                 <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
                                                 <strong>{{ $lesson->title }}</strong>
                                             </a>
@@ -79,11 +132,10 @@
                                         </td>
                                         <td style="width: 10%;">
                                             <div class="mt-2">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
-
                                         </td>
                                         <td style="width: 12%;">
-                                            <a href="#" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
-                                            {{-- <a href="{{ route('admin.teachers.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
+{{--                                            <a href="#" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>--}}
+                                             <a href="{{ route('admin.admin-lessons.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2 mt-2"><i class="fas fa-eye"></i></a>
                                             <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $lesson->id }})">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>

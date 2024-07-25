@@ -24,6 +24,7 @@ Route::get('articles', ArticlesComponent::class)->name('articles');
 Route::get('single-article/{id}', SingleArticleComponent::class)->name('single-article');
 Route::get('gallery', GalleryComponent::class)->name('gallery');
 Route::get('lessons', \App\Livewire\FrontLessonsComonent::class)->name('lessons');
+Route::get('single-lesson/{id}', \App\Livewire\SingleLessonComponent::class)->name('single-lesson');
 
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');
@@ -67,4 +68,5 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Admin\Lesson\LessonEditComponent::class)->name('admin.teacher-lessons.edit');
 
     Route::get('admin-lessons', \App\Livewire\Admin\Lessons\LessonsIndexComponent::class)->name('admin.admin-lessons');
+    Route::get('admin-lessons/view/{id}', \App\Livewire\Admin\Lessons\LessonsViewComponent::class)->name('admin.admin-lessons.view');
 });

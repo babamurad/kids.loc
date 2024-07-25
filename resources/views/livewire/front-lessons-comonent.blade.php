@@ -1,5 +1,33 @@
 <div>
     @section('title', 'Jadyly sabdyk')
+
+    <section id="banner" class="jarallax position-relative"
+             style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+        <div class="d-none d-md-flex justify-content-between position-absolute w-100 px-5 pt-5 mt-lg-5">
+            <div> <iconify-icon icon="solar:cloud-sun-2-outline"
+                                class="icon-float1 text-info-emphasis opacity-75"></iconify-icon></div>
+            <div> </div>
+            <div> </div>
+            <div> </div>
+            <div> <iconify-icon icon="solar:ufo-outline" class="icon-float2 text-warning opacity-75"></iconify-icon> </div>
+            <div> </div>
+            <div> <iconify-icon icon="ph:rainbow-cloud" class="icon-float1 text-success opacity-75"></iconify-icon></div>
+            <div> </div>
+            <div> <iconify-icon icon="solar:sun-2-outline" class="icon-float2 text-danger opacity-75"></iconify-icon> </div>
+        </div>
+
+        <div class="container padding-medium">
+            <div class="hero-content ">
+                <h2 class="banner-title display-2 text-white">Teachers</h2>
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Home</a>
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Lessons</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
     <section id="activities" class="bg-gray">
         <div class="container padding-medium">
 
@@ -18,13 +46,15 @@
                     <div class="isotope-container row" style="position: relative; height: 650px;">
                     @foreach($lessons as $lesson)
                         <div class="item {{ 'cat' . $lesson->category->id }} col-md-3 text-center">
-                            <div class="position-absolute top-50 start-50 translate-middle">
-                                <a href="#" class="hover-color">
-                                    <p class="m-0">{{ Carbon\Carbon::create($lesson->until_date)->format('d.m.Y') }}</p>
-                                    <p class="text-black py-4">{{ $lesson->title }}</p>
-                                    <p class="m-0">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</p>
-                                </a>
+                            <div class="card mb-1 px-0">
+                                <a href="{{ route('single-lesson', ['id' => $lesson->id]) }}"><img class="card-img-top img-thumbnail" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt=""></a>
+                                <div class="card-body">
+                                    <div class="card-header">{{ Carbon\Carbon::create($lesson->until_date)->format('d.m.Y') }}</div>
+                                    <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ $lesson->title }}</a></div>
+                                    <div class="card-title">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
+                                </div>
                             </div>
+
                         </div>
                     @endforeach
                     </div>

@@ -20,7 +20,7 @@
             <div class="hero-content ">
                 <h2 class="banner-title display-2 text-white">Teachers</h2>
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="index.html">Home</a>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Home</a>
                     <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>
                     <span class="breadcrumb-item text-white banner-title active" aria-current="page">Teachers</span>
                 </nav>
