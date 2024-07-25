@@ -18,7 +18,7 @@ class LessonCreateComponent extends Component
       'title' => 'required|string|min:5',
       'content' => 'required|min:50',
 //      'video' => 'required|mimes:mp4,mov,avi|max:100MB',
-      'video' => 'required|mimes:mp4,mov,ogg,qt',//|max:204800
+    //   'video' => 'required|mimes:mp4,mov,ogg,qt',//|max:204800
       'available' => 'required',
       'category_id' => 'required|integer',
     ];
@@ -44,13 +44,19 @@ class LessonCreateComponent extends Component
         $lesson->category_id = $this->category_id;
         $lesson->teacher_id = auth()->user()->teacher->id;
 
-        $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('/lesson/images', $imageName);
-        $lesson->image = $imageName;
+        if($this->image) {
+            $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+            $this->image->storeAs('/lesson/images', $imageName);
+            $lesson->image = $imageName;            
+        }
 
-        $videoName = Carbon::now()->timestamp.'.'.$this->video->extension();
-        $this->video->storeAs('/lesson/video', $videoName);
-        $lesson->video = $videoName;
+
+        if($this->video) {
+            $videoName = Carbon::now()->timestamp.'.'.$this->video->extension();
+            $this->video->storeAs('/lesson/video', $videoName);
+            $lesson->video = $videoName;
+        }
+        
 
         $lesson->save();
         session()->flash('success', 'User data updated!');

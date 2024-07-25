@@ -41,9 +41,11 @@
             <div class=" align-self-end fs-5">&nbsp; | &nbsp;</div>
             <div><iconify-icon icon="solar:phone-bold" class="text-primary fs-5 pt-1" style="vertical-align: sub;"></iconify-icon> (510) 710-3464</div>
         </div>
-        <div class="col-sm-12">
+        @if ($image)
+         <div class="col-sm-12">
             <img src="{{ asset('images/lesson/images/'.$image) }}" alt="single-post" class="img-fluid">
-        </div>
+        </div>   
+        @endif        
 
     </div>
 
@@ -51,12 +53,14 @@
         <div class="container">
             <div class="row g-md-5">
                 <main class="post-grid col-md-8">
-                    <div class="col-sm-12">
+                    @if ($video)
+                       <div class="col-sm-12">
                         <video class="w-100" controls>
                             <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                    </div>
+                    </div> 
+                    @endif                    
 
                     <div class="post-description">
                         {!! $content !!}
