@@ -66,17 +66,26 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body text-center">
+                    @if ($image)
                     <h5>Image:</h5>
-                    <img wire:model="image" class="img-fluid rounded mb-4" src="{{ asset('images/lesson/images/') . '/' . $image }}" alt="Lessons Foto"
-                             @error('image') style="border: solid 1px red;" @enderror>
+                    <img wire:model="image" class="img-fluid rounded mb-4" src="{{ asset('images/lesson/images/') . '/' . $image }}" alt="Lessons Foto">    
+                    @else
+                    <h5>No  Image</h5>
+                    @endif
+                    
 
+                    @if ($video)
                     <div class="mt-3">
                         <h5>Video Preview:</h5>
                         <video width="320" height="240" controls>
                             <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                    </div>
+                    </div>   
+                    @else
+                    <h5>No Video</h5> 
+                    @endif         
+                    
 
                     <div class="row">
                         <div class="col-sm-6">

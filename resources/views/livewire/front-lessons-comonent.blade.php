@@ -46,12 +46,12 @@
                     <div class="isotope-container row" style="position: relative; height: 650px;">
                     @foreach($lessons as $lesson)
                         <div class="item {{ 'cat' . $lesson->category->id }} col-md-3 text-center">
-                            <div class="card mb-1 px-0">
+                            <div class="card mb-3 px-0">
                                 <a href="{{ route('single-lesson', ['id' => $lesson->id]) }}"><img class="card-img-top img-thumbnail" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt=""></a>
                                 <div class="card-body">
                                     <div class="card-header">{{ Carbon\Carbon::create($lesson->until_date)->format('d.m.Y') }}</div>
                                     <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ $lesson->title }}</a></div>
-                                    <div class="card-title">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
+                                    <div class="card-footer">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
                                 </div>
                             </div>
 
