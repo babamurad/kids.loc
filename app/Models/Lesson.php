@@ -21,4 +21,9 @@ class Lesson extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function scopeStatus($query)
+    {
+        return $query->where('status', true);
+    }
 }
