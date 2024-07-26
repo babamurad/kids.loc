@@ -38,36 +38,6 @@
                     <div class="team-member position-relative">
                         <div class="image-holder zoom-effect">
                             <img src="{{ asset('images/teachers/' . $teacher->image) }}" alt="team member">
-                            <ul class="social-links list-unstyled position-absolute">
-                                <li>
-                                    <a href="#">
-                                        <svg class="facebook text-white ms-1 mt-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="twitter text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#twitter"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="instagram text-white ms-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#instagram"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="linkedin text-white ms-1 mb-1" width="30" height="30" aria-hidden="true">
-                                            <use xlink:href="#linkedin"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                         <div class="member-info pt-4 ">
                             <h2 class="lh-sm m-0 ">{{ $teacher->firstname . ' ' . $teacher->lastname }}</h2>

@@ -3,7 +3,7 @@
             <div class="swiper slider ">
                 <div class="swiper-wrapper">
                     @foreach ($carousel as $item)
-                        <div class="swiper-slide d-flex jarallax position-relative"
+                        <div wire:key="{{ $item->id }}" class="swiper-slide d-flex jarallax position-relative"
                              style="background-image: url('{{ asset('images/carousel') . '/' . $item->image }}');
                                  background-size: cover; background-repeat: no-repeat; height: 80vh; background-position: center; height: 80vh;">
 
