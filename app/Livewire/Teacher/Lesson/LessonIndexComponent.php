@@ -11,6 +11,7 @@ class LessonIndexComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $perPage = 4;
     public $teacherId;
     public $delId;
     public $image;
@@ -18,7 +19,7 @@ class LessonIndexComponent extends Component
 
     public function render()
     {
-        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->paginate(10) : collect();
+        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->paginate($this->perPage) : collect();
 
         return view('livewire.admin.lesson.lesson-index-component', compact('lessons'))
             ->layout('components.layouts.teacher-app');
@@ -32,6 +33,12 @@ class LessonIndexComponent extends Component
         } else {
             $this->teacherId = null;
         }
+        $this->perPage = session()->get('perPage', default: 5);
+    }
+
+    public function updatedPerPage()
+    {
+        session()->put('perPage', $this->perPage);
     }
 
     public function deleteId($id)

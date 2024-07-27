@@ -28,6 +28,19 @@
                                 Create
                             </a>
                         </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="row justify-content-end">
+                                <div class="col-sm-3"><label for="perPage">Per Page</label></div>
+                                <div class="col-sm-3">
+                                    <select name="perPage" class="form-control form-control-sm" wire:model.live="perPage">
+                                        <option>4</option>
+                                        <option>8</option>
+                                        <option>12</option>
+                                        <option>20</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="table-responsive">
