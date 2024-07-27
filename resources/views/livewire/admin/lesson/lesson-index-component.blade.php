@@ -47,7 +47,6 @@
                             <tbody>
                             @if($lessons)
                             @foreach($lessons as $lesson)
-
                                 <tr wire:key="{{ $lesson->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td class="pr-0 mr-0"><a href="{{ route('admin.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}">
@@ -65,9 +64,9 @@
                                             @endif
                                         </label>
                                     </td>
-                                    <td>{{ $lesson->order }}</td>
+                                    <td><span class="badge badge-secondary badge-pill">{{ $lesson->order }}</span></td>
                                     <td>
-                                        <div class="mt-2">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</div>
+                                        <div class="mt-2"><span class="badge badge-light badge-pill">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</span></div>
 
                                     </td>
                                     <td style="width: 12%;">
