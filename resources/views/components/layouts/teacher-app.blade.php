@@ -37,7 +37,7 @@
         <div data-simplebar class="h-100">
 
             <div class="navbar-brand-box">
-                <a href="{{ route('admin.dashboard') }}" class="logo">
+                <a href="{{ route('teacher.dashboard') }}" class="logo">
                     <img src="{{ asset('admin/assets/images/logo-dark.png') }}" />
                 </a>
             </div>
@@ -48,61 +48,20 @@
                 <ul class="metismenu list-unstyled" id="side-menu">
                     <li class="menu-title">Menu</li>
                     <li>
-                        <a href="{{ route('admin.dashboard') }}" class="waves-effect" wire:navigate>
+                        <a href="{{ route('teacher.dashboard') }}" class="waves-effect" wire:navigate>
                             <i class="bx bx-home-circle"></i><span>Dashboard</span>
                         </a>
                     </li>
-                    @if (Auth::user()->type == 'ADM')
                     <li>
-                        <a href="{{ route('admin.teachers') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-user-circle"></i><span>Teachers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  route('admin.about.index') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-building"></i><span>About</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  route('admin.article.index') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bxs-notepad"></i><span>Articles</span>
-                        </a>
-                    </li>
-                        <li>
-                            <a href="{{  route('admin.categories') }}" class="waves-effect" wire:navigate>
-                                <i class="bx bx-clipboard"></i><span>Categories</span>
-                            </a>
-                        </li>
-                    <li>
-                        <a href="{{  route('admin.carousel') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-image-alt"></i>Carousel</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  route('admin.gallery') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-images"></i>Gallery</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  route('admin.users') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-user"></i>Users</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  route('admin.admin-lessons') }}" class="waves-effect" wire:navigate>
+                        <a href="{{  route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}" class="waves-effect" wire:navigate>
                             <i class="bx bxs-notepad"></i><span>Lessons</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="has-arrow waves-effect mm-active" aria-expanded="false">
-                            <i class="bx bx-aperture"></i><span>Contacts</span>
+                        <a href="{{  route('teacher.change.password') }}" class="waves-effect" wire:navigate>
+                            <i class="bx bx-lock"></i><span>Paroly üýtgetmek</span>
                         </a>
-                        <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
-                            <li><a href="{{ route('admin.company') }}" wire:navigate>Company Info</a></li>
-                            <li><a href="{{ route('admin.messages') }}">Messages</a></li>
-                        </ul>
                     </li>
-                    @endif
                 </ul>
             </div>
             <!-- Sidebar -->

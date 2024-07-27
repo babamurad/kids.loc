@@ -12,8 +12,8 @@ use App\Livewire\Article\SingleArticleComponent;
 use App\Livewire\CarouselComponent;
 use App\Livewire\GalleryComponent;
 use App\Livewire\User\LogoutComponent;
-use App\Livewire\User\UserRagisterComponent;
 use App\Livewire\User\UserLoginComponent;
+use App\Livewire\User\UserRagisterComponent;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\HomeComponent::class)->name('home');
@@ -29,6 +29,12 @@ Route::get('single-lesson/{id}', \App\Livewire\SingleLessonComponent::class)->na
 Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');
 Route::get('logout', LogoutComponent::class)->name('logout');
+
+Route::get('teacher-dashboard', \App\Livewire\Teacher\TeacherDashboard::class)->name('teacher.dashboard');
+Route::get('teacher-change-password', \App\Livewire\Teacher\ChangePassword::class)->name('teacher.change.password');
+Route::get('teacher-lessons/{teacherId}', \App\Livewire\Teacher\Lesson\LessonIndexComponent::class)->name('teacher.teacher-lessons');
+Route::get('teacher-lessons/{teacherId}/create', \App\Livewire\Teacher\Lesson\LessonCreateComponent::class)->name('teacher.teacher-lessons.create');
+Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Teacher\Lesson\LessonEditComponent::class)->name('teacher.teacher-lessons.edit');
 
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
@@ -62,10 +68,6 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('categories', \App\Livewire\Admin\Category\CategoryIndexComponent::class)->name('admin.categories');
     Route::get('categories/create', \App\Livewire\Admin\Category\CategoryCreateComponent::class)->name('admin.categories.create');
     Route::get('categories/edit/{id}', \App\Livewire\Admin\Category\CategoryEditComponent::class)->name('admin.categories.edit');
-
-    Route::get('teacher-lessons/{teacherId}', \App\Livewire\Admin\Lesson\LessonIndexComponent::class)->name('admin.teacher-lessons');
-    Route::get('teacher-lessons/{teacherId}/create', \App\Livewire\Admin\Lesson\LessonCreateComponent::class)->name('admin.teacher-lessons.create');
-    Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Admin\Lesson\LessonEditComponent::class)->name('admin.teacher-lessons.edit');
 
     Route::get('admin-lessons', \App\Livewire\Admin\Lessons\LessonsIndexComponent::class)->name('admin.admin-lessons');
     Route::get('admin-lessons/view/{id}', \App\Livewire\Admin\Lessons\LessonsViewComponent::class)->name('admin.admin-lessons.view');

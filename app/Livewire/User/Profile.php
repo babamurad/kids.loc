@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -12,6 +13,8 @@ class Profile extends Component
     public $currentPassword;
     public $newPassword;
     public $newPasswordConfirmation;
+    public $lessonsCount;
+
     protected $rules = ([
     'currentPassword' => 'required|min:6',
     'newPassword' => 'required|min:6|confirmed',
@@ -20,6 +23,7 @@ class Profile extends Component
 
     public function render()
     {
+        //$this->lessonsCount = Teacher::find(Auth::user()->id)
         return view('livewire.user.profile')
         ->layout('components.layouts.admin-app');
     }

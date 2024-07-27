@@ -31,10 +31,12 @@ class UserLoginComponent extends Component
             // Redirect or do something after successful login
             if(Auth::user()->type == 'ADM') {
                 $this->redirect('/', navigate: true);
+            } elseif (Auth::user()->type == 'TCH') {
+                return redirect()->route('teacher.dashboard');
             } else {
                 return redirect()->intended('/');
             }
-            
+
         } else {
             $this->addError('email', 'The provided credentials do not match our records.');
         }

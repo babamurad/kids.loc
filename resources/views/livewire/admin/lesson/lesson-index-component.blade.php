@@ -7,7 +7,7 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Lessons</li>
                     </ol>
                 </div>
@@ -24,7 +24,7 @@
                             <h4 class="">Lessons List</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
-                            <a href="{{ route('admin.teacher-lessons.create', ['teacherId' => auth()->user()->teacher->id]) }}" class="btn btn-primary waves-effect waves-light">
+                            <a href="{{ route('teacher.teacher-lessons.create', ['teacherId' => auth()->user()->teacher->id]) }}" class="btn btn-primary waves-effect waves-light">
                                 Create
                             </a>
                         </div>
@@ -49,7 +49,7 @@
                             @foreach($lessons as $lesson)
                                 <tr wire:key="{{ $lesson->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td class="pr-0 mr-0"><a href="{{ route('admin.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}">
+                                    <td class="pr-0 mr-0"><a href="{{ route('teacher.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}">
                                             <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
                                             <strong>{{ $lesson->title }}</strong>
                                         </a>
@@ -70,8 +70,8 @@
 
                                     </td>
                                     <td style="width: 12%;">
-                                        <a href="{{ route('admin.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
-                                        {{-- <a href="{{ route('admin.teachers.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
+                                        <a href="{{ route('teacher.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
+                                        {{-- <a href="{{ route('teacher.teachers.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
                                         <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $lesson->id }})">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>

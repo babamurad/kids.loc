@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin\Lesson;
+namespace App\Livewire\Teacher\Lesson;
 
 use App\Models\Lesson;
-use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -22,7 +21,7 @@ class LessonIndexComponent extends Component
         $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->paginate(10) : collect();
 
         return view('livewire.admin.lesson.lesson-index-component', compact('lessons'))
-            ->layout('components.layouts.admin-app');
+            ->layout('components.layouts.teacher-app');
     }
 
     public function mount()

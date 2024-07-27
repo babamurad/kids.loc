@@ -1,4 +1,4 @@
-@section('title', 'Admin Lesson Edit')
+@section('title', 'Teacher Lesson Edit')
 <div class="container-fluid">
     <style>
         progress {
@@ -31,8 +31,8 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}">Lessons</a> </li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}">Lessons</a> </li>
                         <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
@@ -58,7 +58,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Close</a>
+                    <a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Close</a>
                     <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="update">Save changes</button>
                 </div>
             </div>

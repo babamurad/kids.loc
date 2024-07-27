@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin\Lesson;
+namespace App\Livewire\Teacher\Lesson;
 
 use App\Models\Category;
-use App\Models\Lesson;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -27,7 +26,7 @@ class LessonEditComponent extends Component
     {
         $categories = Category::all();
         return view('livewire.admin.lesson.lesson-edit-component', compact('categories'))
-            ->layout('components.layouts.admin-app');
+            ->layout('components.layouts.teacher-app');
     }
 
     public function mount($id, $teacherId)
@@ -99,7 +98,7 @@ class LessonEditComponent extends Component
 
         $this->resetInputFields();
         session()->flash('success', 'Data updated!');
-        return redirect()->route('admin.teacher-lessons', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
+        return redirect()->route('teacher.teacher-lessons', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
     }
 
     public function resetInputFields()

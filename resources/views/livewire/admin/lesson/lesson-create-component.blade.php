@@ -1,5 +1,28 @@
-@section('title', 'Admin Lesson Create')
+@section('title', 'Teacher Lesson Create')
 <div class="container-fluid">
+    <style>
+        progress {
+            width: 100%;
+            height: 15px;
+            appearance: none;
+        }
+
+        progress::-webkit-progress-bar {
+            background-color: #e9edf3;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #6d61ea;
+            border-radius: 5px;
+        }
+
+        progress::-moz-progress-bar {
+            background-color: #6d61ea;
+            border-radius: 5px;
+        }
+    </style>
     @include('components.alerts')
     <div class="row">
         <div class="col-12">
@@ -8,8 +31,8 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div>
@@ -35,7 +58,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('admin.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Close</a>
+                    <a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Close</a>
                     <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Save changes</button>
                 </div>
             </div>
@@ -59,7 +82,7 @@
                             <div class="mt-3">
                                 <h5>Video Preview:</h5>
                                 <video width="320" height="240" controls>
-                                    <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
+                                    <source src="{{ $video->temporaryUrl() }}?id={{ $videoPreviewId }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -67,12 +90,67 @@
 
                     <div class="form-group mt-1">
                         <label>Video</label>
-                        <div class="custom-file">
+                        <div class="custom-file"
+                             x-data="{ uploading: false, progress: 0 }"
+                             x-on:livewire-upload-start="uploading = true"
+                             x-on:livewire-upload-finish="uploading = false"
+                             x-on:livewire-upload-cancel="uploading = false"
+                             x-on:livewire-upload-error="uploading = false"
+                             x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        >
                             <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
                             <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Choose video @endif</label>
                             @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                            <!-- Progress Bar -->
+                            <div class="progress w-100 mt-1" x-show="uploading">
+                                <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+
+                                </progress>
+                            </div>
+                            <div x-show="uploading" class="mt-2">
+                                <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Cancel</button>
+                            </div>
                         </div>
                     </div>
+
+                        @if ($audio)
+                            <div class="mt-3">
+                                <h5>Audio görnüşi:</h5>
+                                <audio controls>
+                                    <source src="{{ $audio->temporaryUrl() }}">
+                                    Brauzeriňiz ses elementini goldamaýar.
+                                </audio>
+                            </div>
+                        @endif
+
+                        <div class="form-group mt-1">
+                            <label>Audio</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" id="audio" wire:model="audio" class="custom-file-input @error('audio') is-invalid @enderror" accept="audio/*">
+                                <label class="custom-file-label" for="audio">@if($audio){{ $audio->getClientOriginalName() }}@else Audio ýüklemek @endif</label>
+                                @error('audio') <span class="invalid-feedback">{{ $message }}</span> @enderror
+
+                                <!-- Progress Bar -->
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -86,35 +164,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm-6">
-                                <div class="row mt-4">
-                                    <div class="form-group row mb-3">
-                                        <label for="order" class="col-4 col-form-label pl-3">Order</label>
-                                        <div class="col-8">
-                                            <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="0" wire:model="order">
-                                            @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
-
-                        <div class="row my-3">
-                            <div class="col-sm-6">
-                                <div class="row form-group pl-5">
-                                    <div class="custom-control custom-checkbox mt-2 pl-2">
-                                        <input type="checkbox" class="custom-control-input" id="available" wire:model="available">
-                                        <label class="custom-control-label" for="available">Available</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="mr-2" for="until_date">Gutarýan wagty</label>
-                                <input class="form-control" type="date" name="until_date" wire:model="until_date">
-                            </div>
-                        </div>
-
 
                     <div class="form-group">
                         <label>Category</label>
@@ -125,6 +175,7 @@
                             @endforeach
                         </select>
                     </div>
+
                 </div>
             </div>
 
