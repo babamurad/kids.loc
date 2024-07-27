@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Lesson Create</h4>
+                <h4 class="mb-0 font-size-18">Sapak döretmek</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -45,7 +45,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title">Sözbaşy</label>
                         <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
@@ -58,8 +58,8 @@
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Close</a>
-                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Save changes</button>
+                    <a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}" class="btn btn-secondary waves-effect waves-light">Ýapmak</a>
+                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Ýatda sakla</button>
                 </div>
             </div>
         </div>
@@ -70,26 +70,26 @@
                         <img wire:model="image" class="img-fluid rounded" src="{{ $image->temporaryUrl() }}" alt="Lessons Foto">
                     @endif
                     <div class="form-group mt-1">
-                        <label>Main picture</label>
+                        <label>Esasy surat</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="image" wire:model="image">
-                            <label class="custom-file-label" for="image">@if($image){{ $image->getClientOriginalName() }}@else Choose file @endif</label>
+                            <label class="custom-file-label" for="image">@if($image){{ $image->getClientOriginalName() }}@else Surat saýla @endif</label>
                             @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
 
                         @if ($video)
                             <div class="mt-3">
-                                <h5>Video Preview:</h5>
+                                <h5>Wideo deslapky syn:</h5>
                                 <video width="320" height="240" controls>
                                     <source src="{{ $video->temporaryUrl() }}?id={{ $videoPreviewId }}" type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    Brauzeriňiz ses elementini goldamaýar.
                                 </video>
                             </div>
                         @endif
 
                     <div class="form-group mt-1">
-                        <label>Video</label>
+                        <label>Wideo</label>
                         <div class="custom-file"
                              x-data="{ uploading: false, progress: 0 }"
                              x-on:livewire-upload-start="uploading = true"
@@ -99,7 +99,7 @@
                              x-on:livewire-upload-progress="progress = $event.detail.progress"
                         >
                             <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
-                            <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Choose video @endif</label>
+                            <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Wideo saýla @endif</label>
                             @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                             <!-- Progress Bar -->
@@ -109,7 +109,7 @@
                                 </progress>
                             </div>
                             <div x-show="uploading" class="mt-2">
-                                <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Cancel</button>
+                                <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Ýatyrmak</button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                                     <div class="form-group pl-5">
                                         <div class="custom-control custom-checkbox mt-2 pl-2">
                                             <input type="checkbox" class="custom-control-input" id="status" wire:model="status">
-                                            <label class="custom-control-label" for="status">Published</label>
+                                            <label class="custom-control-label" for="status">Neşir et</label>
                                         </div>
                                     </div>
                                 </div>
@@ -167,9 +167,9 @@
                         </div>
 
                     <div class="form-group">
-                        <label>Category</label>
+                        <label>Kategoriýa</label>
                         <select class="form-control mb-3" wire:model="category_id">
-                            <option value="">Select Category</option>
+                            <option value="">Kategoriýany saýlamak</option>
                             @foreach ($categories as $category)
                                 <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
