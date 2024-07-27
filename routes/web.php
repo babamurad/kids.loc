@@ -30,11 +30,13 @@ Route::get('register', UserRagisterComponent::class)->name('register');
 Route::get('login', UserLoginComponent::class)->name('login');
 Route::get('logout', LogoutComponent::class)->name('logout');
 
-Route::get('teacher-dashboard', \App\Livewire\Teacher\TeacherDashboard::class)->name('teacher.dashboard');
-Route::get('teacher-change-password', \App\Livewire\Teacher\ChangePassword::class)->name('teacher.change.password');
-Route::get('teacher-lessons/{teacherId}', \App\Livewire\Teacher\Lesson\LessonIndexComponent::class)->name('teacher.teacher-lessons');
-Route::get('teacher-lessons/{teacherId}/create', \App\Livewire\Teacher\Lesson\LessonCreateComponent::class)->name('teacher.teacher-lessons.create');
-Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Teacher\Lesson\LessonEditComponent::class)->name('teacher.teacher-lessons.edit');
+Route::middleware('teacher')->group(function() {
+    Route::get('teacher-dashboard', \App\Livewire\Teacher\TeacherDashboard::class)->name('teacher.dashboard');
+    Route::get('teacher-change-password', \App\Livewire\Teacher\ChangePassword::class)->name('teacher.change.password');
+    Route::get('teacher-lessons/{teacherId}', \App\Livewire\Teacher\Lesson\LessonIndexComponent::class)->name('teacher.teacher-lessons');
+    Route::get('teacher-lessons/{teacherId}/create', \App\Livewire\Teacher\Lesson\LessonCreateComponent::class)->name('teacher.teacher-lessons.create');
+    Route::get('teacher-lessons/{teacherId}/edit/{id}', \App\Livewire\Teacher\Lesson\LessonEditComponent::class)->name('teacher.teacher-lessons.edit');
+});
 
 Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('dashboard', \App\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');

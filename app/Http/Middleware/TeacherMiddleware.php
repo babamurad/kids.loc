@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class TeacherMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Проверяем, авторизован ли пользователь и его тип
-        if ($request->user() && ($request->user()->type === 'ADM')) {
+        if ($request->user() && ($request->user()->type === 'TCH')) {
             return $next($request);
         }
 
