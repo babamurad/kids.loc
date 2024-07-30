@@ -17,17 +17,17 @@ class SingleLessonComponent extends Component
 
     public function mount($id)
     {
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::with('teacher')->findOrFail($id);
         $this->title = $lesson->title;
         $this->image = $lesson->image;
         $this->video = $lesson->video;
         $this->content = $lesson->content;
         $this->created_at = $lesson->created_at;
 
-        $teacher = \Auth::user()->teacher;
-        $this->FirstName = $teacher->firstname;
-        $this->LastName = $teacher->lastname;
-        $this->position = $teacher->position;
+//        $teacher = \Auth::user()->teacher;
+        $this->FirstName = $lesson->teacher->firstname;
+        $this->LastName = $lesson->teacher->lastname;
+        $this->position = $lesson->teacher->position;
 
     }
 }

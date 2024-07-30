@@ -22,7 +22,7 @@
                 <h2 class="banner-title display-2 text-white">Teachers</h2>
                 <nav class="breadcrumb">
                     <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}" wire:navigate>Sapaklar</a>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}">Sapaklar</a>
                     <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapak</span>
                 </nav>
             </div>

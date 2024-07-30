@@ -1,5 +1,21 @@
 <div>
     @section('title', 'Jadyly sabdyk')
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 0;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+        .card-body {
+            flex-grow: 1;
+        }
+    </style>
 
     <section id="banner" class="jarallax position-relative"
              style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
@@ -45,16 +61,17 @@
                 <div class="col-sm-10">
                     <div class="isotope-container row" style="position: relative; height: 650px;">
                     @foreach($lessons as $lesson)
-                        <div class="item {{ 'cat' . $lesson->category->id }} col-md-3 text-center">
-                            <div class="card mb-3 px-0">
-                                <a href="{{ route('single-lesson', ['id' => $lesson->id]) }}"><img class="card-img-top img-thumbnail" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt=""></a>
+                        <div class="item {{ 'cat' . $lesson->category->id }} col-md-3 text-center card p-0">
+                            <a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">
+                                <img class="card-img-top" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
+                            </a>
+                            <div class="card-body mb-3">
                                 <div class="card-body">
-                                    <div class="card-header">{{ Carbon\Carbon::create($lesson->until_date)->format('d.m.Y') }}</div>
+                                    <div class="card-header">{{ $lesson->teacher->firstname . ' ' . $lesson->teacher->lastname }}</div>
                                     <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ substr($lesson->title, 0, 20) }}{{ strlen($lesson->content) > 20 ? '...' : '' }}</a></div>
                                     <div class="card-footer">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
                                 </div>
                             </div>
-
                         </div>
                     @endforeach
                     </div>
