@@ -7,7 +7,12 @@
         |
     </li>
     <li class="social-icon text-white d-flex align-items-center ">
-        <a href="{{ route('admin.dashboard') }}" wire:navigate>Dashboard</a>
+        @if(auth()->user()->teacher)
+            <a href="{{ route('teacher.dashboard') }}" wire:navigate>Dashboard</a>
+        @elseif(auth()->user()->type == 'ADM')
+            <a href="{{ route('admin.dashboard') }}" wire:navigate>Dashboard</a>
+        @endif
+
     </li>
     @endif
 

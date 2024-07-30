@@ -1,4 +1,14 @@
 @section('title', 'Admin Lessons List')
+@push('select-css')
+    <link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+@endpush
+@push('select-js')
+    <script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+    <script>
+        // Select2
+        $('[data-toggle="select2"]').select2();
+    </script>
+@endpush
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -30,7 +40,7 @@
                                 </div>
                                 <div class="col-sm-9">
                                     <select class="form-control mb-3" wire:model.live="categoryId">
-                                        <option value="0">Select Category</option>
+                                        <option value="0">Hemmesi</option>
                                         @foreach ($categories as $category)
                                             <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
@@ -45,8 +55,16 @@
                                     <label>Teacher</label>
                                 </div>
                                 <div class="col-sm-9">
+                                    <div class="form-group" data-select2-id="7" wire:model.live="teacherId">
+                                        <select class="form-control"  data-toggle="select2">
+                                            <option value="0">Hemmesi</option>
+                                            @foreach ($teachers as $teacher)
+                                                <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <select class="form-control mb-3" wire:model.live="teacherId">
-                                        <option value="0">Select Teacher</option>
+                                        <option value="0">Hemmesi</option>
                                         @foreach ($teachers as $teacher)
                                             <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
                                         @endforeach

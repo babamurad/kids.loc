@@ -57,7 +57,7 @@
     <div class="post-wrap mb-5">
         <div class="container">
             <div class="row g-md-5">
-                <main class="post-grid col-md-8">
+                <main class="post-grid col-md-12">
                     @if ($video)
                        <div class="col-sm-12">
                         <video class="w-100" controls>

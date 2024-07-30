@@ -74,34 +74,34 @@
                              @error('image') style="border: solid 1px red;" @enderror>
                     @endif
                     <div class="form-group mt-1">
-                        <label>Main picture</label>
+                        <label>Esasy surat</label>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror" id="newImage" wire:model="newImage">
-                            <label class="custom-file-label" for="newImage">Choose file</label>
+                            <label class="custom-file-label" for="newImage">Surat saýlamak</label>
                             @error('newImage')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
 
                     @if ($newVideo)
                         <div class="mt-3">
-                            <h5>Video Preview:</h5>
+{{--                            <h5>Wideony görmek:</h5>--}}
                             <video id="video-preview" width="320" height="240" controls wire:key="{{ $newVideo->hashName() }}">
                                 <source src="{{ $newVideo->temporaryUrl() }}" type="video/mp4">
-                                Your browser does not support the video tag.
+                                Brauzeriňiz ses elementini goldamaýar.
                             </video>
                         </div>
                     @else
                         <div class="mt-3">
-                            <h5>Video Preview:</h5>
+{{--                            <h5>Wideony görmek:</h5>--}}
                             <video width="320" height="240" controls>
                                 <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
-                                Your browser does not support the video tag.
+                                Brauzeriňiz ses elementini goldamaýar.
                             </video>
                         </div>
                     @endif
 
                     <div class="form-group mt-1">
-                        <label>Video</label>
+                        <label>Wideo</label>
                         <div class="custom-file"
                              x-data="{ uploading: false, progress: 0 }"
                              x-on:livewire-upload-start="uploading = true"
@@ -111,7 +111,7 @@
                              x-on:livewire-upload-progress="progress = $event.detail.progress"
                         >
                             <input type="file" class="custom-file-input @error('newVideo') is-invalid @enderror" id="newVideo" wire:model="newVideo" accept="video/*">
-                            <label class="custom-file-label" for="newVideo">@if ($newVideo) {{ $newVideo->getClientOriginalName() }} @else Choose video @endif</label>
+                            <label class="custom-file-label" for="newVideo">@if ($newVideo) {{ $newVideo->getClientOriginalName() }} @else Wideo saýlamak @endif</label>
                             @error('newVideo')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                             <!-- Progress Bar -->
@@ -127,52 +127,133 @@
                         </div>
                     </div>
 
+                        @if ($newAudio)
+                            <div class="mt-3">
+{{--                                <h5>Audio:</h5>--}}
+                                <audio id="audio-preview" width="320" height="240" controls wire:key="{{ $newAudio->hashName() }}">
+                                    <source src="{{ $newAudio->temporaryUrl() }}" type="audio/mp3">
+                                    Brauzeriňiz ses elementini goldamaýar.
+                                </audio>
+                            </div>
+                        @else
+                            <div class="mt-3">
+{{--                                <h5>Audio:</h5>--}}
+                                <audio width="320" height="240" controls>
+                                    <source src="{{ asset('images/lesson/audio/') . '/' . $audio }}" type="audio/mp3">
+                                    Brauzeriňiz ses elementini goldamaýar.
+                                </audio>
+                            </div>
+                        @endif
+
+                        <div class="form-group mt-1">
+                            <label>Audio</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" class="custom-file-input @error('newAudio') is-invalid @enderror" id="newAudio" wire:model="newAudio" accept="audio/*">
+                                <label class="custom-file-label" for="newAudio">@if ($newAudio) {{ $newAudio->getClientOriginalName() }} @else Audio saýlamak @endif</label>
+                                @error('newAudio')<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                                <!-- Progress Bar -->
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Cancel</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        @if ($file)
+                            <div class="mt-3">
+                                <label>Faýla deslapky syn:</label>
+                                <a href="{{ $file }}">@if($file){{ asset('/images/lesson/files'). '/' . $file }}@else Faýl saýla @endif</a>
+                            </div>
+{{--                            <iframe src="{{ $previewUrl }}" width="100%" height="600px"></iframe>--}}
+{{--                            <iframe src="{{ asset('/images/lesson/files'). '/' . $file }}" width="100%" height="600px"></iframe>--}}
+                        @endif
+
+                        <div class="form-group mt-1">
+                            <label>File</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" class="custom-file-input @error('newFile') is-invalid @enderror" id="newFile" wire:model="newFile" accept="file/*">
+                                <label class="custom-file-label" for="newFile">@if ($newFile) {{ $newFile->getClientOriginalName() }} @else File saýlamak @endif</label>
+                                @error('newFile')<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                                <!-- Progress Bar -->
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button">Cancel</button>
+                                </div>
+
+                            </div>
+                        </div>
+
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="row mt-4">
                                 <div class="form-group pl-5">
                                     <div class="custom-control custom-checkbox mt-2 pl-2">
-                                        <input type="checkbox" class="custom-control-input" id="status" wire:model="status">
-                                        <label class="custom-control-label" for="status">Published</label>
+                                        <input type="checkbox" class="custom-control-input" id="status" wire:model="status" @if($status) checked @endif>
+                                        <label class="custom-control-label" for="status">Neşir</label>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="col-sm-6">
-                            <div class="row mt-4">
-                                <div class="form-group row mb-3">
-                                    <label for="order" class="col-4 col-form-label pl-3">Order</label>
-                                    <div class="col-8">
-                                        <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="0" wire:model="order">
-                                        @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                            </div>
+{{--                        <div class="col-sm-6">--}}
+{{--                            <div class="row mt-4">--}}
+{{--                                <div class="form-group row mb-3">--}}
+{{--                                    <label for="order" class="col-4 col-form-label pl-3">Order</label>--}}
+{{--                                    <div class="col-8">--}}
+{{--                                        <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="0" wire:model="order">--}}
+{{--                                        @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
                     </div>
 
-                    <div class="row my-3">
-                        <div class="col-sm-6">
-                            <div class="row form-group pl-5">
-                                <div class="custom-control custom-checkbox mt-2 pl-2">
-                                    <input type="checkbox" class="custom-control-input" id="available" wire:model="available">
-                                    <label class="custom-control-label" for="available">Available</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="mr-2" for="until_date">Gutarýan wagty</label>
-                            <input class="form-control" type="date" name="until_date" wire:model="until_date">
-                        </div>
-                    </div>
+{{--                    <div class="row my-3">--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <div class="row form-group pl-5">--}}
+{{--                                <div class="custom-control custom-checkbox mt-2 pl-2">--}}
+{{--                                    <input type="checkbox" class="custom-control-input" id="available" wire:model="available">--}}
+{{--                                    <label class="custom-control-label" for="available">Available</label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <label class="mr-2" for="until_date">Gutarýan wagty</label>--}}
+{{--                            <input class="form-control" type="date" name="until_date" wire:model="until_date">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
                     <div class="form-group">
-                        <label>Category</label>
+                        <label>Kategoriýa</label>
                         <select class="form-control mb-3" wire:model="category_id">
-                            <option value="">Select Category</option>
+                            <option value="">Kategoriýany saýlamak</option>
                             @foreach ($categories as $category)
                                 <option wire:key="{{ $category->id }}" value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

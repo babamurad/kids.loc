@@ -95,7 +95,6 @@
             </div>
 
             <div class="d-flex align-items-center">
-
                 <div class="dropdown d-none d-sm-inline-block ml-2">
                     <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-search-dropdown" data-toggle="dropdown" aria-haspopup="true"

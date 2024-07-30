@@ -22,6 +22,7 @@
     {{-- @stack('editor-css') --}}
     {{-- @livewireStyles   --}}
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
+    @stack('select-css')
 
 
 </head>
@@ -239,7 +240,7 @@
 <!-- include summernote css/js -->
 <link href="{{ asset('admin/assets/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet">
 <script src="{{ asset('admin/assets/plugins/summernote/summernote-bs4.js') }}"></script>
-
+@stack('select-js')
 
 </body>
 

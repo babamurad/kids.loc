@@ -70,7 +70,6 @@ class LessonsIndexComponent extends Component
                 session()->put('teacherName', $this->teacherName);
             }
         }
-
     }
 
     public function updatedCategoryId()

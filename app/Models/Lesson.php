@@ -10,7 +10,7 @@ class Lesson extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'image', 'video', 'category_id', 'teacher_id', 'status', 'order', 'until_date', 'available'];
+    protected $fillable = ['title', 'content', 'image', 'video', 'audio', 'file', 'category_id', 'teacher_id', 'status', 'order', 'until_date', 'available'];
 
     public function category(): BelongsTo
     {

@@ -11,17 +11,19 @@ use Livewire\WithFileUploads;
 class LessonCreateComponent extends Component
 {
     use WithFileUploads;
-    public $title, $content, $image, $video, $audio, $status, $order, $until_date, $available, $category_id, $teacher_id;
+    public $title, $content, $image, $video, $audio, $file, $status, $order, $until_date, $available, $category_id, $teacher_id;
     public $audioPreviewId;
     public $videoPreviewId;
+    public $previewUrl;
 
     protected $rules = [
       'title' => 'required|string|min:5',
       'content' => 'required|min:50',
 //      'video' => 'required|mimes:mp4,mov,avi|max:100MB',
     //   'video' => 'required|mimes:mp4,mov,ogg,qt',//|max:204800
-      'audio' => 'required|mimes:mp3,wav,ogg|max:12288', // 12MB max size
-      'available' => 'required',
+//      'file' => 'required|mimes:pdf,ppt,pptx,doc,docx|max:12288',
+//      'audio' => 'required|mimes:mp3,wav,ogg|max:12288', // 12MB max size
+//      'available' => 'required',
       'category_id' => 'required|integer',
     ];
 
@@ -46,9 +48,9 @@ class LessonCreateComponent extends Component
         $lesson->title = $this->title;
         $lesson->content = $this->content;
         $lesson->status = $this->status;
-        $lesson->order = $this->order;
-        $lesson->until_date = $this->until_date;
-        $lesson->available = $this->available;
+        $lesson->order = $this->order ?? 0;
+        $lesson->until_date = $this->until_date ?? now();
+        $lesson->available = $this->available ?? 1;
         $lesson->category_id = $this->category_id;
         $lesson->teacher_id = auth()->user()->teacher->id;
 
@@ -66,13 +68,25 @@ class LessonCreateComponent extends Component
         if($this->audio) {
             $audioName = Carbon::now()->timestamp.'.'.$this->audio->extension();
             $this->audio->storeAs('/lesson/audio', $audioName);
-            $lesson->audio = $$audioName;
+            $lesson->audio = $audioName;
         }
-
+        if($this->file) {
+            $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
+            $this->file->storeAs('/lesson/files', $fileName);
+            $lesson->file = $fileName;
+        }
 
         $lesson->save();
         session()->flash('success', 'User data updated!');
         return redirect()->route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]);
+    }
+
+    public function updatedFile($newFile)
+    {
+        // ... валидация и сохранение файла
+
+        // Преобразование в URL для предварительного просмотра (например, используя Office.js)
+        $this->previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' . urlencode(url(asset('/images/lesson/files'). '/' . $this->file));
     }
 
     public function updateAudio()

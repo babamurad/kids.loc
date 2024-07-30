@@ -11,7 +11,7 @@ class FrontLessonsComonent extends Component
     public function render()
     {
         $categories = Category::all();
-        $lessons = Lesson::with('category', 'teacher')->status()->get();
+        $lessons = Lesson::with('category', 'teacher')->status()->orderBy('order')->get();
         return view('livewire.front-lessons-comonent', compact('categories', 'lessons'));
     }
 }

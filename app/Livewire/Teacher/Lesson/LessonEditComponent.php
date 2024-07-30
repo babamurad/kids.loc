@@ -12,8 +12,9 @@ class LessonEditComponent extends Component
 {
     use WithFileUploads;
     public $idl, $teacherId;
-    public $title, $content, $image, $video, $status, $order, $until_date, $available, $category_id, $teacher_id;
-    public $newImage, $newVideo;
+    public $title, $content, $image, $video, $audio, $file, $status, $order, $until_date, $available, $category_id, $teacher_id;
+    public $newImage, $newVideo, $newAudio, $newFile;
+    public $previewUrl;
 
     protected $rules = [
         'title' => 'required|string|min:5',
@@ -38,12 +39,16 @@ class LessonEditComponent extends Component
         $this->content = $lesson->content;
         $this->image = $lesson->image;
         $this->video = $lesson->video;
+        $this->audio = $lesson->audio;
+        $this->file = $lesson->file;
         $this->status = $lesson->status;
         $this->order = $lesson->order;
         $this->until_date = $lesson->until_date;
         $this->available = $lesson->available;
         $this->category_id = $lesson->category_id;
         $this->teacher_id = $lesson->teacher_id;
+
+        //$this->previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' . urlencode(asset('/images/lesson/files'). '/' . $this->file);
     }
 
     public function changeVideo()
@@ -92,6 +97,22 @@ class LessonEditComponent extends Component
             $videoName = Carbon::now()->timestamp.'.'.$this->newVideo->extension();
             $this->newVideo->storeAs('lesson/video/', $videoName);
             $lesson->video = $videoName;
+        }
+        if ($this->newAudio){
+            if (file_exists('lesson/audio'.$this->newAudio)){
+                unlink('lesson/audio/'.$this->newAudio);
+            }
+            $audioName = Carbon::now()->timestamp.'.'.$this->newAudio->extension();
+            $this->newAudio->storeAs('lesson/audio/', $audioName);
+            $lesson->audio = $audioName;
+        }
+        if ($this->newFile){
+            if (file_exists('lesson/files'.$this->newFile)){
+                unlink('lesson/files/'.$this->newFile);
+            }
+            $fileName = Carbon::now()->timestamp.'.'.$this->newFile->extension();
+            $this->newFile->storeAs('lesson/files/', $fileName);
+            $lesson->file = $fileName;
         }
 
         $lesson->update();

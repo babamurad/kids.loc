@@ -19,7 +19,7 @@ class LessonIndexComponent extends Component
 
     public function render()
     {
-        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->paginate($this->perPage) : collect();
+        $lessons = $this->teacherId ? Auth::user()->teacher->lessons()->with('category')->orderBy('order')->paginate($this->perPage) : collect();
 
         return view('livewire.admin.lesson.lesson-index-component', compact('lessons'))
             ->layout('components.layouts.teacher-app');

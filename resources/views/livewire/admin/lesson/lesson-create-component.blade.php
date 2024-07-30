@@ -150,7 +150,38 @@
                             </div>
                         </div>
 
+                        @if ($file)
+                            <div class="mt-3">
+                                <label>Faýla deslapky syn:</label>
+                                <a href="{{ $file->temporaryUrl() }}">@if($file){{ $file->getClientOriginalName() }}@else Faýl saýla @endif</a>
+                            </div>
+                        @endif
 
+                        <div class="form-group mt-1">
+                            <label>Faýl</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" class="custom-file-input @error('file') is-invalid @enderror" id="file" wire:model="file" accept="file/*">
+                                <label class="custom-file-label" for="file">@if($file){{ $file->getClientOriginalName() }}@else Faýl saýla @endif</label>
+                                @error('file')<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                                <!-- Progress Bar -->
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button">Ýatyrmak</button>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -192,10 +223,26 @@
 @endpush
 
 @push('editor-js')
+{{--    <script src="{{ asset('/admin/assets/pages/quilljs-demo.js') }}"></script>--}}
     <script>
+
         $(document).ready(function () {
             $('#summernote').summernote({
                 height: 400,
+                toolbar: [
+                    // Добавьте другие группы кнопок здесь
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']], // Добавляем опцию размера шрифта
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                fontsize: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '32', '36', '48', '64', '82', '100'] // Опционально: задаем список размеров шрифтов
+
             });
         });
 
