@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Lessons;
 use App\Models\Category;
 use App\Models\Lesson;
 use App\Models\Teacher;
+use Livewire\Attributes\Modelable;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,7 +14,9 @@ class LessonsIndexComponent extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $teacherId, $teacherName;
+
+    public $teacherId;
+    public $teacherName;
     public $categoryId, $categoryName;
     public $perPage = 5;
     public $sort = 'DESC';
@@ -70,6 +73,7 @@ class LessonsIndexComponent extends Component
                 session()->put('teacherName', $this->teacherName);
             }
         }
+        $this->dispatch('tidUpdate');
     }
 
     public function updatedCategoryId()

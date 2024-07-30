@@ -1,14 +1,33 @@
 @section('title', 'Admin Lessons List')
+@assets
+<link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+@endassets
 @push('select-css')
-    <link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+
 @endpush
 @push('select-js')
-    <script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+
     <script>
-        // Select2
-        $('[data-toggle="select2"]').select2();
+        // $('[data-toggle="select2"]').select2();
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+
+            $('#teacherId').select2();
+            console.log('ready');
+            $('#teacherId').on('change', function (event){
+                console.log(event.target.value);
+                @this.set('teacherId', event.target.value);
+            });
+        });
+        window.addEventListener('tidUpdate', event=> {
+            //$('#teacherId').select2();
+            console.log('tidUpdate');
+        })
     </script>
 @endpush
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -55,20 +74,20 @@
                                     <label>Teacher</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <div class="form-group" data-select2-id="7" wire:model.live="teacherId">
-                                        <select class="form-control"  data-toggle="select2">
+                                    <div wire:ignore class="form-group" data-select2-id="7">
+                                        <select id="teacherId" class="form-control"  data-toggle="select2" wire:model.live="teacherId">
                                             <option value="0">Hemmesi</option>
                                             @foreach ($teachers as $teacher)
                                                 <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <select class="form-control mb-3" wire:model.live="teacherId">
-                                        <option value="0">Hemmesi</option>
-                                        @foreach ($teachers as $teacher)
-                                            <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
-                                        @endforeach
-                                    </select>
+{{--                                    <select class="form-control mb-3" wire:model.live="teacherId">--}}
+{{--                                        <option value="0">Hemmesi</option>--}}
+{{--                                        @foreach ($teachers as $teacher)--}}
+{{--                                            <option wire:key="{{ $teacher->id }}" value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
                                 </div>
                             </div>
                         </div>
