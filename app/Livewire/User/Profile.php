@@ -13,7 +13,7 @@ class Profile extends Component
     public $currentPassword;
     public $newPassword;
     public $newPasswordConfirmation;
-    public $lessonsCount;
+    public $lessonCount;
 
     protected $rules = ([
     'currentPassword' => 'required|min:6',
@@ -23,9 +23,15 @@ class Profile extends Component
 
     public function render()
     {
-        //$this->lessonsCount = Teacher::find(Auth::user()->id)
         return view('livewire.user.profile')
         ->layout('components.layouts.admin-app');
+    }
+
+    public function mount()
+    {
+        $teacher = Auth::user()->teacher;
+
+        $this->lessonCount = $teacher ? $teacher->lessons()->count() : 0;
     }
 
     public function resetPassword()

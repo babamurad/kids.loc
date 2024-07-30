@@ -21,9 +21,9 @@
             <div class="hero-content ">
                 <h2 class="banner-title display-2 text-white">Teachers</h2>
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Home</a>
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}" wire:navigate>Lessons</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Single Lesson</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}" wire:navigate>Sapaklar</a>
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapak</span>
                 </nav>
             </div>
         </div>
@@ -36,16 +36,21 @@
                 {{ Carbon\Carbon::create($created_at)->format('M, d.Y') }}
             </div>
             <div class=" align-self-end fs-5">&nbsp; | &nbsp;</div>
-            <div><iconify-icon icon="mdi:location" class="text-primary fs-5 pt-1" style="vertical-align: sub;"></iconify-icon>
-                Newyork City, USA</div>
+            <div>
+{{--                <iconify-icon icon="mdi:location" class="text-primary fs-5 pt-1" style="vertical-align: sub;"></iconify-icon>--}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#f1a017" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5M20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1z"/></svg>
+                {{ $FirstName . ' ' . $LastName }}</div>
             <div class=" align-self-end fs-5">&nbsp; | &nbsp;</div>
-            <div><iconify-icon icon="solar:phone-bold" class="text-primary fs-5 pt-1" style="vertical-align: sub;"></iconify-icon> (510) 710-3464</div>
+            <div>
+{{--                <iconify-icon icon="solar:phone-bold" class="text-primary fs-5 pt-1" style="vertical-align: sub;"></iconify-icon>--}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#f1a017" d="M20 17a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H9.46c.35.61.54 1.3.54 2h10v11h-9v2m4-10v2H9v13H7v-6H5v6H3v-8H1.5V9a2 2 0 0 1 2-2zM8 4a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2a2 2 0 0 1 2 2"/></svg>
+                {{ $position }}</div>
         </div>
         @if ($image)
          <div class="col-sm-12">
             <img src="{{ asset('images/lesson/images/'.$image) }}" alt="single-post" class="img-fluid">
-        </div>   
-        @endif        
+        </div>
+        @endif
 
     </div>
 
@@ -59,43 +64,14 @@
                             <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                    </div> 
-                    @endif                    
+                    </div>
+                    @endif
 
                     <div class="post-description">
                         {!! $content !!}
                     </div>
 
                 </main>
-                <aside class="col-md-4 mt-5">
-                    <div class="post-sidebar">
-
-                        <div class="reviews-components widget sidebar-categories rounded-3 p-4 p-md-5 mb-5">
-                            <h2 class="widget-title border-bottom pb-3">Event Info:</h2>
-                            <table class="table">
-                                <tbody>
-                                <tr>
-                                    <th class="heading-color" scope="row">Cost :</th>
-                                    <td class="text-primary fw-bold">$80.00</td>
-                                </tr>
-                                <tr>
-                                    <th class="heading-color" scope="row">Total Slot :</th>
-                                    <td>300</td>
-                                </tr>
-                                <tr>
-                                    <th class="heading-color" scope="row">Booked Slot :</th>
-                                    <td>50</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div class="d-grid text-center">
-                                <button class="btn btn-primary px-5 py-3 my-2">Book now</button>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </aside>
             </div>
         </div>
     </div>

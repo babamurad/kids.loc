@@ -50,7 +50,7 @@
                                 <a href="{{ route('single-lesson', ['id' => $lesson->id]) }}"><img class="card-img-top img-thumbnail" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt=""></a>
                                 <div class="card-body">
                                     <div class="card-header">{{ Carbon\Carbon::create($lesson->until_date)->format('d.m.Y') }}</div>
-                                    <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ $lesson->title }}</a></div>
+                                    <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ substr($lesson->title, 0, 20) }}{{ strlen($lesson->content) > 20 ? '...' : '' }}</a></div>
                                     <div class="card-footer">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
                                 </div>
                             </div>

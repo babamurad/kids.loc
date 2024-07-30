@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Lessons</h4>
+                <h4 class="mb-0 font-size-18">Sapaklar</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Lessons</li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Sapaklar</li>
                     </ol>
                 </div>
 
@@ -21,16 +21,16 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Lessons List</h4>
+                            <h4 class="">Sapaklaryň sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <a href="{{ route('teacher.teacher-lessons.create', ['teacherId' => auth()->user()->teacher->id]) }}" class="btn btn-primary waves-effect waves-light">
-                                Create
+                                Döret
                             </a>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="row justify-content-end">
-                                <div class="col-sm-3"><label for="perPage">Per Page</label></div>
+                                <div class="col-sm-3"><label for="perPage">Sahypada</label></div>
                                 <div class="col-sm-3">
                                     <select name="perPage" class="form-control form-control-sm" wire:model.live="perPage">
                                         <option>4</option>
@@ -49,12 +49,12 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Published</th>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Ady</th>
+                                <th>Kategoriýa</th>
+                                <th>Neşir</th>
+                                <th>Tertip</th>
+                                <th>Sene</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -71,9 +71,9 @@
                                     <td>
                                         <label>
                                             @if ( $lesson->status )
-                                                <span class="badge badge-success">Published</span>
+                                                <span class="badge badge-success">Neşir edilen</span>
                                             @else
-                                                <span class="badge badge-danger">Not Published</span>
+                                                <span class="badge badge-danger">Neşir edilmedi</span>
                                             @endif
                                         </label>
                                     </td>
@@ -117,17 +117,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Öçürmek isleýäňizmi?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Ýatyr</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçürmek</button>
                 </div>
             </div>
         </div>

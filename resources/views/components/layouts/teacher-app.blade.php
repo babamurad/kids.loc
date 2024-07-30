@@ -49,12 +49,12 @@
                     <li class="menu-title">Menu</li>
                     <li>
                         <a href="{{ route('teacher.dashboard') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-home-circle"></i><span>Dashboard</span>
+                            <i class="bx bx-home-circle"></i><span>Dolandyryş</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}" class="waves-effect" wire:navigate>
-                            <i class="bx bxs-notepad"></i><span>Lessons</span>
+                            <i class="bx bxs-notepad"></i><span>Sapaklar</span>
                         </a>
                     </li>
                     <li>
@@ -81,29 +81,14 @@
                 <div class="dropdown d-none d-sm-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="mdi mdi-plus"></i> Create New
+                        <i class="mdi mdi-plus"></i> Täze döret
                         <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                     </button>
                     <div class="dropdown-menu">
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            Application
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            Software
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            EMS System
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            CRM App
+                        <a href="{{ route('teacher.teacher-lessons.create', ['teacherId' => auth()->user()->teacher->id]) }}" class="dropdown-item notify-item">
+                            Sapak
                         </a>
                     </div>
                 </div>
