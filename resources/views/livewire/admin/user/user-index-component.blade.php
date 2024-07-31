@@ -1,6 +1,7 @@
 @section('title', 'Admin Users')
 <div class="container-fluid">
     <div class="row">
+        @include('components.alerts')
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Users</h4>
@@ -11,6 +12,7 @@
                         <li class="breadcrumb-item active">Users</li>
                     </ol>
                 </div>
+
 
             </div>
         </div>

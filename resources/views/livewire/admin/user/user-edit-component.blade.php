@@ -44,12 +44,27 @@
                                 <label for="type">Teachers</label>
                                 <select class="form-control" id="teacherId" wire:model="teacherId">
                                     @foreach($teachers as $teacher)
-                                        <option value="{{ $teacher->id }}">{{ $teacher->firstname . ' ' . $teacher->lastname }}</option>
+                                        <option value="{{ $teacher->id }}" @if($teacherId == $teacher->id) selected @endif>
+                                            {{ $teacher->firstname . ' ' . $teacher->lastname }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
                         @endif
                     @endif
+
+                    <div class="form-group">
+                        <input wire:model="password" type="password" name="password" placeholder="Password"
+                               class="form-control @error('password') is-invalid @enderror">
+                        @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input wire:model="password_confirmation" type="password" name="confirmed_password" placeholder="Confirmed Password" class="form-control">
+                    </div>
+
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.users') }}" class="btn btn-secondary waves-effect waves-light" wire:navigate>Close</a>

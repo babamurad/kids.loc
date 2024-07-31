@@ -1,7 +1,7 @@
-Gaming Playground videolar, taze sapaklar, oyunlar, careler
+Gaming Playground videolar, taze sapaklar, oyunlar, careler --сделано
 
-search, filter for users and teachers
-sort teachers
+search, filter for users and teachers --сделано
+sort teachers --сделано
 
 Сначала пользователь регистрируется, потом администратор создает учителя и делает привязку пользователь - учитель.
 Только после этого учитель может авторизоваться чтобы зайти в админ панель.
@@ -24,15 +24,15 @@ Change visibility front lessons (card) --сделано
 Admin Lessons Index delete -- --сделано
 Admin Lessons View One Lesson -- --сделано
 
-Нужно сделать функционал для изменения пароля пользователей администратором --
-
 Сделать имитацию системы оплаты, Платной подписки с ограниченным сроком для просмотра уроков. --
 
 
 Добавить возможность доавление аудио файла --сделано
-Добавить возможность доавление офисных файлов файла
+Добавить возможность доавление офисных файлов --сделано
 
-Select Admin Teachers select 2
+Select Admin Teachers select 2 --сделано
+
+Нужно сделать функционал для изменения пароля пользователей администратором --
 
 
 
