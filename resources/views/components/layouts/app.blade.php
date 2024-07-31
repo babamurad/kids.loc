@@ -83,18 +83,7 @@
     <nav class="header-top bg-dark py-1">
         <div class="container">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <ul class="info d-flex flex-wrap list-unstyled m-0">
-                    <li class="location text-capitalize text-white d-flex align-items-center me-4">
-                        <svg class="me-1" width="18" height="18">
-                            <use xlink:href="#location"></use>
-                        </svg>State Road 54 Trinity, Florida
-                    </li>
-                    <li class="phone text-capitalize text-white d-flex align-items-center me-4">
-                        <svg class="me-1" width="18" height="18">
-                            <use xlink:href="#phone"></use>
-                        </svg>call: 666 333 9999
-                    </li>
-                </ul>
+                <livewire:header-address />
                 <div class="social">
                         @auth
                             @livewire('user.logout-component')
@@ -165,42 +154,8 @@
 
 <footer id="footer" class="bg-gray">
 
-    <div class="container text-center pt-4">
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>Mekdebe çenli bilim we terbiýe</h2>
-                <h5>Türkmenistanyň Bilim Ministrligi</h5>
-            </div>
-            <div class="col-sm-6">
-                <a class="navbar-brand" href="#">
-                    <h2>Ministrlik</h2>
-                </a>
-                <ul class="info list-unstyled mt-4">
-                    <li class="location text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                        <svg class="text-primary me-1" width="18" height="18">
-                            <use xlink:href="#location"></use>
-                        </svg>744000, Aşgabat ş., Arçabil şaýoly, 104
-                    </li>
-                    <li class="email text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                        <svg class="text-primary me-1" width="18" height="18">
-                            <use xlink:href="#email"></use>
-                        </svg>info@education.gov.tm
-                    </li>
-                    <li class="phone text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                        <svg class="text-primary me-1" width="18" height="18">
-                            <use xlink:href="#phone"></use>
-                        </svg>+(99312) 44-86-93
-                    </li>
-                    <li class="clock text-capitalize mb-2 d-flex justify-content-center align-items-center">
-                        <svg class="text-primary me-1" width="18" height="18">
-                            <use xlink:href="#clock"></use>
-                        </svg>8:00-18:00, Sat: Closed
-                    </li>
-                </ul>
+    <livewire:footer-address />
 
-            </div>
-        </div>
-    </div>
     <div class="bg-gray border-top">
         <div class="text-center py-4">
             <p class="mb-0">©2024 © Ähli hukuklar goralan
