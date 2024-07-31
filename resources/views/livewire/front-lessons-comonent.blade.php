@@ -38,7 +38,8 @@
                 <h2 class="banner-title display-2 text-white">Jadyly Sandyk</h2>
                 <nav class="breadcrumb">
                     <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapaklar</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}">Sapaklar</a>
+{{--                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapaklar</span>--}}
                 </nav>
             </div>
         </div>
@@ -47,12 +48,12 @@
     <section id="activities" class="bg-gray">
         <div class="container padding-medium">
 
-            <h2 class="display-4 text-center mb-5">Our Activities & Events</h2>
+            <h2 class="display-4 text-center mb-5">Sapaklar we makalalar</h2>
 
             <div class="row">
                 <div class="col-sm-2">
                     <div class="text-center mb-5">
-                        <button class="mx-auto filter-button py-2 px-4 mt-3 active d-block" data-filter="*">All</button>
+                        <button class="mx-auto filter-button py-2 px-4 mt-3 active d-block" data-filter="*">Hemmesi</button>
                         @foreach($categories as $category)
                         <button class="mx-auto filter-button py-2 px-4 mt-3 d-block" data-filter=".cat{{ $category->id }}" wire:key="{{ $category->id }}">{{ $category->name }}</button>
                         @endforeach

@@ -395,7 +395,7 @@
 
     <section id="news" class="mb-3">
         <div class="container">
-            <h2 class="display-4 text-center mb-5">News & Articles</h2>
+            <h2 class="display-4 text-center mb-5">Makalalar</h2>
             <div class="row">
                 @foreach($articles as $article)
                 <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -413,7 +413,7 @@
 
             </div>
             <div class="text-center">
-                <a class="btn btn-primary mt-5" href="{{ route('articles') }}" wire:navigate>Read All News</a>
+                <a class="btn btn-primary mt-5" href="{{ route('articles') }}" wire:navigate>Hemmesini oka</a>
             </div>
         </div>
     </section>

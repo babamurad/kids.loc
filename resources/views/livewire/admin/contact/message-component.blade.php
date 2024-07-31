@@ -45,6 +45,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Date</th>
                                 <th>Phone</th>
                                 <th>Subject</th>
                                 <th>Is Read</th>
@@ -57,7 +58,8 @@
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td><strong>{{ $message->name }}</strong></td>
                                     <td>{{ $message->email }}</td>
-                                    <td>{{ $message->phone }}</td>
+                                    <td>{{ \Carbon\Carbon::create($message->created_at)->format('d.m.Y') }}</td>
+                                    <td>{{ $message->phone?? '---' }}</td>
                                     <td style="width: 15%;">{{ $message->subject }}</td>
                                     <td>
                                         <div class="custom-control custom-checkbox">

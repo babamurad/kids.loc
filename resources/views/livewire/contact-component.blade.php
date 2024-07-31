@@ -2,8 +2,8 @@
     <div class="container mb-4">
         <div class="row">
             <div class="contact-info col-lg-6">
-                <h2>Contact Information</h2>
-                <p>Tortor dignissim convallis aenean et tortor at risus viverra adipiscing.</p>
+                <h2>Şahsy maglumatlar</h2>
+                <p>Biziň bilen habarlaşmak üçin aşakdaky salgylardan peýdalanyp bilersiňiz.</p>
                 <div class="page-content d-flex flex-wrap">
                     @foreach($companies as $company)
                         <div class="col-lg-6 col-sm-12">
@@ -41,24 +41,24 @@
                             </div>
                         @endif
                     </div>
-                    <h2>Get in Touch</h2>
-                    <p>Use the form below to get in touch with us.</p>
+                    <h2>Habarlaşmak üçin</h2>
+                    <p>Biz bilen habarlaşmak üçin aşakdaky formany ulanyň.</p>
                     <form id="form" class="form-group flex-wrap mt-4"  wire:submit.prevent="mailSend">
                         <div class="form-input col-lg-12 d-flex mb-3">
-                            <input wire:model="name" type="text" name="name" placeholder="Write Your Name Here" class="form-control ps-3 me-3  @error('name') is-invalid @enderror">
-                            <input wire:model="email" type="email" name="email" placeholder="Write Your Email Here" class="form-control ps-3  @error('email') is-invalid @enderror">
+                            <input wire:model="name" type="text" name="name" placeholder="Adyňyz" class="form-control ps-3 me-3  @error('name') is-invalid @enderror">
+                            <input wire:model="email" type="email" name="email" placeholder="Email salgyňyz" class="form-control ps-3  @error('email') is-invalid @enderror">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <input wire:model="phone" type="text" name="phone" placeholder="Phone Number" class="form-control ps-3">
+                            <input wire:model="phone" type="text" name="phone" placeholder="Telefon nomeriňiz" class="form-control ps-3">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <input wire:model="subject" type="text" name="subject" placeholder="Write Your Subject Here" class="form-control ps-3 @error('subject') is-invalid @enderror">
+                            <input wire:model="subject" type="text" name="subject" placeholder="Temany şu ýere ýazyň" class="form-control ps-3 @error('subject') is-invalid @enderror">
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <textarea wire:model="text" placeholder="Write Your Message Here" class="form-control ps-3  @error('text') is-invalid @enderror" style="height:150px;"></textarea>
+                            <textarea wire:model="text" placeholder="Habaryňyzy şu ýere ýazyň" class="form-control ps-3  @error('text') is-invalid @enderror" style="height:150px;"></textarea>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary px-5 py-3">Submit</button>
+                            <button type="submit" class="btn btn-primary px-5 py-3">Ugrat</button>
                         </div>
                     </form>
 

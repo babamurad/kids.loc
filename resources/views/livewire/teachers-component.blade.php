@@ -18,11 +18,11 @@
 
         <div class="container padding-medium">
             <div class="hero-content ">
-                <h2 class="banner-title display-2 text-white">Teachers</h2>
+                <h2 class="banner-title display-2 text-white">Mugallymlar</h2>
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Home</a>
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Teachers</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/" wire:navigate>Esasy</a>
+{{--                    <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>--}}
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Mugallymlar</span>
                 </nav>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
     <section id="instructors" class="padding-medium">
         <div class="container">
-            <h2 class="display-4 text-center mb-5">Our Teachers</h2>
+            <h2 class="display-4 text-center mb-5">Biziň mugallymlarymyz</h2>
 
             <div class="row justify-content-center">
             @forelse ($teachers as $teacher)
@@ -73,37 +73,4 @@
         </div>
     </section>
 
-    <section id="enroll">
-        <div class="container padding-medium">
-
-            <div class="offset-md-3 col-md-6 text-center ">
-
-                <h2 class="display-4 mb-3">How to enroll your child?</h2>
-                <p class="fw-bold">Call: 666 333 9999 or Fill in the form below</p>
-                <p>Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in praesent
-                    pellentesque.
-                    Porta sit porta ridiculus faucibus.</p>
-
-                <form class="contact-form row mt-5">
-
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <input type="text" name="Parents" placeholder="Parents name"
-                               class="w-100 border ps-4 py-2 rounded-3">
-                    </div>
-                    <div class="col-md-12 col-sm-12 mb-4">
-                        <input type="number" name="Phone" placeholder="Contact phone"
-                               class="w-100 border ps-4 py-2 rounded-3">
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 mb-4">
-            <textarea type="text" name="message" placeholder="Your message"
-                      class="w-100 border ps-4 py-2 rounded-3"></textarea>
-                    </div>
-                </form>
-
-                <button class="btn btn-primary mt-3" href="#">Submit</button>
-            </div>
-
-        </div>
-    </section>
 </div>

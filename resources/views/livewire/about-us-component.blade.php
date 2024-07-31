@@ -19,11 +19,11 @@
 
         <div class="container padding-medium">
             <div class="hero-content ">
-                <h2 class="banner-title display-2 text-white">About Us</h2>
+                <h2 class="banner-title display-2 text-white">Biz barada</h2>
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="index.html">Home</a>
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">About Us</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
+{{--                    <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>--}}
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Biz barada</span>
                 </nav>
             </div>
         </div>
@@ -71,7 +71,7 @@
 
 <section id="news">
     <div class="container padding-medium">
-        <h2 class="display-4 text-center mb-5">News & Articles</h2>
+        <h2 class="display-4 text-center mb-5">Makalalar we Täzelikler</h2>
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
                 <div class="card bg-white rounded-4">
@@ -112,7 +112,7 @@
                     <div class="card-body p-3">
                         <p class="mb-2">26 Apr, Tue</p>
                         <a href="#" class="hover-color">
-                            <h2 class="m-0 lh-sm">Craft Ideas for Kindergarten Art Projects</h2>
+                            <h2 class="m-0 lh-sm">Çagalar bagynyň sungat taslamalary üçin hünär ideýalary</h2>
                         </a>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
 
         </div>
         <div class="text-center">
-            <a class="btn btn-primary mt-5" href="blog.html">Read All News</a>
+            <a class="btn btn-primary mt-5" href="{{ route('articles') }}">Hemmesini oka</a>
         </div>
     </div>
 </section>

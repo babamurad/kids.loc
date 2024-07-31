@@ -61,7 +61,7 @@
 
                             <div class="banner-content text-center m-auto" data-aos="zoom-out">
                                 <h2 class="banner-title display-1 text-white mb-4">{{ $item->title }}</h2>
-                                <button class="btn btn-primary mt-3" wire:click.prevent="toAboutUs">about us</button>
+                                <button class="btn btn-primary mt-3" wire:click.prevent="toAboutUs">Biz barada</button>
                             </div>
 
                         </div>
@@ -109,11 +109,11 @@
 
             <div class="container padding-medium">
                 <div class="hero-content ">
-                    <h2 class="banner-title display-2 text-white">Gallery</h2>
+                    <h2 class="banner-title display-2 text-white">Surat galereýasy</h2>
                     <nav class="breadcrumb">
-                        <a class="breadcrumb-item nav-link text-white banner-title" href="index.html">Home</a>
-                        <a class="breadcrumb-item nav-link text-white banner-title" href="#">Pages</a>
-                        <span class="breadcrumb-item text-white banner-title active" aria-current="page">Gallery</span>
+                        <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
+                        <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('gallery') }}">Galereýa</a>
+{{--                        <span class="breadcrumb-item text-white banner-title active" aria-current="page">Galereýa</span>--}}
                     </nav>
                 </div>
             </div>
