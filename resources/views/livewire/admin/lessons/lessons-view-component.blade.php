@@ -68,11 +68,11 @@
                 <div class="card-body text-center">
                     @if ($image)
                     <h5>Image:</h5>
-                    <img wire:model="image" class="img-fluid rounded mb-4" src="{{ asset('images/lesson/images/') . '/' . $image }}" alt="Lessons Foto">    
+                    <img wire:model="image" class="img-fluid rounded mb-4" src="{{ asset('images/lesson/images/') . '/' . $image }}" alt="Lessons Foto">
                     @else
                     <h5>No  Image</h5>
                     @endif
-                    
+
 
                     @if ($video)
                     <div class="mt-3">
@@ -81,13 +81,40 @@
                             <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                    </div>   
+                    </div>
                     @else
-                    <h5>No Video</h5> 
-                    @endif         
-                    
+                    <h5>No Video</h5>
+                    @endif
+@assets
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+@endassets
 
                     <div class="row">
+                    @if ($file)
+                        <div class="mt-3">
+                            <h5>Document Preview:</h5>
+                            @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pdf']))
+                                <iframe src="{{ asset('images/lesson/files'). '/' . $file }}" style="width:100%; height:500px;"></iframe>
+                            @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['doc', 'docx']))
+                                <!-- DOCX Preview -->
+                                <div id="docx-preview" style="width: 100%; height: 500px; overflow: auto;"></div>
+                                <script>
+                                    var input = '{{ asset($file) }}';
+                                    fetch(input)
+                                        .then(response => response.arrayBuffer())
+                                        .then(arrayBuffer => mammoth.convertToHtml({arrayBuffer: arrayBuffer}))
+                                        .then(result => {
+                                            document.getElementById('docx-preview').innerHTML = result.value;
+                                        })
+                                        .catch(err => console.log(err));
+                                </script>
+                            @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pptx']))
+                                <!-- PPTX Preview -->
+                                <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ urlencode(asset($file)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
+                            @endif
+                            <button wire:click="removeDocFile" class="btn btn-danger mt-2">Remove Document</button>
+                        </div>
+                    @endif
                         <div class="col-sm-6">
                             <div class="row mt-4">
                                 <div class="form-group pl-5">

@@ -79,7 +79,7 @@
                                     </td>
                                     <td><span class="badge badge-secondary badge-pill">{{ $lesson->order }}</span></td>
                                     <td>
-                                        <div class="mt-2"><span class="badge badge-light badge-pill">{{ Carbon\Carbon::create($lesson->publish_date)->format('d.m.Y') }}</span></div>
+                                        <div class="mt-2"><span class="badge badge-light badge-pill">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</span></div>
 
                                     </td>
                                     <td style="width: 12%;">

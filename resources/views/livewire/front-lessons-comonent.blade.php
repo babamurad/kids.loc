@@ -35,10 +35,10 @@
 
         <div class="container padding-medium">
             <div class="hero-content ">
-                <h2 class="banner-title display-2 text-white">Teachers</h2>
+                <h2 class="banner-title display-2 text-white">Jadyly Sandyk</h2>
                 <nav class="breadcrumb">
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Home</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Lessons</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapaklar</span>
                 </nav>
             </div>
         </div>

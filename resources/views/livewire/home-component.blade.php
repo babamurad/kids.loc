@@ -7,37 +7,40 @@
 @livewire('carousel-component', ['type' => 'banner'])
 @endif
 
+    @php
+        $icons = [
+            'mdi:playground-slide',
+            'material-symbols:house-outline',
+            'mdi:art',
+            'material-symbols:abc-rounded',
+            'mdi:book-open-page-variant',
+            'mdi:gamepad-variant',
+            'mdi:music-note',
+            'mdi:palette',
+            'mdi:rocket',
+            // Добавьте больше иконок, если нужно
+        ];
+        $colors = [
+            'bg-red',
+            'bg-green',
+            'bg-blue',
+            'bg-yellow',
+        ];
+    @endphp
+
 
     <section id="categories">
         <div class="container padding-medium">
             <div class="row">
+                @foreach($categories as $category)
                 <div class="col my-4 my-lg-0 text-center">
-                    <a href="#" class="categories-item">
-                        <iconify-icon class="category-icon bg-red text-white p-5 rounded-circle"
-                                      icon="mdi:playground-slide"></iconify-icon>
-                        <h2 class="mt-2">gaming Playground</h2>
+                    <a href="{{ route('lessons') }}" class="categories-item" wire:navigate>
+                        <iconify-icon class="category-icon {{ $colors[$loop->index % count($colors)] }} text-white p-5 rounded-circle" icon="{{ $icons[$loop->index % count($icons)] }}"></iconify-icon>
+
+                        <h2 class="mt-2">{{ ucfirst($category->name) }}</h2>
                     </a>
                 </div>
-                <div class="col my-4 my-lg-0 text-center">
-                    <a href="#" class="categories-item">
-                        <iconify-icon class="category-icon bg-green text-white p-5 rounded-circle"
-                                      icon="material-symbols:house-outline"></iconify-icon>
-                        <h2 class="mt-2">Happy environment</h2>
-                    </a>
-                </div>
-                <div class="col my-4 my-lg-0 text-center">
-                    <a href="#" class="categories-item">
-                        <iconify-icon class="category-icon bg-blue text-white p-5 rounded-circle" icon="mdi:art"></iconify-icon>
-                        <h2 class="mt-2">Creative class</h2>
-                    </a>
-                </div>
-                <div class="col my-4 my-lg-0 text-center">
-                    <a href="#" class="categories-item">
-                        <iconify-icon class="category-icon bg-yellow text-white p-5 rounded-circle"
-                                      icon="material-symbols:abc-rounded"></iconify-icon>
-                        <h2 class="mt-2">Active Learning </h2>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -289,7 +292,7 @@
         </div>
     </section>
 
-    <livewire:front-lessons-comonent />
+    <livewire:front-lessons-comonent limit="8"/>
 
     <section id="events">
         <div class="container padding-medium">

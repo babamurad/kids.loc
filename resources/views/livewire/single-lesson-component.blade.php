@@ -22,8 +22,8 @@
                 <h2 class="banner-title display-2 text-white">Teachers</h2>
                 <nav class="breadcrumb">
                     <a class="breadcrumb-item nav-link text-white banner-title" href="/">Esasy</a>
-                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}">Sapaklar</a>
-                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">Sapak</span>
+                    <a class="breadcrumb-item nav-link text-white banner-title" href="{{ route('lessons') }}" wire:navigate>Sapaklar</a>
+                    <span class="breadcrumb-item text-white banner-title active" aria-current="page">{{ $title }}</span>
                 </nav>
             </div>
         </div>
@@ -66,6 +66,26 @@
                         </video>
                     </div>
                     @endif
+                    @if($audio || $file)
+                    <div class="row">
+                        <div class="col-sm-6">
+                            @if($audio)
+                                <h5>Audio görnüşi:</h5>
+                                <audio controls>
+                                    <source src="{{ asset('images/lesson/audio') . '/' . $audio }}">
+                                    Brauzeriňiz ses elementini goldamaýar.
+                                </audio>
+                            @endif
+                        </div>
+                        <div class="col-sm-6">
+                            @if ($file)
+                                <h5>Faýla deslapky syn:</h5>
+                                <a href="{{ asset('images/lesson/files') . '/' . $file }}">@if($file){{ $file }}@else Faýl saýla @endif</a>
+                            @endif
+                        </div>
+                    </div>
+                    @endif
+
 
                     <div class="post-description">
                         {!! $content !!}

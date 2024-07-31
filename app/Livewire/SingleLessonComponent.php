@@ -9,6 +9,7 @@ class SingleLessonComponent extends Component
 {
     public $title, $content, $image, $video, $created_at;
     public $FirstName, $LastName, $position;
+    public $audio, $file;
 
     public function render()
     {
@@ -23,6 +24,8 @@ class SingleLessonComponent extends Component
         $this->video = $lesson->video;
         $this->content = $lesson->content;
         $this->created_at = $lesson->created_at;
+        $this->audio = $lesson->audio;
+        $this->file = $lesson->file;
 
 //        $teacher = \Auth::user()->teacher;
         $this->FirstName = $lesson->teacher->firstname;

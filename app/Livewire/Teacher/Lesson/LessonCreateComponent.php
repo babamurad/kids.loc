@@ -55,23 +55,27 @@ class LessonCreateComponent extends Component
         $lesson->teacher_id = auth()->user()->teacher->id;
 
         if($this->image) {
-            $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+//            $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+            $imageName = $this->image->getClientOriginalName();
             $this->image->storeAs('/lesson/images', $imageName);
             $lesson->image = $imageName;
         }
 
         if($this->video) {
-            $videoName = Carbon::now()->timestamp.'.'.$this->video->extension();
+//            $videoName = Carbon::now()->timestamp.'.'.$this->video->extension();
+            $videoName = $this->video->getClientOriginalName();
             $this->video->storeAs('/lesson/video', $videoName);
             $lesson->video = $videoName;
         }
         if($this->audio) {
-            $audioName = Carbon::now()->timestamp.'.'.$this->audio->extension();
+//            $audioName = Carbon::now()->timestamp.'.'.$this->audio->extension();
+            $audioName = $this->audio->getClientOriginalName();
             $this->audio->storeAs('/lesson/audio', $audioName);
             $lesson->audio = $audioName;
         }
         if($this->file) {
-            $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
+//            $fileName = Carbon::now()->timestamp.'.'.$this->file->extension();
+            $fileName = $this->file->getClientOriginalName();
             $this->file->storeAs('/lesson/files', $fileName);
             $lesson->file = $fileName;
         }

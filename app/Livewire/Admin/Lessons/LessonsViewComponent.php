@@ -10,6 +10,7 @@ class LessonsViewComponent extends Component
 {
     public $viewId;
     public $title, $content, $image, $video, $status, $order, $until_date, $available, $category_id, $teacher_id;
+    public $audio, $file;
 
     public function render()
     {
@@ -32,6 +33,8 @@ class LessonsViewComponent extends Component
         $this->available = $lesson->available;
         $this->category_id = $lesson->category_id;
         $this->teacher_id = $lesson->teacher_id;
+        $this->file = $lesson->file;
+        $this->audio = $lesson->audio;
     }
 
     public function update()
@@ -61,5 +64,10 @@ class LessonsViewComponent extends Component
         $this->available = '';
         $this->category_id = '';
         $this->teacher_id = '';
+    }
+
+    public function removeFile()
+    {
+        $this->file = null;
     }
 }
