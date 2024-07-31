@@ -88,14 +88,12 @@
                         <svg class="me-1" width="18" height="18">
                             <use xlink:href="#location"></use>
                         </svg>State Road 54 Trinity, Florida
-
                     </li>
                     <li class="phone text-capitalize text-white d-flex align-items-center me-4">
                         <svg class="me-1" width="18" height="18">
                             <use xlink:href="#phone"></use>
                         </svg>call: 666 333 9999
                     </li>
-
                 </ul>
                 <div class="social">
                         @auth

@@ -31,9 +31,9 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Lessons</a> </li>
-                        <li class="breadcrumb-item active">Create</li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}">Sapaklar</a> </li>
+                        <li class="breadcrumb-item active">Döretmek</li>
                     </ol>
                 </div>
 
@@ -46,7 +46,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Sözbaşy</label>
-                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
+                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Sözbaşy" wire:model="title">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
                     <div class="border-danger" @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>

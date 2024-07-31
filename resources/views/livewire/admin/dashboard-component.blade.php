@@ -145,8 +145,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Image</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
+                                        <th>Name</th>
                                         <th>Position</th>
                                         <th>Order</th>
                                         <th>Actions</th>
@@ -157,8 +156,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->index + 1 }}</th>
                                             <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
-                                            <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
-                                            <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->lastname }}</a></td>
+                                            <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }} {{ $teacher->lastname }}</a></td>
                                             <td>{{ $teacher->position }}</td>
                                             <td>{{ $teacher->order }}</td>
                                             <td>{{ $teacher->published }}</td>

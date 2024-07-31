@@ -27,13 +27,13 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Lesson Edit</h4>
+                <h4 class="mb-0 font-size-18">Sapaga Düzediş girizmek</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}">Lessons</a> </li>
-                        <li class="breadcrumb-item active">Edit</li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dolandryryş</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}">Sapaklar</a> </li>
+                        <li class="breadcrumb-item active">Düzediş girizmek</li>
                     </ol>
                 </div>
 
@@ -45,8 +45,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Enter First Name" wire:model="title">
+                        <label for="title">Sözbaşy</label>
+                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Sözbaşy" wire:model="title">
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
                     <div class="border-danger" @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>
