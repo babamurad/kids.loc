@@ -3,9 +3,7 @@
 <link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
 @endassets
-@push('select-css')
 
-@endpush
 @push('select-js')
 
     <script>
