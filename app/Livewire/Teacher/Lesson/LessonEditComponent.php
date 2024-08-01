@@ -26,7 +26,7 @@ class LessonEditComponent extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin.lesson.lesson-edit-component', compact('categories'))
+        return view('livewire.teacher.lesson.lesson-edit-component', compact('categories'))
             ->layout('components.layouts.teacher-app');
     }
 

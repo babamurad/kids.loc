@@ -57,7 +57,7 @@
                         <div class="col-lg-12 mb-3">
                             <textarea wire:model="text" placeholder="Habaryňyzy şu ýere ýazyň" class="form-control ps-3  @error('text') is-invalid @enderror" style="height:150px;"></textarea>
                         </div>
-                        <div class="d-grid">
+                        <div class="">
                             <button type="submit" class="btn btn-primary px-5 py-3">Ugrat</button>
                         </div>
                     </form>

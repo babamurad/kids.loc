@@ -72,5 +72,6 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('categories/edit/{id}', \App\Livewire\Admin\Category\CategoryEditComponent::class)->name('admin.categories.edit');
 
     Route::get('admin-lessons', \App\Livewire\Admin\Lessons\LessonsIndexComponent::class)->name('admin.admin-lessons');
+    Route::get('admin-lessons/create', \App\Livewire\Admin\Lessons\LessonCreateComponent::class)->name('admin.admin-lessons.create');
     Route::get('admin-lessons/view/{id}', \App\Livewire\Admin\Lessons\LessonsViewComponent::class)->name('admin.admin-lessons.view');
 });

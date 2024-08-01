@@ -13,9 +13,9 @@ class FrontLessonsComonent extends Component
     {
         $categories = Category::all();
         if ($this->limit) {
-            $lessons = Lesson::with('category', 'teacher')->status()->orderBy('order')->limit($this->limit)->get();
+            $lessons = Lesson::with('category', 'teacher')->status()->orderBy('created_at', 'desc')->limit($this->limit)->get(); //orderBy('order')->
         } else {
-            $lessons = Lesson::with('category', 'teacher')->status()->orderBy('order')->get();
+            $lessons = Lesson::with('category', 'teacher')->status()->orderBy('created_at', 'desc')->get(); //orderBy('order')->
         }
 
         return view('livewire.front-lessons-comonent', compact('categories', 'lessons'));

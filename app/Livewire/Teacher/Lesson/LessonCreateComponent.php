@@ -30,7 +30,7 @@ class LessonCreateComponent extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin.lesson.lesson-create-component', compact('categories'))
+        return view('livewire.teacher.lesson.lesson-create-component', compact('categories'))
             ->layout('components.layouts.teacher-app');
     }
 
