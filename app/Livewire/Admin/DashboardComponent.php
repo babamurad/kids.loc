@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Models\Teacher;
 use Cassandra\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -23,7 +24,8 @@ class DashboardComponent extends Component
     public function render()
     {
         $teachers = Teacher::take(8)->get();
-        return view('livewire.admin.dashboard-component', compact('teachers'))
+        $items = DB::select('CALL GetRecordCounts()');
+        return view('livewire.admin.dashboard-component', compact('teachers', 'items'))
             ->layout('components.layouts.admin-app');
     }
 

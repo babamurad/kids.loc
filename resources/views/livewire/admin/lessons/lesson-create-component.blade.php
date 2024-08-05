@@ -44,6 +44,7 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
+
                     <div class="form-group">
                         <label for="title">Sözbaşy</label>
                         <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Sözbaşy" wire:model="title">

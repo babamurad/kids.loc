@@ -47,22 +47,6 @@
         </div>
     </div>
 
-    <section id="cta" class="jarallax"
-             style="background-image: url({{ asset('images/cta.jpg') }}); background-repeat: no-repeat; background-position: center;">
-        <div class="container padding-medium">
-
-            <div class="offset-md-3 col-md-6 text-center ">
-                <div class="section-title">
-                    <h2 class="display-4 mb-3 banner-title">Are you going to enroll your child to a class?</h2>
-                </div>
-
-                <p class="banner-title">Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et
-                    in
-                    praesent pellentesque sit porta ridiculus faucibus. </p>
-                <a class="btn btn-primary mt-3" href="enrollment.html">Read More</a>
-            </div>
-        </div>
-    </section>
 
 {{-- Gallery --}}
 @livewire('gallery-component', ['limit' => 6])

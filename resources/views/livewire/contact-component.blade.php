@@ -42,7 +42,7 @@
                         @endif
                     </div>
                     <h2>Habarlaşmak üçin</h2>
-                    <p>Biz bilen habarlaşmak üçin aşakdaky formany ulanyň.</p>
+                    <p>Biz bilen habarlaşmak üçin aşakdaky formany ulanyň. E-poçta salgyňyz çap edilmez.</p>
                     <form id="form" class="form-group flex-wrap mt-4"  wire:submit.prevent="mailSend">
                         <div class="form-input col-lg-12 d-flex mb-3">
                             <input wire:model="name" type="text" name="name" placeholder="Adyňyz" class="form-control ps-3 me-3  @error('name') is-invalid @enderror">

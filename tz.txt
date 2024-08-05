@@ -34,5 +34,10 @@ Select Admin Teachers select 2 --сделано
 
 Нужно сделать функционал для изменения пароля пользователей администратором --сделано
 
+Dashboard Admin --сделано
+Translate
+Enroll Delet from front --сделано
+Administrator Lessons CRUD
+
 
 

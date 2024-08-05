@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>Mekdebe çenli bilim we terbiýe</h2>
-            <h5>Türkmenistanyň Bilim Ministrligi</h5>
+            <h5>Türkmenistanyň Bilim ministrligi</h5>
         </div>
         <div class="col-sm-6">
             <a class="navbar-brand" href="#">

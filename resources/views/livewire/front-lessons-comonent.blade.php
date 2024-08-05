@@ -69,7 +69,7 @@
                             <div class="card-body mb-3">
                                 <div class="card-body">
                                     <div class="card-header">{{ $lesson->teacher->firstname . ' ' . $lesson->teacher->lastname }}</div>
-                                    <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ substr($lesson->title, 0, 20) }}{{ strlen($lesson->content) > 20 ? '...' : '' }}</a></div>
+                                    <div class="card-text"><a href="{{ route('single-lesson', ['id' => $lesson->id]) }}">{{ str($lesson->title)->words(5) }}{{ strlen($lesson->content) > 20 ? '...' : '' }}</a></div>
                                     <div class="card-footer">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
                                 </div>
                             </div>

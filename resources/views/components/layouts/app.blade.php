@@ -127,7 +127,8 @@
                 <div class="offcanvas-body align-items-center justify-content-end">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item px-3 py-2 py-lg-0">
-                            <a class="nav-link p-0 {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}" wire:navigate>Baş sahypa</a>
+{{--      @class(['active' => request()->is('home')]) --}}
+                            <a  class="nav-link p-0 {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}" wire:navigate>Baş sahypa</a>
                         </li>
                         <li class="nav-item px-3 py-2 py-lg-0">
                             <a class="nav-link p-0 {{ Route::currentRouteName() == 'teachers' ? 'active' : '' }}" href="{{ route('teachers') }}" wire:navigate>Mugallymlar</a>
@@ -159,11 +160,8 @@
     <div class="bg-gray border-top">
         <div class="text-center py-4">
             <p class="mb-0">©2024 © Ähli hukuklar goralan
-                <a href="https://www.education.gov.tm/" target="_blank" class="text-decoration-underline fw-semibold"> Türkmenistanyň Bilim Ministrlig</a>
+                <a href="https://www.education.gov.tm/" target="_blank" class="text-decoration-underline fw-semibold"> Türkmenistanyň Bilim ministrligi</a>
             </p>
-        </div>
-        <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
         </div>
     </div>
 </footer>

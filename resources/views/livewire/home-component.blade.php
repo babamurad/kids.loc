@@ -71,24 +71,6 @@
     </section>
 
 
-    <section id="cta" class="jarallax"
-             style="background-image: url({{ asset('images/cta.jpg') }}); background-repeat: no-repeat; background-position: center;">
-        <div class="container padding-medium">
-
-            <div class="offset-md-3 col-md-6 text-center ">
-                <div class="section-title">
-                    <h2 class="display-4 mb-3 banner-title">Are you going to enroll your child to a class?</h2>
-                </div>
-
-                <p class="banner-title">Pretium turpis faucibus adipiscing duis. Id quis tristique mi vitae nec. In et in
-                    praesent pellentesque sit porta ridiculus faucibus. </p>
-                <a class="btn btn-primary mt-3" href="enrollment.html">Read More</a>
-            </div>
-
-        </div>
-
-    </section>
-
     <section id="teacher">
         <div class="container padding-medium pt-0">
             <h2 class="display-4 text-center mb-5">Meet our educators</h2>
@@ -112,98 +94,6 @@
 
     <livewire:front-lessons-comonent limit="8"/>
 
-    <section id="events">
-        <div class="container padding-medium mb-3">
-            <div class="row flex-md-row-reverse align-items-center">
-
-                <!-- <div class="col-md-6">
-                  <div class="imageblock">
-                    <img src="images/event-img.jpg" alt="img" class="img-fluid rounded-pill"
-                      style="border: 25px dotted #E3EAF0;">
-                  </div>
-                </div> -->
-
-                <div class="col-md-6">
-                    <div class="imageblock">
-                        <div class="animated-border">
-                            <img src="images/event-img.jpg" alt="img" class="img-fluid rounded-circle ">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 pe-lg-5 mt-5 mt-md-0">
-                    <div class="section-title">
-                        <h2 class="display-4 mb-5">upcoming events</h2>
-                    </div>
-                    <div class="border rounded-3 px-4 py-2 mb-3 me-lg-5">
-                        <div class="row">
-                            <div class="col-2 ps-3">
-                                <h2 class="m-0 lh-sm">22</h2>
-                                <p class="m-0">Feb</p>
-                            </div>
-                            <div class="col-10 d-flex justify-content-between align-items-center">
-                                <a href="event-details.html" class="hover-color">
-                                    <div>
-                                        <h2 class="m-0 lh-sm">Storytime Hour</h2>
-                                        <p class="m-0">4:30 PM - 5:30 PM</p>
-                                    </div>
-                                </a>
-                                <a href="event-details.html">
-                                    <svg class="text-primary " width="25" height="25">
-                                        <use xlink:href="#arrow-right-tail"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border rounded-3 px-4 py-2 mb-3 me-lg-5">
-                        <div class="row">
-                            <div class="col-2 ps-3">
-                                <h2 class="m-0 lh-sm">30</h2>
-                                <p class="m-0">Sep</p>
-                            </div>
-                            <div class="col-10 d-flex justify-content-between align-items-center">
-                                <a href="event-details.html" class="hover-color">
-                                    <div>
-                                        <h2 class="m-0 lh-sm">Music and Dance Party</h2>
-                                        <p class="m-0">4:30 PM - 5:30 PM</p>
-                                    </div>
-                                </a>
-                                <a href="event-details.html">
-                                    <svg class="text-primary " width="25" height="25">
-                                        <use xlink:href="#arrow-right-tail"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border rounded-3 px-4 py-2 mb-3 me-lg-5">
-                        <div class="row">
-                            <div class="col-2 ps-3">
-                                <h2 class="m-0 lh-sm">26</h2>
-                                <p class="m-0">Oct</p>
-                            </div>
-                            <div class="col-10 d-flex justify-content-between align-items-center">
-                                <a href="event-details.html" class="hover-color">
-                                    <div>
-                                        <h2 class="m-0 lh-sm">Celebration of Cultures</h2>
-                                        <p class="m-0">4:30 PM - 5:30 PM</p>
-                                    </div>
-                                </a>
-                                <a href="event-details.html">
-                                    <svg class="text-primary " width="25" height="25">
-                                        <use xlink:href="#arrow-right-tail"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
 
     {{-- Gallery --}}
     @livewire('gallery-component', ['limit' => 6, 'btn' => true])

@@ -51,57 +51,57 @@
                     <li class="menu-title">Menu</li>
                     <li>
                         <a href="{{ route('admin.dashboard') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-home-circle"></i><span>Dashboard</span>
+                            <i class="bx bx-home-circle"></i><span>Dolandyryş</span>
                         </a>
                     </li>
                     @if (Auth::user()->type == 'ADM')
                     <li>
                         <a href="{{ route('admin.teachers') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-user-circle"></i><span>Teachers</span>
+                            <i class="bx bx-user-circle"></i><span>Mugallymlar</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('admin.about.index') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-building"></i><span>About</span>
+                            <i class="bx bx-building"></i><span>Biz barada</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('admin.article.index') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bxs-notepad"></i><span>Articles</span>
+                            <i class="bx bxs-notepad"></i><span>Makalalar</span>
                         </a>
                     </li>
                         <li>
                             <a href="{{  route('admin.categories') }}" class="waves-effect" wire:navigate>
-                                <i class="bx bx-clipboard"></i><span>Categories</span>
+                                <i class="bx bx-clipboard"></i><span>Kategoriýalar</span>
                             </a>
                         </li>
                     <li>
                         <a href="{{  route('admin.carousel') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-image-alt"></i>Carousel</span>
+                            <i class="bx bx-image-alt"></i>Karusel</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('admin.gallery') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-images"></i>Gallery</span>
+                            <i class="bx bx-images"></i>Suratlar</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('admin.users') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bx-user"></i>Users</span>
+                            <i class="bx bx-user"></i>Ulanyjylar</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{  route('admin.admin-lessons') }}" class="waves-effect" wire:navigate>
-                            <i class="bx bxs-notepad"></i><span>Lessons</span>
+                            <i class="bx bxs-notepad"></i><span>Sapaklar</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="has-arrow waves-effect mm-active" aria-expanded="false">
-                            <i class="bx bx-aperture"></i><span>Contacts</span>
+                            <i class="bx bx-aperture"></i><span>Kontaktlar</span>
                         </a>
                         <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
-                            <li><a href="{{ route('admin.company') }}" wire:navigate>Company Info</a></li>
-                            <li><a href="{{ route('admin.messages') }}">Messages</a></li>
+                            <li><a href="{{ route('admin.company') }}" wire:navigate>Edara barada</a></li>
+                            <li><a href="{{ route('admin.messages') }}">Hatlar</a></li>
                         </ul>
                     </li>
                     @endif
