@@ -91,7 +91,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{  route('admin.admin-lessons') }}" class="waves-effect" wire:navigate>
+                        <a href="{{  route('admin.admin-lessons') }}" class="waves-effect"wire:navigate>
                             <i class="bx bxs-notepad"></i><span>Sapaklar</span>
                         </a>
                     </li>
@@ -102,6 +102,7 @@
                         <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
                             <li><a href="{{ route('admin.company') }}" wire:navigate>Edara barada</a></li>
                             <li><a href="{{ route('admin.messages') }}">Hatlar</a></li>
+                            <li><a href="{{ route('admin.banners') }}">Bannerler</a></li>
                         </ul>
                     </li>
                     @endif

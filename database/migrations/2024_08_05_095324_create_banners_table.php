@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('type');
+            $table->enum('title', ['Mugallymlar', 'Galereýa', 'Makalalar', 'Jadyly sandyk']);
             $table->string('image');
             $table->timestamps();
         });

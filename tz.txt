@@ -38,6 +38,7 @@ Dashboard Admin --сделано
 Translate
 Enroll Delet from front --сделано
 Administrator Lessons CRUD
+Banner CRUD ------
 
 
 
