@@ -101,8 +101,8 @@
                         </a>
                         <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
                             <li><a href="{{ route('admin.company') }}" wire:navigate>Edara barada</a></li>
-                            <li><a href="{{ route('admin.messages') }}">Hatlar</a></li>
-                            <li><a href="{{ route('admin.banners') }}">Bannerler</a></li>
+                            <li><a href="{{ route('admin.messages') }}" wire:navigate>Hatlar</a></li>
+                            <li><a href="{{ route('admin.banners') }}" wire:navigate>Bannerler</a></li>
                         </ul>
                     </li>
                     @endif
