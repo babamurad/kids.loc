@@ -18,7 +18,7 @@
                 <div class="card">
                     @if($loop->index == 0)
                         <div class="row">
-                            <div class="col-sm-6"><h5 class="card-header">Banners</h5></div>
+                            <div class="col-sm-6"><h5 class="card-header">Bannerler</h5></div>
                         </div>
                     @endif
                     <div class="card-body">
@@ -27,15 +27,15 @@
                                 <div class="form-group">
                                     <label for="ofname{{$key}}">{{ $banner->title }}</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="ofname{{$key}}" name="ofname{{$key}}" disabled>
+                                        <input type="file" class="custom-file-input" id="ofname{{$key}}" name="ofname{{$key}}" @if(!$EditId == $banner->id) disabled @endif>
                                         <label class="custom-file-label" for="ofname{{$key}}">{{ $banner->image }}</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
-                                <label for="">Actions</label>
+                                <label for="">Hereket</label>
                                 <div>
-                                    <a href="#" class="btn btn-sm btn-warning mr-2" wire:click.prevent="CanEditOffice">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-warning mr-2" wire:click.prevent="isEdit({{ $banner->id }})">Edit</a>
                                     <a href="#" class="btn btn-sm btn-primary waves-effect waves-light" wire:click.prevent="updateOffice">Save</a>
                                 </div>
 
@@ -48,9 +48,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="card">
-                        <h5 class="card-header">Image</h5>
+                        <h5 class="card-header">Banneriň suraty</h5>
                         <div class="card-body">
-                            <img src="" alt="">
+
+                            <img class="w-50 rounded" src="{{ asset('images/placeholder.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>

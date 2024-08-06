@@ -1,5 +1,13 @@
 Gaming Playground videolar, taze sapaklar, oyunlar, careler --сделано
 
+{******
+обновить резюме
+Прежние места места работы, что и как делал
+Проекты
+Аналоги hr.ru
+Моя история (кратко о себе, структура)
+******}
+
 search, filter for users and teachers --сделано
 sort teachers --сделано
 

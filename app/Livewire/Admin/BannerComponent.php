@@ -9,12 +9,15 @@ use Livewire\WithFileUploads;
 class BannerComponent extends Component
 {
     use WithFileUploads;
+    public $EditId;
+
+    public $eCat, $eTeach, $eLess, $eGall;
     public $banners = [];
 
     public function render()
     {
         $items = Banner::all();
-        //dd($items);
+
         return view('livewire.admin.banner-component', compact('items'))
             ->layout('components.layouts.admin-app');
     }
@@ -22,6 +25,11 @@ class BannerComponent extends Component
     public function mount()
     {
 
+    }
+
+    public function isEdit($id)
+    {
+        $this->EditId = $id;
     }
 
 }
