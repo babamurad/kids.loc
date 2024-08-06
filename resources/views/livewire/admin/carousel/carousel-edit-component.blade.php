@@ -44,17 +44,17 @@
                     <img wire:model="image" class="img-fluid rounded" src="{{ asset('images/carousel') . '/' . $image }}" alt="Carousel Item Foto"
                      @error('image') style="border: solid 1px red;" @enderror>
                 @endif
-                    <div class="form-group mt-1">
-                        <label>Main picture</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror"
-                                id="newImage" wire:model="newImage">
-                            <label class="custom-file-label" for="newImage">Choose file</label>
-                            @error('newImage')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+                <div class="form-group mt-1">
+                    <label>Main picture</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror"
+                            id="newImage" wire:model="newImage">
+                        <label class="custom-file-label" for="newImage">Choose file</label>
+                        @error('newImage')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+                </div>
 
                     <div class="row mt-4">
                         <div class="form-group row mb-3">
@@ -71,12 +71,12 @@
 
                     <div class="form-group pl-2">
                         <div class="custom-control custom-checkbox mt-2 pl-2">
-                            <input type="checkbox" class="custom-control-input" id="status" wire:model.live="status" 
+                            <input type="checkbox" class="custom-control-input" id="status" wire:model.live="status"
                             @if ($status) checked @endif>
                             <label class="custom-control-label" for="status">Published</label>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
