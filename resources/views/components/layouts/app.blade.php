@@ -110,8 +110,9 @@
 
     <nav id="primary-header" class="navbar navbar-expand-lg py-3">
         <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="{{ asset('images/main-logo.png') }}" class="logo">
+            <a href="/" class="logo">
+                <img class="logo navbar-brand" src="{{ asset('images/logo-holding-child.png') }}" alt="Logo" style="width: 20%;">
+                <span class="text-primary logo-text">Körpe</span>
             </a>
             <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">

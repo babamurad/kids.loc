@@ -18,9 +18,9 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Actions</th>
+                                    <th>Surat</th>
+                                    <th>Ady</th>
+                                    <th>Hereket</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -55,10 +55,11 @@
                 </div>
             </div>
             <div class="col-sm-6">
+                @if($bannerEdit)
                 <div class="card">
                     <h5 class="card-header">Banneriň suraty</h5>
                     <div class="card-body">
-                        @if($bannerEdit)
+
                         <div class="row">
                             @if($newImage)
                                 <img wire:model="newImage" class="img-fluid rounded ml-3"
@@ -80,15 +81,13 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="mt-4 pt-1">
-                                        <a href="#" class="btn btn-primary waves-effect waves-light" wire:click.prevent="update">Save</a>
+                                        <a href="#" class="btn btn-primary waves-effect waves-light" wire:click.prevent="update">Ýatda sakla</a>
                                     </div>
-
                                 </div>
                             </div>
-                        @endif
                     </div>
-
                 </div>
+                @endif
             </div>
         </div>
 
