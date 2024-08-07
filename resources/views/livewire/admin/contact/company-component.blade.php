@@ -79,30 +79,5 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <h5 class="card-header">Banners</h5>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="ofname">Mugallymlar</label>
-                            <input type="text" id="ofname" class="form-control @error('ofname') is-invalid @enderror" placeholder="Place" wire:model="ofname" @if (!$EditOffice) disabled @endif>
-                            @error('ofname')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                        </div>
-                        <a href="#" class="btn btn-warning mr-2" wire:click="CanEditOffice">Edit</a>
-                        <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="updateOffice">Save</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <h5 class="card-header">Image</h5>
-                    <div class="card-body">
-                        <img src="" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
