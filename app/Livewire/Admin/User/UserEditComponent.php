@@ -51,7 +51,10 @@ class UserEditComponent extends Component
         $this->name = $user->name;
         $this->email = $user->email;
         $this->type = $user->type;
-        $this->teacherId = $user->teacher->id;
+        if ($user->teacher) {
+            $this->teacherId = $user->teacher->id;
+        }
+
     }
 
     public function update()

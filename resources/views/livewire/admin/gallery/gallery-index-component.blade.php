@@ -5,12 +5,12 @@
         <div class="col-sm-4">@include('components.alerts')</div>
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Gallery</h4>
+                <h4 class="mb-0 font-size-18">Galereýa</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Gallery</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Galereýa</li>
                     </ol>
                 </div>
 
@@ -23,11 +23,11 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Gallery Image List</h4>
+                            <h4 class="">Galereýa suratlarynyň sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <a href="{{ route('admin.gallery.create') }}" class="btn btn-primary waves-effect waves-light" wire:navigate>
-                                Create
+                                Döret
                             </a>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image | Note</th>
-                                <th>Order</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>Surat | Bellik</th>
+                                <th>Tertip</th>
+                                <th>Ýagdaýy</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -66,9 +66,9 @@
                                                    @if ($item->status) checked @endif>
                                             <label class="custom-control-label" for="customCheck{{ $item->id }}">
                                                 @if ( $item->status )
-                                                    <span class="badge badge-success">Published</span>
+                                                    <span class="badge badge-success">Görkez</span>
                                                 @else
-                                                    <span class="badge badge-danger">Not Published</span>
+                                                    <span class="badge badge-danger">Görkez</span>
                                                 @endif
                                             </label>
                                         </div>
@@ -103,17 +103,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Categories</h4>
+                <h4 class="mb-0 font-size-18">Kategoriýalar</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Kategoriýalar</li>
                     </ol>
                 </div>
 
@@ -21,11 +21,11 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Lessons List</h4>
+                            <h4 class="">Kategoriýalaryň sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <a href="{{ route('admin.categories.create') }}" class="btn btn-primary waves-effect waves-light">
-                                Create
+                                Döret
                             </a>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Ady</th>
+                                <th>Tertip</th>
+                                <th>Sene</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -84,17 +84,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

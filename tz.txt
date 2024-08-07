@@ -44,7 +44,7 @@ Select Admin Teachers select 2 --сделано
 
 Dashboard Admin --сделано
 Translate
-Enroll Delet from front --сделано
+Enroll Delete from front --сделано
 Administrator Lessons CRUD ----
 Banner CRUD --------сделано
 Select Category Icons ----

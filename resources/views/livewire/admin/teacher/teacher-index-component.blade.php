@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Teachers</h4>
+                <h4 class="mb-0 font-size-18">Mugallymlar</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Teachers</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Mugallymlar</li>
                     </ol>
                 </div>
 
@@ -21,19 +21,19 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Teachers List</h4>
+                            <h4 class="">Mugallymlaryň sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
 {{--                            <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModal">--}}
 {{--                                Create--}}
 {{--                            </button>--}}
                             <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary waves-effect waves-light">
-                                Create
+                                Döret
                             </a>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="input-group">
-                                <input wire:model.live="searchTerm" type="text" class="form-control" id="validationCustomUsername" placeholder="Search ... min 3 characters" aria-describedby="inputGroupPrepend">
+                                <input wire:model.live="searchTerm" type="text" class="form-control" id="validationCustomUsername" placeholder="Gözleg ... azyndan 3 simwol" aria-describedby="inputGroupPrepend">
                                 <div class="invalid-feedback">
                                   Please choose a username.
                                 </div>
@@ -51,29 +51,29 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image</th>
+                                <th>Surat</th>
                                 <th>
-                                    <span wire:click.prevent="sortField('firstname')" href="" type="button" class="@if($sortBy=='firstname') text-primary @endif">First Name
+                                    <span wire:click.prevent="sortField('firstname')" href="" type="button" class="@if($sortBy=='firstname') text-primary @endif">Ady
                                         @if($sortBy=='firstname') {!!$sortIcon!!} @else <i class="bx bx-sort-up ml-1"></i> @endif
                                     </span>
                                 </th>
                                 <th>
-                                    <span wire:click.prevent="sortField('lastname')" href="" type="button" class="@if($sortBy=='lastname') text-primary @endif">Last Name
+                                    <span wire:click.prevent="sortField('lastname')" href="" type="button" class="@if($sortBy=='lastname') text-primary @endif">Familiýasy
                                         @if($sortBy=='lastname') {!!$sortIcon!!} @else <i class="bx bx-sort-up ml-1"></i> @endif
                                     </span>
                                 </th>
-                                <th>Position</th>
+                                <th>Wezipesi</th>
                                 <th>
-                                    <span wire:click.prevent="sortField('order')" href="" type="button" class="@if($sortBy=='order') text-primary @endif">Order
+                                    <span wire:click.prevent="sortField('order')" href="" type="button" class="@if($sortBy=='order') text-primary @endif">Tertip
                                         @if($sortBy=='order') {!!$sortIcon!!} @else <i class="bx bx-sort-up"></i> @endif
                                     </span>
                                 </th>
                                 <th>
-                                    <span wire:click.prevent="sortField('published')" href="" type="button" class="@if($sortBy=='published') text-primary @endif">Published
+                                    <span wire:click.prevent="sortField('published')" href="" type="button" class="@if($sortBy=='published') text-primary @endif">Ýagdaýy
                                         @if($sortBy=='published') {!!$sortIcon!!} @else <i class="bx bx-sort-up"></i> @endif
                                     </span>
                                 </th>
-                                <th>Actions</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -116,17 +116,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Modal title</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

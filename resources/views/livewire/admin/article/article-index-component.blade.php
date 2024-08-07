@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Articles</h4>
+                <h4 class="mb-0 font-size-18">Makalalar</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Articles</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Makalalar</li>
                     </ol>
                 </div>
 
@@ -21,11 +21,11 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Articles List</h4>
+                            <h4 class="">Makalalar sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <a href="{{ route('admin.article.create') }}" class="btn btn-primary waves-effect waves-light">
-                                Create
+                                Täze döret
                             </a>
                         </div>
                     </div>
@@ -36,11 +36,11 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Image | Title</th>                               
-                                <th>Published</th>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Surat | Sözbaşy</th>
+                                <th>Görkez</th>
+                                <th>Tertip</th>
+                                <th>Sene</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,9 +49,9 @@
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td class="pr-0 mr-0"><a href="{{ route('admin.article.edit', ['id' => $article->id]) }}">
                                             <img class="mr-3" style="width: 15%;" src="{{ asset('images/articles/'.$article->image) }}" alt="">
-                                            <strong>{{ $article->title }}</strong> 
+                                            <strong>{{ $article->title }}</strong>
                                         </a>
-                                    </td>                                   
+                                    </td>
                                     <td style="width: 15%;">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customCheck{{ $article->id }}" wire:model.live="published"
@@ -61,9 +61,9 @@
                                             @endif>
                                             <label class="custom-control-label" for="customCheck{{ $article->id }}">
                                                @if ( $article->published )
-                                                    <span class="badge badge-success">Published</span>
+                                                    <span class="badge badge-success">Görkez</span>
                                                 @else
-                                                    <span class="badge badge-danger">Not Published</span>
+                                                    <span class="badge badge-danger">Görkezme</span>
                                                 @endif
                                             </label>
                                         </div>
@@ -123,17 +123,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Bu ýazgyny dogrudanam öçürjekmi?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

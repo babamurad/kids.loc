@@ -4,12 +4,12 @@
         @include('components.alerts')
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Users</h4>
+                <h4 class="mb-0 font-size-18">Ulanyjylar</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.users') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.users') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Ulanyjylar</li>
                     </ol>
                 </div>
 
@@ -23,12 +23,12 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Users List</h4>
+                            <h4 class="">Ulanyjylar sanawy</h4>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="input-group">
                                 <input wire:model.live="searchTerm" type="text" class="form-control"
-                                    id="validationCustomUsername" placeholder="Search ...minimum 3 characters"
+                                    id="validationCustomUsername" placeholder="Gözläň ... min 3 simwol"
                                     aria-describedby="inputGroupPrepend">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">
@@ -46,7 +46,7 @@
                                     <th>#</th>
                                     <th>
                                         <span wire:click.prevent="sortField('name')" href="" type="button"
-                                            class="@if ($sortBy == 'name') text-primary @endif">Name
+                                            class="@if ($sortBy == 'name') text-primary @endif">Ady
                                             @if ($sortBy == 'name')
                                                 {!! $sortIcon !!}
                                             @else
@@ -56,7 +56,7 @@
                                     </th>
                                     <th>
                                         <span wire:click.prevent="sortField('email')" href="" type="button"
-                                            class="@if ($sortBy == 'email') text-primary @endif">Email
+                                            class="@if ($sortBy == 'email') text-primary @endif">E-poçta
                                             @if ($sortBy == 'email')
                                                 {!! $sortIcon !!}
                                             @else
@@ -67,7 +67,7 @@
                                     </th>
                                     <th>
                                         <span wire:click.prevent="sortField('type')" href="" type="button"
-                                            class="@if ($sortBy == 'type') text-primary @endif">Type
+                                            class="@if ($sortBy == 'type') text-primary @endif">Görnüşi
                                             @if ($sortBy == 'type')
                                                 {!! $sortIcon !!}
                                             @else
@@ -77,7 +77,7 @@
                                     </th>
                                     <th>
                                         <span wire:click.prevent="sortField('created_at')" href="" type="button"
-                                            class="@if ($sortBy == 'created_at') text-primary @endif">Date
+                                            class="@if ($sortBy == 'created_at') text-primary @endif">Sene
                                             @if ($sortBy == 'created_at')
                                                 {!! $sortIcon !!}
                                             @else
@@ -85,7 +85,7 @@
                                             @endif
                                         </span>
                                     </th>
-                                    <th>Actions</th>
+                                    <th>Hereket</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -131,20 +131,20 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Modal title</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
                         aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect waves-light"
-                        data-dismiss="modal">Отмена</button>
+                        data-dismiss="modal">Goýbolsun</button>
                     <button type="button" class="btn btn-danger waves-effect waves-light"
-                        wire:click="destroy">Удалить</button>
+                        wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

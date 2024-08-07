@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-0 font-size-18">Messages</h4>
+                        <h4 class="mb-0 font-size-18">Hatlar</h4>
                         @if(session('error'))
                             <div id="errorAlert" class="alert alert-danger alert-dismissible" style="margin-bottom: 0;">
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -19,8 +19,8 @@
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Messages</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Hatlar</li>
                     </ol>
                 </div>
 
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-3">
-                            <h4 class="">Messages List</h4>
+                            <h4 class="">Gelen hatlaryň sanawy</h4>
                         </div>
                     </div>
 
@@ -43,13 +43,13 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Date</th>
-                                <th>Phone</th>
-                                <th>Subject</th>
-                                <th>Is Read</th>
-                                <th>Actions</th>
+                                <th>Ady</th>
+                                <th>E-poçta</th>
+                                <th>Sene</th>
+                                <th>Telefon</th>
+                                <th>Temasy</th>
+                                <th>Okalan</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -70,9 +70,9 @@
                                                 @endif>
                                             <label class="custom-control-label" for="customCheck{{ $message->id }}">
                                                 @if ( $message->read )
-                                                    <span class="badge badge-success">Read</span>
+                                                    <span class="badge badge-success">Okalan</span>
                                                 @else
-                                                    <span class="badge badge-danger">Not Read</span>
+                                                    <span class="badge badge-danger">Okalmadyk</span>
                                                 @endif
                                             </label>
                                         </div>
@@ -112,17 +112,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

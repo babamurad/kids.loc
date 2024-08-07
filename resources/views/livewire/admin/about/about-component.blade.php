@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">About</h4>
+                <h4 class="mb-0 font-size-18">Biz barada</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">About</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Biz barada</li>
                     </ol>
                 </div>
 
@@ -21,26 +21,26 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-sm-2">
-                            <h4 class="">About</h4>
+                            <h4 class="">Biz barada</h4>
                         </div>
                         <div class="col-sm-2 mb-2">
                             <a href="#" class="btn btn-primary waves-effect waves-light" wire:click="update">
-                                Save
+                                Ýatda sakla
                             </a>
                         </div>
                     </div>
                     <div class="row text-center">
                         <div class="col-sm-6">
                             <div class="form-group text-left">
-                                <label>File Browser</label>
+                                <label>Surat</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile" wire:model="newImage">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                    <label class="custom-file-label" for="customFile">Surat saýlamak</label>
                                 </div>
                             </div>
 
                             <div class="form-group text-left">
-                                <label for="title">Title</label>
+                                <label for="title">Sözbaşy</label>
                                 <input type="text" id="title" class="form-control" placeholder="Enter title" wire:model="title">
                             </div>
                         </div>
