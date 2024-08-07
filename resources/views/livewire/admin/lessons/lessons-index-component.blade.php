@@ -31,17 +31,17 @@
         <div class="col-12">
             @include('components.alerts')
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Lessons</h4>
-{{--                <a href="{{ route('admin.admin-lessons.create') }}" class="btn btn-primary waves-effect waves-light">--}}
-{{--                    Döret--}}
-{{--                </a>--}}
-                <h5 class="h5">Category: <span class="badge badge-primary badge-pill">{{ $categoryId != 0 ? $categoryName : '' }}</span>
+                <h4 class="mb-0 font-size-18">Sapaklar</h4>
+                <a href="{{ route('admin.admin-lessons.create') }}" class="btn btn-primary waves-effect waves-light">
+                    Döret
+                </a>
+                <h5 class="h5">Kategoriva: <span class="badge badge-primary badge-pill">{{ $categoryId != 0 ? $categoryName : '' }}</span>
                     /
-                    Teacher: <span class="badge badge-success badge-pill">{{ $teacherId != 0 ? $teacherName : '' }}</span> </h5>
+                    Mugallym: <span class="badge badge-success badge-pill">{{ $teacherId != 0 ? $teacherName : '' }}</span> </h5>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Lessons</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active">Sapaklar</li>
                     </ol>
                 </div>
 
@@ -56,7 +56,7 @@
                         <div class="col-sm-3">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <label>Category</label>
+                                    <label>Kategoriýa</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <select class="form-control mb-3" wire:model.live="categoryId">
@@ -95,7 +95,7 @@
                         <div class="col-sm-3 mb-2">
                             <div class="input-group">
                                 <input wire:model.live="search" type="text" class="form-control" id="validationCustomUsername"
-                                       placeholder="Search ...minimum 3 characters" aria-describedby="inputGroupPrepend">
+                                       placeholder="Gözläň ... min 3 simwol" aria-describedby="inputGroupPrepend">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">
                                         <i class="bx bx-search-alt-2"></i>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="row justify-content-end">
-                                <div class="col-sm-3"><label for="perPage">Per Page</label></div>
+                                <div class="col-sm-3"><label for="perPage">Sahypada</label></div>
                                 <div class="col-sm-3">
                                     <select name="perPage" class="form-control form-control-sm" wire:model.live="perPage">
                                         <option>5</option>
@@ -125,13 +125,13 @@
                             <thead>
                             <tr>
                                 <th>#ID</th>
-                                <th>Title</th>
-                                <th>Teacher</th>
-                                <th>Category</th>
-                                <th>Published</th>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>Sözbaşy</th>
+                                <th>Mugallym</th>
+                                <th>Kategoriýa</th>
+                                <th>Ýagdaýy</th>
+                                <th>Tertip</th>
+                                <th>Senesi</th>
+                                <th>Hereket</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -150,9 +150,9 @@
                                         <td>
                                             <label class="mt-2">
                                                 @if ( $lesson->status )
-                                                    <span class="badge badge-success">Published</span>
+                                                    <span class="badge badge-success">Görkezilen</span>
                                                 @else
-                                                    <span class="badge badge-danger">Not Published</span>
+                                                    <span class="badge badge-danger">Görkezilmadik</span>
                                                 @endif
                                             </label>
 
@@ -204,17 +204,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ConfirmDelete">Удаление</h5>
+                    <h5 class="modal-title" id="ConfirmDelete">Öçürmek</h5>
                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить?</p>
+                    <p>Siz dogrudanam bu ýazgyny öçürjemki?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Отмена</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Удалить</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
                 </div>
             </div>
         </div>

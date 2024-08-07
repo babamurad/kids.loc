@@ -50,13 +50,13 @@ class LessonsIndexComponent extends Component
 
     public function mount()
     {
-        $this->teacherId = session()->get('teacherId', default: '');
-        $this->teacherName = session()->get('teacherName', default: '');
+        $this->teacherId = session()->get('teacherId', '');
+        $this->teacherName = session()->get('teacherName', '');
 
-        $this->categoryId = session()->get('categoryId', default: '');
-        $this->categoryName = session()->get('categoryName', default: '');
+        $this->categoryId = session()->get('categoryId', '');
+        $this->categoryName = session()->get('categoryName', '');
 
-        $this->perPage = session()->get('perPage', default: 5);
+        $this->perPage = session()->get('perPage', 5);
     }
 
     public function updatedTeacherId()

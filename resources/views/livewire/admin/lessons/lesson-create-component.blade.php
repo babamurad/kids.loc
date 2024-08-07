@@ -89,31 +89,31 @@
                         </div>
                     @endif
 
-                    <div class="form-group mt-1">
-                        <label>Wideo</label>
-                        <div class="custom-file"
-                             x-data="{ uploading: false, progress: 0 }"
-                             x-on:livewire-upload-start="uploading = true"
-                             x-on:livewire-upload-finish="uploading = false"
-                             x-on:livewire-upload-cancel="uploading = false"
-                             x-on:livewire-upload-error="uploading = false"
-                             x-on:livewire-upload-progress="progress = $event.detail.progress"
-                        >
-                            <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
-                            <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Wideo saýla @endif</label>
-                            @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        <div class="form-group mt-1">
+                            <label>Wideo</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" class="custom-file-input @error('video') is-invalid @enderror" id="video" wire:model="video" accept="video/*">
+                                <label class="custom-file-label" for="video">@if($video){{ $video->getClientOriginalName() }}@else Wideo saýla @endif</label>
+                                @error('video')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                             <!-- Progress Bar -->
-                            <div class="progress w-100 mt-1" x-show="uploading">
-                                <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100" x-bind:value="progress">
 
-                                </progress>
-                            </div>
-                            <div x-show="uploading" class="mt-2">
-                                <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Ýatyrmak</button>
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button" wire:click="$cancelUpload('newVideo')">Ýatyrmak</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     @if ($audio)
                         <div class="mt-3">

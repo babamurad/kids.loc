@@ -47,7 +47,7 @@
                                 <th>E-poçta</th>
                                 <th>Sene</th>
                                 <th>Telefon</th>
-                                <th>Temasy</th>
+                                <th>Mowzuk</th>
                                 <th>Okalan</th>
                                 <th>Hereket</th>
                             </tr>
