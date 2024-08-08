@@ -25,9 +25,11 @@
             'bg-green',
             'bg-blue',
             'bg-yellow',
+            'bg-accent-gradient',
+            'bg-danger-subtle',
+            'bg-dark-subtle',
         ];
     @endphp
-
 
     <section id="categories">
         <div class="container padding-medium">
@@ -35,7 +37,9 @@
                 @foreach($categories as $category)
                 <div class="col my-4 my-lg-0 text-center">
                     <a href="{{ route('lessons') }}" class="categories-item" wire:navigate>
-                        <iconify-icon class="category-icon {{ $colors[$loop->index % count($colors)] }} text-white p-5 rounded-circle" icon="{{ $icons[$loop->index % count($icons)] }}"></iconify-icon>
+                        <iconify-icon class="category-icon  {{ $colors[$loop->index % count($colors)] }}
+                        text-white p-5 rounded-circle" icon="{{ $icons[$loop->index % count($icons)] }}">
+                        </iconify-icon>
 
                         <h2 class="mt-2">{{ ucfirst($category->name) }}</h2>
                     </a>

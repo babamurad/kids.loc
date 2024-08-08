@@ -1,4 +1,29 @@
 @section('title', 'Admin Category Create')
+@assets
+<link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+@endassets
+
+@push('select-js')
+
+    <script>
+        // $('[data-toggle="select2"]').select2();
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+
+            $('#teacherId').select2();
+            console.log('ready');
+            $('#teacherId').on('change', function (event){
+                console.log(event.target.value);
+            @this.set('teacherId', event.target.value);
+            });
+        });
+        window.addEventListener('tidUpdate', event=> {
+            //$('#teacherId').select2();
+            console.log('tidUpdate');
+        })
+    </script>
+@endpush
 <div class="container-fluid">
     @include('components.alerts')
     <div class="row">
@@ -33,6 +58,22 @@
                             @error('order')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
+
+                    <select name="icons" class="form-control">
+                        @foreach($icons as $icon)
+                            <option value="{{ $icon }}"><img src="{{ $icon }}" alt=""></option>
+                        @endforeach
+                    </select>
+
+                    <div wire:ignore class="form-group" data-select2-id="7">
+                        <select id="teacherId" class="form-control"  data-toggle="select2">
+                            <option value="0">Hemmesi</option>
+                            @foreach ($icons as $icon)
+                                <option value="{{ $icon }}"><img src="{{ $icon }}" alt=""></option>
+                            @endforeach
+                        </select>
+                    </div>
+
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.categories') }}" class="btn btn-secondary waves-effect waves-light">Ýapmak</a>
