@@ -1,4 +1,5 @@
 <div>
+    @section('title', 'Galereýa')
     @livewire('carousel-component', ['type' => 'banner'])
     <section id="gallery">
         <div class="container padding-medium pt-0">

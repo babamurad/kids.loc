@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\About;
 use App\Models\Article;
+use App\Models\Banner;
 use App\Models\Carousel;
 use App\Models\Category;
 use App\Models\Gallery;
@@ -14,6 +15,7 @@ class HomeComponent extends Component
 {
     public function render()
     {
+
         $teachers = Teacher::published()->orderBy('order')->get();
         $about = About::first();
         $carousel = Carousel::status()->orderBy('order')->get();

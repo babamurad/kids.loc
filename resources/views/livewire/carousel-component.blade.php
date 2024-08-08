@@ -84,7 +84,7 @@
     @elseif ($type === 'banner')
         <section id="banner" class="jarallax position-relative"
                  style="background-image: none; background-size: cover; background-repeat: no-repeat; background-position: center center;"
-                 data-jarallax-original-styles="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover;
+                 data-jarallax-original-styles="background-image: url({{ asset('images/banners') . '/' . $image }}); background-size: cover;
                  background-repeat: no-repeat; background-position: center;">
             <div class="d-none d-md-flex justify-content-between position-absolute w-100 px-5 pt-5 mt-lg-5">
                 <div>
@@ -122,7 +122,7 @@
                  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
                 <div
                     style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat;
-                    background-image: url({{ asset('images/testimonial-bg.jpg') }}); position: fixed; top: 0px; left: 0px; width: 1903px;
+                    background-image: url({{ asset('images/banners') . '/' . $image }}); position: fixed; top: 0px; left: 0px; width: 1903px;
                         height: 546px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden;
                         will-change: transform, opacity; margin-top: 13px; transform: translate3d(0px, 46.1172px, 0px);">
                 </div>

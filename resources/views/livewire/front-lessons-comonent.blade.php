@@ -18,7 +18,7 @@
     </style>
 
     <section id="banner" class="jarallax position-relative"
-             style="background-image: url({{ asset('images/testimonial-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+             style="background-image: url({{ asset('images/banners') . '/' . $image }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
 
         <div class="d-none d-md-flex justify-content-between position-absolute w-100 px-5 pt-5 mt-lg-5">
             <div> <iconify-icon icon="solar:cloud-sun-2-outline"
