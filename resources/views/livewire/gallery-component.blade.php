@@ -14,7 +14,7 @@
                 @endforeach
             </div>
             <div class="text-center">
-                <a class="btn btn-primary mt-4" href="{{ route('gallery') }}">Görmek</a>
+                <a class="btn btn-primary mt-4" href="{{ route('gallery') }}" wire:navigate>Görmek</a>
             </div>
         </div>
     </section>
