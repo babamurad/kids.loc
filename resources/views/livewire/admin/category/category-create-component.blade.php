@@ -7,24 +7,34 @@
 @push('select-js')
 
     <script>
-        // $('[data-toggle="select2"]').select2();
-        // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
+            function formatIcon (icon) {
+                if (!icon.id) { return icon.text; }
+                var baseUrl = $(icon.element).data('icon');
+                var $icon = $(
+                    '<span><img src="' + baseUrl + '" class="img-flag" /> ' + icon.text + '</span>'
+                );
+                return $icon;
+            };
 
-            $('#teacherId').select2();
-            console.log('ready');
-            $('#teacherId').on('change', function (event){
-                console.log(event.target.value);
-            @this.set('teacherId', event.target.value);
+            $("#icon-select").select2({
+                templateResult: formatIcon,
+                templateSelection: formatIcon,
+                escapeMarkup: function(m) { return m; } // Для отображения HTML
             });
         });
-        window.addEventListener('tidUpdate', event=> {
-            //$('#teacherId').select2();
-            console.log('tidUpdate');
-        })
+
     </script>
 @endpush
 <div class="container-fluid">
+    <style>
+        .img-flag {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            background-color: #3F51B5;
+        }
+    </style>
     @include('components.alerts')
     <div class="row">
         <div class="col-12">
@@ -59,20 +69,16 @@
                         </div>
                     </div>
 
-                    <select name="icons" class="form-control">
+                    <div wire:ignore class="form-group" data-select2-id="5">
+                    <select id="icon-select" class="form-control">
                         @foreach($icons as $icon)
-                            <option value="{{ $icon }}"><img src="{{ $icon }}" alt=""></option>
+                            <option value="{{ $icon }}" data-icon="{{ asset('images/categories/' . $icon) }}">
+                                {{ pathinfo($icon, PATHINFO_FILENAME) }}
+                            </option>
                         @endforeach
                     </select>
-
-                    <div wire:ignore class="form-group" data-select2-id="7">
-                        <select id="teacherId" class="form-control"  data-toggle="select2">
-                            <option value="0">Hemmesi</option>
-                            @foreach ($icons as $icon)
-                                <option value="{{ $icon }}"><img src="{{ $icon }}" alt=""></option>
-                            @endforeach
-                        </select>
                     </div>
+
 
                 </div>
                 <div class="card-footer">
