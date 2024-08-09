@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="row">
+        @include('components.alerts')
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
@@ -38,6 +39,7 @@
                                 <th>#</th>
                                 <th>Id</th>
                                 <th>Ady</th>
+                                <th>Icon</th>
                                 <th>Tertip</th>
                                 <th>Sene</th>
                                 <th>Hereket</th>
@@ -50,6 +52,7 @@
                                         <th scope="row">{{ $loop->index + 1 }}</th>
                                         <td><strong>{{ $category->id }}</strong></td>
                                         <td><strong>{{ $category->name }}</strong></td>
+                                        <td><span class="badge badge-primary p-2"><img src="{{ asset('images/categories/' . $category->icon) }}" alt="" style="width: 30px;"></span></td>
                                         <td><strong>{{ $category->order }}</strong></td>
                                         <td><strong>{{ \Carbon\Carbon::create($category->created_at)->format('d.m.Y')  }} y.</strong></td>
                                         <td>

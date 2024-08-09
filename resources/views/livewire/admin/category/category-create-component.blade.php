@@ -29,10 +29,27 @@
 <div class="container-fluid">
     <style>
         .img-flag {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             margin-right: 10px;
             background-color: #3F51B5;
+            border-radius: 4px;
+            margin-top: opx;
+        }
+        .bg-red {
+            background: #E47D7D;
+        }
+
+        .bg-green {
+            background: #AED260;
+        }
+
+        .bg-blue {
+            background: #649ACC;
+        }
+
+        .bg-yellow {
+            background: #EBCE66;
         }
     </style>
     @include('components.alerts')
@@ -70,16 +87,23 @@
                     </div>
 
                     <div wire:ignore class="form-group" data-select2-id="5">
-                    <select id="icon-select" class="form-control">
-                        @foreach($icons as $icon)
-                            <option value="{{ $icon }}" data-icon="{{ asset('images/categories/' . $icon) }}">
+                    <select id="icon-select" class="form-control" wire:model="icon">
+                        @foreach($icons as $key => $icon)
+                            <option value="{{ $icon }}" data-icon="{{ asset('images/categories/' . $icon) }}" wire:key="{{ $key }}">
                                 {{ pathinfo($icon, PATHINFO_FILENAME) }}
                             </option>
                         @endforeach
                     </select>
                     </div>
 
-
+                    <div class="mt-3">
+                        @foreach($colors as $color)
+                            <div class="custom-control custom-radio m-2">
+                                <input type="radio" id="customRadio{{$loop->index}}" name="customRadio" class="custom-control-input" wire:model="color">
+                                <label class="custom-control-label " for="customRadio{{$loop->index}}"> <span class="{{ $color }} p-1 rounded text-white">{{ $color }}</span></label>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.categories') }}" class="btn btn-secondary waves-effect waves-light">Ýapmak</a>

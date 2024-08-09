@@ -24,9 +24,16 @@ class CategoryIndexComponent extends Component
     public function destroy()
     {
         $category = Category::findOrFail($this->delId);
-        $category->delete();
+        if($category->lessons->count() > 0) {
+            $this->dispatch('closeModal');
+            session()->flash('error', 'Bu kategoriýada sapaklar bar. Ilki şolary öçürmeli.');
+        } else {
+            $category->delete();
+            $this->dispatch('closeModal');
+            session()->flash('error', 'Öçürildi.');
+        }
 
-        $this->dispatch('closeModal');
-        session()->flash('error', 'Deleted.');
+
+
     }
 }

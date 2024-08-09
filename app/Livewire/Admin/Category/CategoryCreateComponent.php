@@ -8,13 +8,15 @@ use Livewire\Component;
 class CategoryCreateComponent extends Component
 {
     public $name, $order;
-//    public $icons = [];
-    public $color = [];
+    public $icon, $color;
+
+    public $colors = [];
 
     protected $rules = ['name' => 'required|string|min:3'];
 
     public function render()
     {
+
         $directory = 'images/categories';
         // Указываем путь к папке, где хранятся SVG файлы
         $directory = public_path('images/categories');
@@ -35,21 +37,24 @@ class CategoryCreateComponent extends Component
 
     public function mount()
     {
-//        $directory = 'images/categories';
-//        $icons = array_diff(scandir($directory), array('..', '.'));
-//        $icons = array_filter($icons, function($file) use ($directory) {
-//            return is_file($directory . '/' . $file);
-//        });
-        //dd($icons);
+        $this->colors = [
+            'bg-red',
+            'bg-green',
+            'bg-blue',
+            'bg-yellow',
+        ];
 
     }
 
     public function create()
     {
+        dd($this->icon);
         $this->validate();
         $category = new Category();
         $category->name = $this->name;
         $category->order = $this->order;
+        $category->icon = $this->icon;
+        $category->color = $this->color;
         $category->save();
 
         session()->flash('success', 'Успешно добавлен!');
