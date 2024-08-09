@@ -23,6 +23,7 @@
     {{-- @livewireStyles   --}}
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
     @stack('select-css')
+    @stack('editor-css')
 
 
 </head>

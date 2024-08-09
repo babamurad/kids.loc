@@ -1,4 +1,4 @@
-@section('title', 'Teacher Lesson Edit')
+@section('title', 'Admin Lesson Edit')
 <div class="container-fluid">
     <style>
         progress {
@@ -27,15 +27,13 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Sapaga Düzediş girizmek</h4>
+                <h4 class="mb-0 font-size-18">Sapaga düzediş girizmak</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}">Dolandryryş</a></li>
-                        <li class="breadcrumb-item active"><a
-                                    href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->teacher->id]) }}">Sapaklar</a>
-                        </li>
-                        <li class="breadcrumb-item active">Düzediş girizmek</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dolandyryş</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.admin-lessons') }}">Sapaklar</a> </li>
+                        <li class="breadcrumb-item active">Düzediş</li>
                     </ol>
                 </div>
 
@@ -46,30 +44,23 @@
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-body">
+
                     <div class="form-group">
                         <label for="title">Sözbaşy</label>
-                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror"
-                               placeholder="Sözbaşy" wire:model="title">
-                        @error('title')
-                        <div class="invalid-feedback">{{ $message }}</div>@enderror
+                        <input type="text" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Sözbaşy" wire:model="title">
+                        @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
-                    <div class="border-danger"
-                         @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>
+                    <div class="border-danger" @error('content') style="border: 1px solid #ee5455; display:block;" @enderror>
                         <div wire:ignore class="form-group">
-                            <textarea class="@error('content') is-invalid @enderror" id="summernote"
-                                      wire:model.live="content"></textarea>
+                            <textarea class="@error('content') is-invalid @enderror" id="summernote" wire:model.live="content"></textarea>
                         </div>
                     </div>
-                    @error('content')
-                    <div class="invalid-feedback" style="display: block;">{{ $message }}</div>@enderror
+                    @error('content')<div class="invalid-feedback" style="display: block;">{{ $message }}</div>@enderror
 
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('teacher.teacher-lessons', ['teacherId' => auth()->user()->id]) }}"
-                       class="btn btn-secondary waves-effect waves-light">Close</a>
-                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="update">Save
-                        changes
-                    </button>
+                    <a href="{{ route('admin.admin-lessons') }}" class="btn btn-secondary waves-effect waves-light" wire:navigate>Ýapmak</a>
+                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Ýatda sakla</button>
                 </div>
             </div>
         </div>
@@ -211,56 +202,45 @@
                         </div>
                     </div>
 
-                    @if ($file)
-                        <div class="mt-3">
-                            <label>Faýla deslapky syn:</label>
-                            <a href="{{ $file }}">@if($file)
-                                    {{ asset('/images/lesson/files'). 'lesson-edit-component.blade.php/' . $file }}
-                                @else
-                                    Faýl saýla
-                                @endif</a>
-                        </div>
-                    @endif
+                        <div class="form-group mt-1">
+                            <label>File</label>
+                            <div class="custom-file"
+                                 x-data="{ uploading: false, progress: 0 }"
+                                 x-on:livewire-upload-start="uploading = true"
+                                 x-on:livewire-upload-finish="uploading = false"
+                                 x-on:livewire-upload-cancel="uploading = false"
+                                 x-on:livewire-upload-error="uploading = false"
+                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                                <input type="file" class="custom-file-input @error('newFile') is-invalid @enderror"
+                                       id="newFile" wire:model="newFile" accept="file/*">
+                                <label class="custom-file-label" for="newFile">@if ($newFile)
+                                        {{ $newFile->getClientOriginalName() }}
+                                    @else
+                                        File saýlamak
+                                    @endif</label>
+                                @error('newFile')
+                                <div class="invalid-feedback">{{ $message }}</div>@enderror
 
-                    <div class="form-group mt-1">
-                        <label>File</label>
-                        <div class="custom-file"
-                             x-data="{ uploading: false, progress: 0 }"
-                             x-on:livewire-upload-start="uploading = true"
-                             x-on:livewire-upload-finish="uploading = false"
-                             x-on:livewire-upload-cancel="uploading = false"
-                             x-on:livewire-upload-error="uploading = false"
-                             x-on:livewire-upload-progress="progress = $event.detail.progress"
-                        >
-                            <input type="file" class="custom-file-input @error('newFile') is-invalid @enderror"
-                                   id="newFile" wire:model="newFile" accept="file/*">
-                            <label class="custom-file-label" for="newFile">@if ($newFile)
-                                    {{ $newFile->getClientOriginalName() }}
-                                @else
-                                    File saýlamak
-                                @endif</label>
-                            @error('newFile')
-                            <div class="invalid-feedback">{{ $message }}</div>@enderror
+                                <!-- Progress Bar -->
+                                <div class="progress w-100 mt-1" x-show="uploading">
+                                    <progress class="progress-bar w-100" role="progressbar" style="width: 25%;"
+                                              aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100"
+                                              x-bind:value="progress">
 
-                            <!-- Progress Bar -->
-                            <div class="progress w-100 mt-1" x-show="uploading">
-                                <progress class="progress-bar w-100" role="progressbar" style="width: 25%;"
-                                          aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" max="100"
-                                          x-bind:value="progress">
+                                    </progress>
+                                </div>
+                                <div x-show="uploading" class="mt-2">
+                                    <button class="btn btn-sm btn-outline-danger mt-3" type="button">Cancel</button>
+                                </div>
 
-                                </progress>
                             </div>
-                            <div x-show="uploading" class="mt-2">
-                                <button class="btn btn-sm btn-outline-danger mt-3" type="button">Cancel</button>
-                            </div>
-
                         </div>
-                    </div>
 
                         <div class="row">
                             @if ($file)
                                 <div class="mt-3">
-                                    <h5>Document Preview:</h5>
+                                    <h5>Faýla deslapky syn:</h5>
                                     @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pdf']))
                                         <iframe src="{{ asset('images/lesson/files'). '/' . $file }}" style="width:100%; height:500px;"></iframe>
                                     @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['doc', 'docx']))
@@ -280,7 +260,7 @@
                                         <!-- PPTX Preview -->
                                         <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ urlencode(asset($file)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
                                     @endif
-                                    <button wire:click="removeDocFile" class="btn btn-danger mt-2">Remove Document</button>
+                                    <button wire:click="removeDocFile" class="btn btn-danger mt-2">Dokumenti öçürmek</button>
                                 </div>
                             @endif
                             <div class="col-sm-6">
@@ -323,38 +303,8 @@
                             </div>
                         </div>
 
-                    {{--                    <div class="row my-3">--}}
-                    {{--                        <div class="col-sm-6">--}}
-                    {{--                            <div class="row form-group pl-5">--}}
-                    {{--                                <div class="custom-control custom-checkbox mt-2 pl-2">--}}
-                    {{--                                    <input type="checkbox" class="custom-control-input" id="available" wire:model="available">--}}
-                    {{--                                    <label class="custom-control-label" for="available">Available</label>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="col-sm-6">--}}
-                    {{--                            <label class="mr-2" for="until_date">Gutarýan wagty</label>--}}
-                    {{--                            <input class="form-control" type="date" name="until_date" wire:model="until_date">--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-
-                    <div class="form-group">
-                        <label>Kategoriýa</label>
-                        <select class="form-control mb-3" wire:model="category_id">
-                            <option value="">Kategoriýany saýlamak</option>
-                            @foreach ($categories as $category)
-                                <option wire:key="{{ $category->id }}"
-                                        value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                 </div>
             </div>
-
-            {{-- <p>{{ $published_date }}</p>
-            <label>Published date</label>
-            <input type="date" wire:model.live="published_date"> --}}
         </div>
     </div>
 </div>
@@ -366,6 +316,8 @@
 
 @push('editor-js')
 
+    <script src="{{ asset('admin/assets/js/mammoth.browser.min.js') }}"></script>
+    <script src="{{ asset('/admin/assets/js/theme.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('#summernote').summernote({
@@ -383,6 +335,7 @@
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ],
                 fontsize: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '32', '36', '48', '64', '82', '100'] // Опционально: задаем список размеров шрифтов
+
             });
         });
 
@@ -390,16 +343,4 @@
         @this.set('content', contents)
         });
     </script>
-    {{--    <script>--}}
-    {{--        Livewire.on('videoUploaded', (url) => {--}}
-    {{--            alert('videoUploaded');--}}
-    {{--            document.getElementById('video-preview').src = url;--}}
-    {{--        });--}}
-
-    {{--        window.addEventListener('videoUploaded', (url) => {--}}
-    {{--            alert('videoUploaded');--}}
-    {{--            document.getElementById('video-preview').src = url;--}}
-    {{--        })--}}
-    {{--    </script>--}}
-
 @endpush

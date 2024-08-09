@@ -167,10 +167,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <p>{{ $published_date }}</p>
-            <label>Published date</label>
-            <input type="date" wire:model.live="published_date"> --}}
         </div>
     </div>
 </div>

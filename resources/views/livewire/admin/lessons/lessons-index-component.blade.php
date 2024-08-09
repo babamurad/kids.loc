@@ -140,7 +140,7 @@
 
                                     <tr wire:key="{{ $lesson->id }}">
                                         <th scope="row">{{ $loop->index + 1 }}</th>
-                                        <td class="pr-0 mr-0"><a href="{{ route('admin.admin-lessons.view', ['id' => $lesson->id]) }}">
+                                        <td class="pr-0 mr-0"><a href="{{ route('admin.admin-lessons.edit', ['id' => $lesson->id]) }}">
                                                 <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
                                                 <strong>{{ $lesson->title }}</strong>
                                             </a>
@@ -170,7 +170,7 @@
                                             <div class="mt-2">{{ Carbon\Carbon::create($lesson->created_at)->format('d.m.Y') }}</div>
                                         </td>
                                         <td style="width: 12%;">
-{{--                                            <a href="#" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>--}}
+                                            <a href="{{ route('admin.admin-lessons.edit', ['id' => $lesson->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
                                              <a href="{{ route('admin.admin-lessons.view', ['id' => $lesson->id]) }}" class="btn btn-sm btn-warning mr-2 mt-2"><i class="fas fa-eye"></i></a>
                                             <button class="btn btn-sm btn-danger mt-2" data-toggle="modal" data-target="#ConfirmDelete" wire:click="deleteId({{ $lesson->id }})">
                                                 <i class="fas fa-trash-alt"></i>
