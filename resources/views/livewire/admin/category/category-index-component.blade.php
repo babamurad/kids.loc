@@ -1,30 +1,33 @@
 @section('title', 'Admin Categories')
-<style>
-    .img-flag {
-        width: 25px;
-        height: 25px;
-        margin-right: 10px;
-        background-color: #3F51B5;
-        border-radius: 4px;
-        margin-top: 0;
-    }
+@push('select-css')
+    <style>
+        .img-flag {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            background-color: #3F51B5;
+            border-radius: 4px;
+            margin-top: 0;
+        }
 
-    .bg-red {
-        background: #E47D7D;
-    }
+        .bg-red {
+            background: #E47D7D;
+        }
 
-    .bg-green {
-        background: #AED260;
-    }
+        .bg-green {
+            background: #AED260;
+        }
 
-    .bg-blue {
-        background: #649ACC;
-    }
+        .bg-blue {
+            background: #649ACC;
+        }
 
-    .bg-yellow {
-        background: #EBCE66;
-    }
-</style>
+        .bg-yellow {
+            background: #EBCE66;
+        }
+    </style>
+@endpush
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -126,7 +129,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary waves-effect waves-light" data-dismiss="modal">Goýbolsun</button>
-                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click="destroy">Öçür</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light" wire:click.prevent="destroy">Öçür</button>
                 </div>
             </div>
         </div>

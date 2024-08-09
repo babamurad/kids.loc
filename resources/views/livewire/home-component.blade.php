@@ -32,15 +32,38 @@
     @endphp
 
     <section id="categories">
+        <style>
+            .img-flag {
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+                background-color: #3F51B5;
+                border-radius: 4px;
+                margin-top: 0;
+            }
+
+            .bg-red {
+                background: #E47D7D;
+            }
+
+            .bg-green {
+                background: #AED260;
+            }
+
+            .bg-blue {
+                background: #649ACC;
+            }
+
+            .bg-yellow {
+                background: #EBCE66;
+            }
+        </style>
         <div class="container padding-medium">
             <div class="row">
                 @foreach($categories as $category)
                 <div class="col my-4 my-lg-0 text-center">
                     <a href="{{ route('lessons') }}" class="categories-item" wire:navigate>
-                        <iconify-icon class="category-icon  {{ $colors[$loop->index % count($colors)] }}
-                        text-white p-5 rounded-circle" icon="{{ $icons[$loop->index % count($icons)] }}">
-                        </iconify-icon>
-
+                        <img class="{{ $category->color }} p-2" src="{{ asset('/images/categories/' . '/' . $category->icon) }}" alt="" style="width: 120px; border-radius: 50%;">
                         <h2 class="mt-2">{{ ucfirst($category->name) }}</h2>
                     </a>
                 </div>

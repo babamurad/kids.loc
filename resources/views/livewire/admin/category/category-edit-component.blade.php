@@ -1,12 +1,18 @@
 @section('title', 'Admin Category Edit')
 @assets
 <link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('admin/assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css" />
 <script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+<script src="{{ asset('admin/assets/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
 @endassets
 
 @push('select-js')
 
     <script>
+        $('#component-colorpicker').colorpicker({
+            format: 'auto'
+        });
+
         $(document).ready(function () {
             function formatIcon(icon) {
                 if (!icon.id) {
@@ -110,6 +116,15 @@
                     <div class="mt-3">
                         <div class="row">
                             <div class="col-sm-6">
+{{--                                <div class="form-group">--}}
+{{--                                    <label>Reňki</label>--}}
+{{--                                    <div id="component-colorpicker" class="input-group colorpicker-element" title="Using format option" data-colorpicker-id="3">--}}
+{{--                                        <input type="text" class="form-control input-lg" value="#305AA2" wire:model.live="selectedColor">--}}
+{{--                                        <span class="input-group-append">--}}
+{{--                                            <span class="input-group-text colorpicker-input-addon" data-original-title="" title="" tabindex="0"><i style="background: rgb(206, 26, 103);"></i></span>--}}
+{{--                                        </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 @foreach($colors as $color)
                                     <div class="custom-control custom-radio m-2">
                                         <input type="radio" id="customRadio{{ $color->id }}"
@@ -126,11 +141,7 @@
                                 <img class="{{ $selectedColor }} p-2" src="{{ asset('images/categories/' . $icon) }}" alt="" style="width: 100px; border-radius: 50%;">
                             </div>
                         </div>
-
                     </div>
-
-
-
 
                 </div>
                 <div class="card-footer">

@@ -8,6 +8,7 @@ use Livewire\Component;
 class CategoryIndexComponent extends Component
 {
     public $delId;
+
     public function render()
     {
         $categories = Category::all();
@@ -32,7 +33,6 @@ class CategoryIndexComponent extends Component
             $this->dispatch('closeModal');
             session()->flash('error', 'Öçürildi.');
         }
-
 
 
     }

@@ -112,17 +112,25 @@
                     </div>
 
                     <div class="mt-3">
-                        @foreach($colors as $color)
-                            <div class="custom-control custom-radio m-2">
-                                <input type="radio"
-                                       id="customRadio{{ $color->id }}"
-                                       name="customRadio" class="custom-control-input"
-                                       wire:key="{{ $color->id }}" wire:model="color">
-                                <label class="custom-control-label" for="customRadio{{ $color->id }}">
-                                    <span class="{{ $color->color }} p-1 rounded text-white">{{ $color->color }}</span>
-                                </label>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @foreach($colors as $color)
+                                    <div class="custom-control custom-radio m-2">
+                                        <input type="radio" id="customRadio{{ $color->id }}"
+                                               name="customRadio" class="custom-control-input"
+                                               wire:key="{{ $color->id }}" wire:model.live="selectedColor"
+                                               value="{{ $color->color }}">
+                                        <label class="custom-control-label" for="customRadio{{ $color->id }}">
+                                            <span class="{{ $color->color }} p-1 rounded text-white">{{ $color->color }}</span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                            <div class="col-sm-6">
+                                <img class="{{ $selectedColor }} p-2" src="{{ asset('images/categories/' . $icon) }}" alt="" style="width: 100px; border-radius: 50%;">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="card-footer">

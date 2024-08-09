@@ -11,6 +11,7 @@ class CategoryCreateComponent extends Component
 {
     public $name, $order;
     public $icon, $color;
+    public $selectedColor;
 
     protected $rules = ['name' => 'required|string|min:3'];
 
@@ -29,7 +30,7 @@ class CategoryCreateComponent extends Component
         $category->name = $this->name;
         $category->order = $this->order;
         $category->icon = $this->icon;
-        $category->color = $this->color;
+        $category->color = $this->selectedColor;
         $category->save();
 
         session()->flash('success', 'Üstünlikli goöuldy!');
