@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
+use App\Models\Color;
+use App\Models\Icon;
 use Livewire\Component;
 
 class CategoryCreateComponent extends Component
@@ -10,45 +12,18 @@ class CategoryCreateComponent extends Component
     public $name, $order;
     public $icon, $color;
 
-    public $colors = [];
-
     protected $rules = ['name' => 'required|string|min:3'];
 
     public function render()
     {
-
-        $directory = 'images/categories';
-        // Указываем путь к папке, где хранятся SVG файлы
-        $directory = public_path('images/categories');
-
-        // Получаем список всех файлов в папке
-        $files = array_diff(scandir($directory), ['..', '.']);
-
-        // Фильтруем, чтобы оставить только SVG файлы
-        $svgFiles = array_filter($files, function($file) use ($directory) {
-            return pathinfo($file, PATHINFO_EXTENSION) === 'svg';
-        });
-
-        $icons = $svgFiles;
-
-        return view('livewire.admin.category.category-create-component', compact('icons'))
+        $icons = Icon::all();
+        $colors = Color::all();
+        return view('livewire.admin.category.category-create-component', compact('icons', 'colors'))
             ->layout('components.layouts.admin-app');
-    }
-
-    public function mount()
-    {
-        $this->colors = [
-            'bg-red',
-            'bg-green',
-            'bg-blue',
-            'bg-yellow',
-        ];
-
     }
 
     public function create()
     {
-        dd($this->icon);
         $this->validate();
         $category = new Category();
         $category->name = $this->name;
@@ -57,7 +32,7 @@ class CategoryCreateComponent extends Component
         $category->color = $this->color;
         $category->save();
 
-        session()->flash('success', 'Успешно добавлен!');
+        session()->flash('success', 'Üstünlikli goöuldy!');
         return $this->redirect('/admin/categories', navigate: true);
     }
 }

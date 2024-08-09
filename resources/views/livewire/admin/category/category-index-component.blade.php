@@ -1,4 +1,30 @@
 @section('title', 'Admin Categories')
+<style>
+    .img-flag {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        background-color: #3F51B5;
+        border-radius: 4px;
+        margin-top: 0;
+    }
+
+    .bg-red {
+        background: #E47D7D;
+    }
+
+    .bg-green {
+        background: #AED260;
+    }
+
+    .bg-blue {
+        background: #649ACC;
+    }
+
+    .bg-yellow {
+        background: #EBCE66;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -39,7 +65,7 @@
                                 <th>#</th>
                                 <th>Id</th>
                                 <th>Ady</th>
-                                <th>Icon</th>
+                                <th>Ikonka/Reňki</th>
                                 <th>Tertip</th>
                                 <th>Sene</th>
                                 <th>Hereket</th>
@@ -51,10 +77,13 @@
                                     <tr wire:key="{{ $category->id }}">
                                         <th scope="row">{{ $loop->index + 1 }}</th>
                                         <td><strong>{{ $category->id }}</strong></td>
-                                        <td><strong>{{ $category->name }}</strong></td>
-                                        <td><span class="badge badge-primary p-2"><img src="{{ asset('images/categories/' . $category->icon) }}" alt="" style="width: 30px;"></span></td>
-                                        <td><strong>{{ $category->order }}</strong></td>
-                                        <td><strong>{{ \Carbon\Carbon::create($category->created_at)->format('d.m.Y')  }} y.</strong></td>
+                                        <td><a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}"><strong>{{ $category->name }}</strong></a></td>
+                                        <td><span class="badge badge-primary p-2 {{$category->color}}"><img class="" src="{{ asset('images/categories/' . $category->icon) }}" alt="" style="width: 30px;"></span></td>
+                                        <td><span class="badge badge-secondary badge-pill mt-2 ml-3"><strong>{{ $category->order }}</strong></span></td>
+                                        <td><span class="badge badge-light badge-pill p-1 ">
+                                                <strong>{{ \Carbon\Carbon::create($category->created_at)->format('d.m.Y')  }} ý.</strong>
+                                            </span>
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
                                             {{-- <a href="{{ route('admin.teachers.view', ['id' => $category->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a> --}}
