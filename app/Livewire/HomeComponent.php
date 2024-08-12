@@ -22,6 +22,7 @@ class HomeComponent extends Component
         $articles = Article::published()->orderBy('order')->limit(4)->get();
         $categories = Category::all();
 
+
         return view('livewire.home-component',compact('teachers', 'about', 'carousel', 'articles', 'categories'));
     }
 }

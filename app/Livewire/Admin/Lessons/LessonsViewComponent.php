@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Lessons;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Lesson;
 use Livewire\Component;
@@ -14,8 +15,9 @@ class LessonsViewComponent extends Component
 
     public function render()
     {
+        $banners = Banner::all();
         $categories = Category::all();
-        return view('livewire.admin.lessons.lessons-view-component', compact('categories'))
+        return view('livewire.admin.lessons.lessons-view-component', compact('categories', 'banners'))
             ->layout('components.layouts.admin-app');
     }
 
