@@ -30,7 +30,6 @@
                         </div>
                     </div>
 
-
                     <div class="table-responsive">
                         <table class="table mb-0">
                             <thead>
@@ -65,20 +64,16 @@
                                                 @endif
                                             </label>
                                         </div>
-
-
                                     </td>
                                     <td style="width: 8%;">
-                                            <div class="row">
-                                            <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
-                                            <span class="mt-2">{{ $item->order }}</span>
-                                            <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
-                                            </div>
-
+                                        <div class="row">
+                                        <span type="button" class="btn waves-effect text-danger " wire:click="DecOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-minus"></i></span>
+                                        <span class="mt-2">{{ $item->order }}</span>
+                                        <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $item->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
+                                        </div>
                                     </td>
                                     <td style="width: 10%;">
                                         <div class="mt-2">{{ Carbon\Carbon::create($item->created_at)->format('d.m.Y') }}</div>
-
                                     </td>
                                     <td style="width: 12%;">
                                         <a wire:navigate href="{{ route('admin.carousel.edit', ['id' => $item->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>
