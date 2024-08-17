@@ -57,7 +57,15 @@
                     </div>
                     @error('content')<div class="invalid-feedback" style="display: block;">{{ $message }}</div>@enderror
 
+                    <small>Simwol sany:
+                        <span class="badge badge-secondary badge-pill" x-text="$wire.content.length"></span>
+                    </small>
+                    <small class="ml-3">Söz sany:
+                        <span class="badge badge-secondary badge-pill" x-text="$wire.content.split(' ').length - 1"></span>
+                    </small>
+
                 </div>
+
                 <div class="card-footer">
                     <a href="{{ route('admin.admin-lessons') }}" class="btn btn-secondary waves-effect waves-light" wire:navigate>Ýapmak</a>
                     <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Ýatda sakla</button>

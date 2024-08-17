@@ -77,7 +77,6 @@
                                             <span type="button" class="btn waves-effect text-danger bold" wire:click="IncOrder({{ $article->id }})" style="padding: 0.5rem 0.6rem; font-size: 14px;"><i class="bx bx-plus"></i></span>
                                             </div>
 
-
                                             {{--
                                             <div class="icon-stack-container">
                                             <div class="icon-stack"> wire:click="IncOrder({{ $article->id }})"

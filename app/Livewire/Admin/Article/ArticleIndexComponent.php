@@ -54,7 +54,7 @@ class ArticleIndexComponent extends Component
 
     public function IncOrder($id)
     {
-        $article = Article::findOrFail($id);        
+        $article = Article::findOrFail($id);
         $article->order = ++$article->order;
         $article->update();
     }
@@ -62,7 +62,11 @@ class ArticleIndexComponent extends Component
     public function DecOrder($id)
     {
         $article = Article::findOrFail($id);
-        $article->order = --$article->order;
+        if($article->order > 0) {
+            $article->order = --$article->order;
+        } else {
+            $article->order = 0;
+        }
         $article->update();
     }
 }
