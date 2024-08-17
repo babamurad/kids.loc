@@ -18,6 +18,8 @@ class CarouselIndexComponent extends Component
     public function render()
     {
         $carousels = Carousel::paginate();
+
+
         return view('livewire.admin.carousel.carousel-index-component', compact('carousels'))
         ->layout('components.layouts.admin-app');
     }
@@ -54,7 +56,7 @@ class CarouselIndexComponent extends Component
 
     public function IncOrder($id)
     {
-        $item = Carousel::findOrFail($id);        
+        $item = Carousel::findOrFail($id);
         $item->order = ++$item->order;
         $item->update();
     }
@@ -65,4 +67,6 @@ class CarouselIndexComponent extends Component
         $item->order = --$item->order;
         $item->update();
     }
+
+    
 }

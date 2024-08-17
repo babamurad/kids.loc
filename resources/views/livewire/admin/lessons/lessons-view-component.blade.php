@@ -55,6 +55,21 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" wire:model="content" disabled></textarea>
                     </div>
 
+                    <div x-data="{ isOpen: false, selectedProduct: null }">
+                        <button @click="isOpen = !isOpen">Выбрать продукт</button>
+                        <div x-show="isOpen" class="dropdown">
+                            <ul>
+                                <template x-for="product in banners">
+                                    <li @click="selectedProduct = product" :class="{ active: selectedProduct === product }">
+                                        <img :src="product.image" alt="Product image">
+                                        {{ product.title }}
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+
+
 
                 </div>
                 <div class="card-footer">

@@ -24,8 +24,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Lora:wght@400;500;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script>
         document.addEventListener('livewire:navigated', () => {
@@ -69,8 +68,6 @@
                     $container.isotope({ filter: filterValue });
                 }
             });
-
-            console.log('navigated');
         })
     </script>
 </head>

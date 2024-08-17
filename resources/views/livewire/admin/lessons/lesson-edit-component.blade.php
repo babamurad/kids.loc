@@ -60,7 +60,7 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('admin.admin-lessons') }}" class="btn btn-secondary waves-effect waves-light" wire:navigate>Ýapmak</a>
-                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="create">Ýatda sakla</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light" wire:click="update">Ýatda sakla</button>
                 </div>
             </div>
         </div>
@@ -83,25 +83,31 @@
                             <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror"
                                    id="newImage" wire:model="newImage">
                             <label class="custom-file-label" for="newImage">Surat saýlamak</label>
-                            @error('newImage')
-                            <div class="invalid-feedback">{{ $message }}</div>@enderror
+                            @error('newImage') <div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
                     </div>
 
                     @if ($newVideo)
                         <div class="mt-3">
                             {{--                            <h5>Wideony görmek:</h5>--}}
+                            @if($newVideo)
                             <video id="video-preview" width="320" height="240" controls
                                    wire:key="{{ $newVideo->hashName() }}">
                                 <source src="{{ $newVideo->temporaryUrl() }}" type="video/mp4">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </video>
+                            @else
+                                <video id="video-preview" width="320" height="240" controls >
+                                    <source src="{{ asset('lesson/video') . '/' . $video }}" type="video/mp4">
+                                    Brauzeriňiz ses elementini goldamaýar.
+                                </video>
+                            @endif
                         </div>
                     @else
                         <div class="mt-3">
                             {{--                            <h5>Wideony görmek:</h5>--}}
                             <video width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/video/') . 'lesson-edit-component.blade.php/' . $video }}"
+                                <source src="{{ asset('images/lesson/video') . '/' . $video }}"
                                         type="video/mp4">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </video>
@@ -158,7 +164,7 @@
                         <div class="mt-3">
                             {{--                                <h5>Audio:</h5>--}}
                             <audio width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/audio/') . 'lesson-edit-component.blade.php/' . $audio }}"
+                                <source src="{{ asset('images/lesson/audio') . '/' . $audio }}"
                                         type="audio/mp3">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </audio>
@@ -213,11 +219,12 @@
                                  x-on:livewire-upload-progress="progress = $event.detail.progress"
                             >
                                 <input type="file" class="custom-file-input @error('newFile') is-invalid @enderror"
-                                       id="newFile" wire:model="newFile" accept="file/*">
-                                <label class="custom-file-label" for="newFile">@if ($newFile)
+                                       id="newFile" wire:model="newFile" accept="file/*" value="{{ $file }}">
+                                <label class="custom-file-label" for="newFile">
+                                    @if ($newFile)
                                         {{ $newFile->getClientOriginalName() }}
                                     @else
-                                        File saýlamak
+                                        {{ $file }}
                                     @endif</label>
                                 @error('newFile')
                                 <div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -237,32 +244,33 @@
                             </div>
                         </div>
 
+                        @if ($file)
+                            <div class="mt-3">
+                                <h5>Faýla deslapky syn:</h5>
+                                @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pdf']))
+                                    <iframe src="{{ asset('images/lesson/files'). '/' . $file }}" style="width:100%; height:500px;"></iframe>
+                                @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['doc', 'docx']))
+                                <!-- DOCX Preview -->
+                                    <div id="docx-preview" style="width: 100%; height: 500px; overflow: auto;"></div>
+                                    <script>
+                                        var input = '{{ asset($file) }}';
+                                        fetch(input)
+                                            .then(response => response.arrayBuffer())
+                                            .then(arrayBuffer => mammoth.convertToHtml({arrayBuffer: arrayBuffer}))
+                                            .then(result => {
+                                                document.getElementById('docx-preview').innerHTML = result.value;
+                                            })
+                                            .catch(err => console.log(err));
+                                    </script>
+                                @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pptx']))
+                                <!-- PPTX Preview -->
+                                    <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ urlencode(asset($file)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
+                                @endif
+                                <button wire:click="removeDocFile" class="btn btn-danger mt-2">Dokumenti öçürmek</button>
+                            </div>
+                        @endif
+
                         <div class="row">
-                            @if ($file)
-                                <div class="mt-3">
-                                    <h5>Faýla deslapky syn:</h5>
-                                    @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pdf']))
-                                        <iframe src="{{ asset('images/lesson/files'). '/' . $file }}" style="width:100%; height:500px;"></iframe>
-                                    @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['doc', 'docx']))
-                                        <!-- DOCX Preview -->
-                                        <div id="docx-preview" style="width: 100%; height: 500px; overflow: auto;"></div>
-                                        <script>
-                                            var input = '{{ asset($file) }}';
-                                            fetch(input)
-                                                .then(response => response.arrayBuffer())
-                                                .then(arrayBuffer => mammoth.convertToHtml({arrayBuffer: arrayBuffer}))
-                                                .then(result => {
-                                                    document.getElementById('docx-preview').innerHTML = result.value;
-                                                })
-                                                .catch(err => console.log(err));
-                                        </script>
-                                    @elseif (in_array(pathinfo($file, PATHINFO_EXTENSION), ['pptx']))
-                                        <!-- PPTX Preview -->
-                                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src={{ urlencode(asset($file)) }}" style="width:100%; height:500px;" frameborder="0"></iframe>
-                                    @endif
-                                    <button wire:click="removeDocFile" class="btn btn-danger mt-2">Dokumenti öçürmek</button>
-                                </div>
-                            @endif
                             <div class="col-sm-6">
                                 <div class="row mt-4">
                                     <div class="form-group pl-5">
