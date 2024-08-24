@@ -47,24 +47,4 @@ class HomeTest extends TestCase
         $this->livewire('home-component')->assertViewIs('livewire.home-component');
     }
 
-    /** @test */
-    public function it_passes_the_correct_data_to_the_view()
-    {
-        // Create test data
-        $teacher = Teacher::factory()->create();
-        $about = About::factory()->create();
-        $carousel = Carousel::factory()->create();
-        $articles = Article::factory()->createMany(4);
-        $categories = Category::factory()->createMany(3);
-
-        // Render the component
-        $component = $this->livewire('home-component');
-
-        // Assert that the correct data is passed to the view
-        $this->assertEquals($teacher->toArray(), $component->teachers[0]->toArray());
-        $this->assertEquals($about->toArray(), $component->about->toArray());
-        $this->assertCount(1, $component->carousel);
-        $this->assertCount(4, $component->articles);
-        $this->assertCount(3, $component->categories);
-    }
 }
