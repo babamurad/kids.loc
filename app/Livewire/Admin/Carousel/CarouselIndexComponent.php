@@ -68,5 +68,5 @@ class CarouselIndexComponent extends Component
         $item->update();
     }
 
-    
+
 }
