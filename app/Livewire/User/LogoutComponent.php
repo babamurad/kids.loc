@@ -18,7 +18,8 @@ class LogoutComponent extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        // return redirect()->route('/');
-        return $this->redirect('/login', navigate:true);
+         return redirect()->route('login');
+//        return $this->redirect('/login');
+//        return redirect()->route('admin.admin-lessons');
     }
 }
