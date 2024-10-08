@@ -1,24 +1,24 @@
 # kids.loc
 
-# Загрузка проекта на сервер
+## Загрузка проекта на сервер
 git clone https://github.com/babamurad/kids.loc.git /var/www/ваш-домен
 
-# Установка зависимостей через Composer
+## Установка зависимостей через Composer
 cd /var/www/ваш-домен
 composer install --no-dev --optimize-autoloader
 
-# Настройка прав доступа
+## Настройка прав доступа
 sudo chown -R www-data:www-data /var/www/ваш-домен
 sudo chmod -R 775 /var/www/ваш-домен/storage
 sudo chmod -R 775 /var/www/ваш-домен/bootstrap/cache
 
-# Конфигурация .env файла
+## Конфигурация .env файла
 cp .env.example .env
 
-# Генерация ключа приложения
+## Генерация ключа приложения
 php artisan key:generate
 
-# Nginx:
+## Nginx:
 server {
     listen 80;
     server_name ваш-домен;
