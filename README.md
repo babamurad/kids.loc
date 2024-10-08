@@ -8,9 +8,12 @@ cd /var/www/ваш-домен
 composer install --no-dev --optimize-autoloader
 
 ## Настройка прав доступа
-sudo chown -R www-data:www-data /var/www/ваш-домен 
-sudo chmod -R 775 /var/www/ваш-домен/storage 
-sudo chmod -R 775 /var/www/ваш-домен/bootstrap/cache 
+sudo chown -R www-data:www-data /var/www/ваш-домен  
+
+sudo chmod -R 775 /var/www/ваш-домен/storage  
+
+sudo chmod -R 775 /var/www/ваш-домен/bootstrap/cache  
+
 
 ## Конфигурация .env файла
 cp .env.example .env
