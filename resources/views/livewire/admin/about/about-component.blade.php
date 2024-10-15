@@ -1,7 +1,9 @@
 @section('title', 'Admin About')
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-12">
+            @include('components.alerts')
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Biz barada</h4>
 
@@ -54,6 +56,9 @@
 
                     </div>
                     <div wire:ignore>
+                        <textarea id="shortContent" wire:model="shortContent"></textarea>
+                    </div>
+                    <div wire:ignore>
                         <textarea id="summernote" wire:model="content"></textarea>
                     </div>
                 </div>
@@ -73,10 +78,16 @@
                 $('#summernote').summernote({
                     height: 400,
                 });
+                $('#shortContent').summernote({
+                    height: 400,
+                });
             });
 
             $('#summernote').on('summernote.change', function (we, contents, $editable) {
             @this.set('content', contents)
+            });
+            $('#shortContent').on('summernote.change', function (we, contents, $editable) {
+            @this.set('shortContent', contents)
             });
         </script>
     @endpush
