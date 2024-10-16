@@ -70,16 +70,30 @@
         <link href="{{ asset('admin/assets/plugins/quill/quill.core.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('admin/assets/plugins/quill/quill.bubble.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('admin/assets/plugins/quill/quill.snow.css') }}" rel="stylesheet" type="text/css"/>
+
     @endpush
 
     @push('editor-js')
         <script>
             $(document).ready(function () {
                 $('#summernote').summernote({
-                    height: 400,
+                    height: 400,  // Установка высоты редактора
+                    toolbar: [
+                        // Стандартные кнопки
+                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                        ['font', ['strikethrough', 'superscript', 'subscript']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']],
+                    ],
+                    fontSizes: ['0.8', '0.9', '1', '1.1', '1.2', '1.4', '1.8', '2.4', '3.6', '4.8', '6.4', '8.2', '15.0']  // Настройка доступных размеров
+                    // fontSizes: ['8', '10', '12', '14', '16', '18', '24', '36']
                 });
+
                 $('#shortContent').summernote({
-                    height: 400,
+                    height: 200,
                 });
             });
 
