@@ -94,7 +94,7 @@ class LessonEditComponent extends Component
             if (file_exists('lesson/files'.$this->newFile)){
                 unlink('lesson/files/'.$this->newFile);
             }
-            $fileName = Carbon::now()->timestamp.'.'.$this->newFile->extension();
+            $fileName = $this->newFile->getClientOriginalName();
             $this->newFile->storeAs('lesson/files/', $fileName);
             $lesson->file = $fileName;
         }
