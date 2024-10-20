@@ -1,6 +1,5 @@
 @section('title', 'Esasy')
-<div>
-
+<div>    
 @if (Route::currentRouteName() == 'home')
 @livewire('carousel-component', ['type' => 'carousel'])
 @else
