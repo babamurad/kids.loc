@@ -31,14 +31,14 @@
 
        <div class="container padding-medium">
         <div class="row ">
-            <div class="col-md-6 pe-md-5">
+            <div class="col-md-6 pe-md-5 offset-3">
                 <div class="imageblock">
                     <div class="animated-border">
                         <img src="{{ asset('/images/about/').'/'.$about->image }}" alt="img" class="img-fluid rounded-circle ">
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-5 mt-md-0">
+            <div class="col-md-12 mt-5 mt-md-0">
                 <h2 class="display-4">{{ $about->title }}</h2>
 
                 {!! $about->content !!}

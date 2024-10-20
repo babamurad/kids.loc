@@ -12,6 +12,7 @@ class AboutComponent extends Component
 
     use WithFileUploads;
     public $title;
+    public $shortContent;
     public $content;
     public $image;
     public $newImage;
@@ -28,6 +29,7 @@ class AboutComponent extends Component
     {
         $about = About::first();
         $this->title = $about->title;
+        $this->shortContent = $about->shortText;
         $this->content = $about->content;
         $this->image = $about->image;
     }
@@ -36,6 +38,7 @@ class AboutComponent extends Component
     {
         $about = About::first();
         $about->title = $this->title;
+        $about->shortText = $this->shortContent;
         $about->content = $this->content;
         if ($this->newImage){
             if (file_exists('about/'.$this->image)){

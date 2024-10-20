@@ -3,6 +3,7 @@
 namespace App\Livewire\Teacher\Lesson;
 
 use App\Models\Category;
+use App\Models\Lesson;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -67,6 +68,51 @@ class LessonEditComponent extends Component
         }
     }
 
+    public function delItem($type)
+    {
+        $lesson = Lesson::findOrFail($this->idl);
+        switch ($type) {
+            case 'img':
+                $file = 'lesson/images/'.$lesson->image;
+                if (file_exists($file)){
+                    unlink($file);
+                }
+                $lesson->image = '';
+                $message = 'Surat öçürildi';
+                break;
+            case 'video':
+                $file = 'lesson/video/'.$lesson->video;
+                dd()
+                if (file_exists('lesson/video'.$lesson->video)){
+                    unlink('lesson/video/'.$lesson->video);
+                }
+                $lesson->video = '';
+                $message = 'Wideo öçürildi';
+                break;
+            case 'audio':
+                $file = 'lesson/audio/'.$lesson->audio;
+                if (file_exists('lesson/audio'.$lesson->audio)){
+                    unlink('lesson/audio/'.$lesson->audio);
+                }
+                $lesson->audio = '';
+                $message = 'Audio öçürildi';
+                break;
+            case 'file':
+                $file = 'lesson/files/'.$lesson->file;
+                if (file_exists('lesson/files'.$lesson->file)){
+                    unlink('lesson/files/'.$lesson->file);
+                }
+                $lesson->file = '';
+                $message = 'Faýl öçürildi';
+                break;
+            default:
+                return 'Некорректный тип файла';
+        }
+        $lesson->update();
+        $this->render();
+        session()->flash('error', $message);
+    }
+
     public function update()
     {
         $lesson = $this->teacherId ? Auth::user()->teacher->lessons()->where('id', $this->idl)->first() : collect();
@@ -110,7 +156,7 @@ class LessonEditComponent extends Component
             if (file_exists('lesson/files'.$this->newFile)){
                 unlink('lesson/files/'.$this->newFile);
             }
-            $fileName = Carbon::now()->timestamp.'.'.$this->newFile->extension();
+            $fileName = $this->newFile->getClientOriginalName();
             $this->newFile->storeAs('lesson/files/', $fileName);
             $lesson->file = $fileName;
         }

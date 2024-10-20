@@ -76,46 +76,68 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-body text-center">
-                    @if($newImage)
-                        <img wire:model="newImage" class="img-fluid rounded" src="{{ $newImage->temporaryUrl() }}"
-                             alt="Lessons Foto"
-                             @error('newImage') style="border: solid 1px red;" @enderror>
-                    @else
-                        <img wire:model="image" class="img-fluid rounded"
-                             src="{{ asset('images/lesson/images/') . '/' . $image }}"
-                             alt="Lessons Foto"
-                             @error('image') style="border: solid 1px red;" @enderror>
-                    @endif
-                    <div class="form-group mt-1">
-                        <label>Esasy surat</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror"
-                                   id="newImage" wire:model="newImage">
-                            <label class="custom-file-label" for="newImage">Surat saýlamak</label>
-                            @error('newImage')
-                            <div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                    <div style="position: relative; display: inline-block;">
+                        <div class="text-danger delete-button"
+                             wire:click="delItem('img')"
+                             style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                            <i class="fas fa-times"></i>
+                        </div>
+
+                        @if($newImage)
+                            <img wire:model="newImage" class="img-fluid rounded" src="{{ $newImage->temporaryUrl() }}"
+                                 alt="Lessons Foto"
+                                 @error('newImage') style="border: solid 1px red;" @enderror>
+                        @elseif($image)
+                            <img wire:model.live="image" class="img-fluid rounded"
+                                 src="{{ asset('images/lesson/images/') . '/' . $image }}"
+                                 alt="Lessons Foto"
+                                 @error('image') style="border: solid 1px red;" @enderror>
+                        @else
+                            <img class="w-50" src="{{ asset('images/placeholder.jpg') }}" alt="">
+                        @endif
+
+                        <div class="form-group mt-1">
+                            <label>Esasy surat</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input @error('newImage') is-invalid @enderror"
+                                       id="newImage" wire:model="newImage">
+                                <label class="custom-file-label" for="newImage">Surat saýlamak</label>
+                                @error('newImage')
+                                <div class="invalid-feedback">{{ $message }}</div>@enderror
+                            </div>
                         </div>
                     </div>
 
-                    @if ($newVideo)
-                        <div class="mt-3">
-                            {{--                            <h5>Wideony görmek:</h5>--}}
-                            <video id="video-preview" width="320" height="240" controls
-                                   wire:key="{{ $newVideo->hashName() }}">
-                                <source src="{{ $newVideo->temporaryUrl() }}" type="video/mp4">
-                                Brauzeriňiz ses elementini goldamaýar.
-                            </video>
-                        </div>
-                    @else
-                        <div class="mt-3">
-                            {{--                            <h5>Wideony görmek:</h5>--}}
-                            <video width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/video/') . 'lesson-edit-component.blade.php/' . $video }}"
-                                        type="video/mp4">
-                                Brauzeriňiz ses elementini goldamaýar.
-                            </video>
-                        </div>
-                    @endif
+                    <div style="position: relative; display: inline-block;">
+                        @if ($newVideo)
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('video')"
+                                 style="cursor: pointer; position: absolute; top: 20px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="mt-3">
+                                <video id="video-preview" width="320" height="240" controls
+                                       wire:key="{{ $newVideo->hashName() }}">
+                                    <source src="{{ $newVideo->temporaryUrl() }}" type="video/mp4">
+                                    Ваш браузер не поддерживает элемент видео.
+                                </video>
+                            </div>
+                        @else
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('video')"
+                                 style="cursor: pointer; position: absolute; top: 20px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="mt-3">
+                                <video width="320" height="240" controls>
+                                    <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
+                                    Ваш браузер не поддерживает элемент видео.
+                                </video>
+                            </div>
+                        @endif
+                    </div>
+
 
                     <div class="form-group mt-1">
                         <label>Wideo</label>
@@ -154,7 +176,13 @@
                         </div>
                     </div>
 
+                    <div style="position: relative; display: inline-block;">
                     @if ($newAudio)
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('audio')"
+                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
                         <div class="mt-3">
                             {{--                                <h5>Audio:</h5>--}}
                             <audio id="audio-preview" width="320" height="240" controls
@@ -164,6 +192,11 @@
                             </audio>
                         </div>
                     @else
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('audio')"
+                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
                         <div class="mt-3">
                             {{--                                <h5>Audio:</h5>--}}
                             <audio width="320" height="240" controls>
@@ -173,6 +206,7 @@
                             </audio>
                         </div>
                     @endif
+                    </div>
 
                     <div class="form-group mt-1">
                         <label>Audio</label>
@@ -211,7 +245,13 @@
                         </div>
                     </div>
 
+                    <div style="position: relative; display: inline-block;">
                     @if ($file)
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('file')"
+                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
                         <div class="mt-3">
                             <label>Faýla deslapky syn:</label>
                             <a href="{{ $file }}">@if($file)
@@ -221,6 +261,7 @@
                                 @endif</a>
                         </div>
                     @endif
+                    </div>
 
                     <div class="form-group mt-1">
                         <label>File</label>
@@ -322,21 +363,6 @@
                                 <input class="form-control" type="date" name="until_date" wire:model="until_date">
                             </div>
                         </div>
-
-                    {{--                    <div class="row my-3">--}}
-                    {{--                        <div class="col-sm-6">--}}
-                    {{--                            <div class="row form-group pl-5">--}}
-                    {{--                                <div class="custom-control custom-checkbox mt-2 pl-2">--}}
-                    {{--                                    <input type="checkbox" class="custom-control-input" id="available" wire:model="available">--}}
-                    {{--                                    <label class="custom-control-label" for="available">Available</label>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="col-sm-6">--}}
-                    {{--                            <label class="mr-2" for="until_date">Gutarýan wagty</label>--}}
-                    {{--                            <input class="form-control" type="date" name="until_date" wire:model="until_date">--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
 
 
                     <div class="form-group">

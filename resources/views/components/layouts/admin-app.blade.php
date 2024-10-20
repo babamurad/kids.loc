@@ -19,12 +19,12 @@
     <!-- jQuery  -->
     <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+
     {{-- @stack('editor-css') --}}
     {{-- @livewireStyles   --}}
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
     @stack('select-css')
     @stack('editor-css')
-
 
 </head>
 

@@ -67,20 +67,30 @@
                     </div>
                     @endif
                     @if($audio || $file)
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div class="row mb-2">
+                        <div class="col-sm-6 p-3">
                             @if($audio)
-                                <h5>Audio görnüşi:</h5>
-                                <audio controls>
-                                    <source src="{{ asset('images/lesson/audio') . '/' . $audio }}">
-                                    Brauzeriňiz ses elementini goldamaýar.
-                                </audio>
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5>Audio görnüşi:</h5>
+
+                                        <audio controls>
+                                            <source src="{{ asset('images/lesson/audio') . '/' . $audio }}">
+                                            Brauzeriňiz ses elementini goldamaýar.
+                                        </audio>
+                                    </div>
+                                </div>
+
                             @endif
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 p-3">
                             @if ($file)
-                                <h5>Faýla deslapky syn:</h5>
-                                <a href="{{ asset('images/lesson/files') . '/' . $file }}">@if($file){{ $file }}@else Faýl saýla @endif</a>
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5>Faýla deslapky syn:</h5>
+                                        <a href="{{ asset('images/lesson/files') . '/' . $file }}">@if($file){{ $file }}@else Faýl saýla @endif</a>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                     </div>

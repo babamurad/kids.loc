@@ -87,7 +87,7 @@
                         <h2 class="display-4 mb-3">{{ $about->title }}</h2>
                     </div>
                     <p>
-                        {!! $about->content !!}
+                        {!! $about->shortText !!}
                     </p>
                     <a class="btn btn-primary mt-3" href="{{ route('about-us') }}" wire:navigate>About Us</a>
                 </div>
