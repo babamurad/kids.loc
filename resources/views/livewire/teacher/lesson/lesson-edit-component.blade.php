@@ -123,18 +123,20 @@
                                     Ваш браузер не поддерживает элемент видео.
                                 </video>
                             </div>
-                        @else
+                        @elseif($video)
                             <div class="text-danger delete-button"
                                  wire:click="delItem('video')"
                                  style="cursor: pointer; position: absolute; top: 20px; right: 5px; z-index: 10;">
                                 <i class="fas fa-times"></i>
                             </div>
                             <div class="mt-3">
-                                <video width="320" height="240" controls>
+                                <video width="320" height="240" controls wire:model.live="video">
                                     <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                                     Ваш браузер не поддерживает элемент видео.
                                 </video>
                             </div>
+                        @else
+                            <p>Ваш браузер не поддерживает элемент видео или отсутсвует видеофайл.</p>
                         @endif
                     </div>
 
@@ -150,7 +152,7 @@
                              x-on:livewire-upload-progress="progress = $event.detail.progress"
                         >
                             <input type="file" class="custom-file-input @error('newVideo') is-invalid @enderror"
-                                   id="newVideo" wire:model="newVideo" accept="video/*">
+                                   id="newVideo" wire:model.live="newVideo" accept="video/*">
                             <label class="custom-file-label" for="newVideo">@if ($newVideo)
                                     {{ $newVideo->getClientOriginalName() }}
                                 @else
@@ -176,6 +178,7 @@
                         </div>
                     </div>
 
+                    <p>{{ $audio }}</p>
                     <div style="position: relative; display: inline-block;">
                     @if ($newAudio)
                             <div class="text-danger delete-button"
@@ -200,7 +203,7 @@
                         <div class="mt-3">
                             {{--                                <h5>Audio:</h5>--}}
                             <audio width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/audio/') . 'lesson-edit-component.blade.php/' . $audio }}"
+                                <source src="{{ asset('images/lesson/audio/') . '/' . $audio }}"
                                         type="audio/mp3">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </audio>

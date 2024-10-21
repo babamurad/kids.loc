@@ -9,7 +9,7 @@
                 @include('components.alerts')
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}" wire:navigate>Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('teacher.dashboard') }}" wire:navigate>Dolandyryş</a></li>
                         <li class="breadcrumb-item active">Paroly çalyşmak</li>
                     </ol>
                 </div>

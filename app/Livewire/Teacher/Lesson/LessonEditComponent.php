@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Lesson;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -23,6 +24,7 @@ class LessonEditComponent extends Component
         'available' => 'required',
         'category_id' => 'required|integer',
     ];
+
 
     public function render()
     {
@@ -50,6 +52,13 @@ class LessonEditComponent extends Component
         $this->teacher_id = $lesson->teacher_id;
 
         //$this->previewUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' . urlencode(asset('/images/lesson/files'). '/' . $this->file);
+    }
+
+    #[On('fileDeleted')]
+    public function redirectToSelf()
+    {
+        return redirect()->route('teacher.teacher-lessons.edit', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
+        //return $this->redirect('teacher.teacher-lessons.edit', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
     }
 
     public function changeVideo()
@@ -82,7 +91,7 @@ class LessonEditComponent extends Component
                 break;
             case 'video':
                 $file = 'lesson/video/'.$lesson->video;
-                dd()
+
                 if (file_exists('lesson/video'.$lesson->video)){
                     unlink('lesson/video/'.$lesson->video);
                 }
@@ -109,8 +118,8 @@ class LessonEditComponent extends Component
                 return 'Некорректный тип файла';
         }
         $lesson->update();
-        $this->render();
         session()->flash('error', $message);
+        $this->dispatch('fileDeleted');
     }
 
     public function update()
@@ -164,7 +173,7 @@ class LessonEditComponent extends Component
         $lesson->update();
 
         $this->resetInputFields();
-        session()->flash('success', 'Data updated!');
+        session()->flash('success', 'Üýtgemeler ýada ýazyldy!');
         return redirect()->route('teacher.teacher-lessons', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
     }
 

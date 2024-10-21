@@ -14,7 +14,7 @@ class SingleArticleComponent extends Component
 
     public function render()
     {
-        $articles = Article::inRandomOrder()->take(3)->get();
+        $articles = Article::orderBy('created_at', 'desc')->take(3)->get();
         $article = Article::findOrFail($this->articleId);
         return view('livewire.article.single-article-component', compact('article', 'articles'));
     }

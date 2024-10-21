@@ -29,7 +29,7 @@
                                         <th scope="row">{{ $banner->id }}</th>
                                         <td class="pr-0 mr-0">
                                             <a href=""  wire:click.prevent="isEdit({{ $banner->id }})">
-                                                <img class="w-50 mr-3" src="{{ asset('images/banners') . '/' . $banner->image }}" alt="Banner suraty">
+                                                <img class="w-50 mr-3 rounded" src="{{ asset('images/banners') . '/' . $banner->image }}" alt="Banner suraty">
                                             </a>
                                         </td>
                                         <td>
@@ -37,7 +37,7 @@
                                         </td>
                                         <td>
                                             <button wire:click.prevent="isEdit({{ $banner->id }})"
-                                                    class="btn btn-sm btn-warning mr-2">
+                                                    class="btn btn-sm btn-warning mr-2 rounded">
                                                     <i class="fas fa-edit mr-1"></i>
                                                     Üýtgetmek
                                             </button>
