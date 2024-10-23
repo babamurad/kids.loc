@@ -80,8 +80,7 @@
                     <div class="form-group mt-1">
                         <label>Esasy surat</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror"
-                                   id="newImage" wire:model="newImage">
+                            <input type="file" class="custom-file-input  @error('newImage') is-invalid @enderror" id="newImage" wire:model="newImage">
                             <label class="custom-file-label" for="newImage">Surat saýlamak</label>
                             @error('newImage') <div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
@@ -89,10 +88,8 @@
 
                     @if ($newVideo)
                         <div class="mt-3">
-                            {{--                            <h5>Wideony görmek:</h5>--}}
                             @if($newVideo)
-                            <video id="video-preview" width="320" height="240" controls
-                                   wire:key="{{ $newVideo->hashName() }}">
+                            <video id="video-preview" width="320" height="240" controls wire:key="{{ $newVideo->hashName() }}">
                                 <source src="{{ $newVideo->temporaryUrl() }}" type="video/mp4">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </video>
@@ -105,10 +102,8 @@
                         </div>
                     @else
                         <div class="mt-3">
-                            {{--                            <h5>Wideony görmek:</h5>--}}
                             <video width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/video') . '/' . $video }}"
-                                        type="video/mp4">
+                                <source src="{{ asset('images/lesson/video') . '/' . $video }}" type="video/mp4">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </video>
                         </div>
@@ -124,15 +119,15 @@
                              x-on:livewire-upload-error="uploading = false"
                              x-on:livewire-upload-progress="progress = $event.detail.progress"
                         >
-                            <input type="file" class="custom-file-input @error('newVideo') is-invalid @enderror"
-                                   id="newVideo" wire:model="newVideo" accept="video/*">
-                            <label class="custom-file-label" for="newVideo">@if ($newVideo)
+                            <input type="file" class="custom-file-input @error('newVideo') is-invalid @enderror" id="newVideo" wire:model="newVideo" accept="video/*">
+                            <label class="custom-file-label" for="newVideo">
+                                @if ($newVideo)
                                     {{ $newVideo->getClientOriginalName() }}
                                 @else
                                     Wideo saýlamak
-                                @endif</label>
-                            @error('newVideo')
-                            <div class="invalid-feedback">{{ $message }}</div>@enderror
+                                @endif
+                            </label>
+                            @error('newVideo')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                             <!-- Progress Bar -->
                             <div class="progress w-100 mt-1" x-show="uploading">
@@ -153,19 +148,15 @@
 
                     @if ($newAudio)
                         <div class="mt-3">
-                            {{--                                <h5>Audio:</h5>--}}
-                            <audio id="audio-preview" width="320" height="240" controls
-                                   wire:key="{{ $newAudio->hashName() }}">
+                            <audio id="audio-preview" width="320" height="240" controls wire:key="{{ $newAudio->hashName() }}">
                                 <source src="{{ $newAudio->temporaryUrl() }}" type="audio/mp3">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </audio>
                         </div>
                     @else
                         <div class="mt-3">
-                            {{--                                <h5>Audio:</h5>--}}
                             <audio width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/audio') . '/' . $audio }}"
-                                        type="audio/mp3">
+                                <source src="{{ asset('images/lesson/audio') . '/' . $audio }}" type="audio/mp3">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </audio>
                         </div>
@@ -183,13 +174,13 @@
                         >
                             <input type="file" class="custom-file-input @error('newAudio') is-invalid @enderror"
                                    id="newAudio" wire:model="newAudio" accept="audio/*">
-                            <label class="custom-file-label" for="newAudio">@if ($newAudio)
+                            <label class="custom-file-label" for="newAudio">
+                                @if ($newAudio)
                                     {{ $newAudio->getClientOriginalName() }}
                                 @else
                                     Audio saýlamak
                                 @endif</label>
-                            @error('newAudio')
-                            <div class="invalid-feedback">{{ $message }}</div>@enderror
+                            @error('newAudio')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                             <!-- Progress Bar -->
                             <div class="progress w-100 mt-1" x-show="uploading">

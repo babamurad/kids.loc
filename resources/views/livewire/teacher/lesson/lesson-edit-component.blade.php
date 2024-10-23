@@ -78,11 +78,13 @@
                 <div class="card-body text-center">
 
                     <div style="position: relative; display: inline-block;">
-                        <div class="text-danger delete-button"
-                             wire:click="delItem('img')"
-                             style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
-                            <i class="fas fa-times"></i>
-                        </div>
+                        @if($image || $newImage)
+                            <div class="text-danger delete-button"
+                                 wire:click="delItem('img')"
+                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        @endif
 
                         @if($newImage)
                             <img wire:model="newImage" class="img-fluid rounded" src="{{ $newImage->temporaryUrl() }}"
@@ -110,12 +112,14 @@
                     </div>
 
                     <div style="position: relative; display: inline-block;">
-                        @if ($newVideo)
+                        @if($video || $newVideo)
                             <div class="text-danger delete-button"
                                  wire:click="delItem('video')"
                                  style="cursor: pointer; position: absolute; top: 20px; right: 5px; z-index: 10;">
                                 <i class="fas fa-times"></i>
                             </div>
+                        @endif
+                        @if ($newVideo)
                             <div class="mt-3">
                                 <video id="video-preview" width="320" height="240" controls
                                        wire:key="{{ $newVideo->hashName() }}">
@@ -123,18 +127,15 @@
                                     Ваш браузер не поддерживает элемент видео.
                                 </video>
                             </div>
-                        @else
-                            <div class="text-danger delete-button"
-                                 wire:click="delItem('video')"
-                                 style="cursor: pointer; position: absolute; top: 20px; right: 5px; z-index: 10;">
-                                <i class="fas fa-times"></i>
-                            </div>
+                        @elseif($video)
                             <div class="mt-3">
                                 <video width="320" height="240" controls>
                                     <source src="{{ asset('images/lesson/video/') . '/' . $video }}" type="video/mp4">
                                     Ваш браузер не поддерживает элемент видео.
                                 </video>
                             </div>
+                        @else
+                            <p>Отсутсвует элемент видео или файл не найден.</p>
                         @endif
                     </div>
 
@@ -177,6 +178,13 @@
                     </div>
 
                     <div style="position: relative; display: inline-block;">
+                    @if($audio || $newAudio)
+                        <div class="text-danger delete-button"
+                             wire:click="delItem('audio')"
+                             style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    @endif
                     @if ($newAudio)
                             <div class="text-danger delete-button"
                                  wire:click="delItem('audio')"
@@ -192,15 +200,10 @@
                             </audio>
                         </div>
                     @else
-                            <div class="text-danger delete-button"
-                                 wire:click="delItem('audio')"
-                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
-                                <i class="fas fa-times"></i>
-                            </div>
                         <div class="mt-3">
                             {{--                                <h5>Audio:</h5>--}}
                             <audio width="320" height="240" controls>
-                                <source src="{{ asset('images/lesson/audio/') . 'lesson-edit-component.blade.php/' . $audio }}"
+                                <source src="{{ asset('images/lesson/audio/') . '/' . $audio }}"
                                         type="audio/mp3">
                                 Brauzeriňiz ses elementini goldamaýar.
                             </audio>
@@ -246,12 +249,14 @@
                     </div>
 
                     <div style="position: relative; display: inline-block;">
+                    @if($file || $newFile)
+                        <div class="text-danger delete-button"
+                             wire:click="delItem('file')"
+                             style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    @endif
                     @if ($file)
-                            <div class="text-danger delete-button"
-                                 wire:click="delItem('file')"
-                                 style="cursor: pointer; position: absolute; top: 5px; right: 5px; z-index: 10;">
-                                <i class="fas fa-times"></i>
-                            </div>
                         <div class="mt-3">
                             <label>Faýla deslapky syn:</label>
                             <a href="{{ $file }}">@if($file)

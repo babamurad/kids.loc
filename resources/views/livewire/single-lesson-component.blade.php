@@ -72,8 +72,9 @@
                             @if($audio)
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <h5>Audio görnüşi:</h5>
-
+                                        <h5>Audio görnüşi: </h5>
+                                        <h6 class="bg-secondary rounded text-white"><span class="p-2">{{ $audio }}</span></h6>
+                                        <br>
                                         <audio controls>
                                             <source src="{{ asset('images/lesson/audio') . '/' . $audio }}">
                                             Brauzeriňiz ses elementini goldamaýar.
@@ -88,7 +89,9 @@
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5>Faýla deslapky syn:</h5>
-                                        <a href="{{ asset('images/lesson/files') . '/' . $file }}">@if($file){{ $file }}@else Faýl saýla @endif</a>
+                                        <h6 class="bg-secondary rounded text-">
+                                        <span class="p-2"><a href="{{ asset('images/lesson/files') . '/' . $file }}">@if($file){{ $file }}@else Faýl saýla @endif</a></span>
+                                        </h6>
                                     </div>
                                 </div>
                             @endif

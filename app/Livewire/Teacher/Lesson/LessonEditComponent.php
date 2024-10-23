@@ -82,11 +82,12 @@ class LessonEditComponent extends Component
                 break;
             case 'video':
                 $file = 'lesson/video/'.$lesson->video;
-                dd()
+
                 if (file_exists('lesson/video'.$lesson->video)){
                     unlink('lesson/video/'.$lesson->video);
                 }
                 $lesson->video = '';
+
                 $message = 'Wideo öçürildi';
                 break;
             case 'audio':
@@ -109,8 +110,9 @@ class LessonEditComponent extends Component
                 return 'Некорректный тип файла';
         }
         $lesson->update();
-        $this->render();
+        //$this->render();
         session()->flash('error', $message);
+        return redirect()->route('teacher.teacher-lessons.edit', ['id' => $this->idl, 'teacherId' => $this->teacherId]);
     }
 
     public function update()
