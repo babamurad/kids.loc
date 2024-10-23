@@ -36,9 +36,10 @@
             @foreach ($articles as $article)
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card bg-white rounded-4">
-                        <a href="{{ route('single-article', ['id' => $article->id]) }}" wire:navigate><img
-                                src="{{ asset('images/articles/') . '/' . $article->image }}"
-                                class="img-fluid rounded-top-4 " alt="image"></a>
+                        <a href="{{ route('single-article', ['id' => $article->id]) }}" wire:navigate>
+                            <img src="{{ asset('images/articles/') . '/' . $article->image }}"
+                                class="img-fluid rounded-top-4 card-img-top" alt="image">
+                        </a>
                         <div class="card-body p-3">
                             <p class="mb-2">{{ Carbon\Carbon::create($article->created_at)->format('d.m.Y') }} y.</p>
                             <a href="{{ route('single-article', ['id' => $article->id]) }}" class="hover-color" wire:navigate>
@@ -47,8 +48,7 @@
                             <p class="mt-2">
                                 {!! substr($article->content, 0, 30) !!}{{ strlen($article->content) > 30 ? '...' : '' }}
                                 <span>
-                                    <a
-                                        href="{{ route('single-article', ['id' => $article->id]) }}"
+                                    <a href="{{ route('single-article', ['id' => $article->id]) }}"
                                         class="text-decoration-underline" wire:navigate>Giňişleýin
                                     </a>
                                 </span>
