@@ -24,7 +24,29 @@ class DashboardComponent extends Component
     public function render()
     {
         $teachers = Teacher::take(8)->get();
-        $items = DB::select('CALL GetRecordCounts()');
+//        $items = DB::select('CALL GetRecordCounts()');
+        $items = DB::select("
+    SELECT
+        'Kategoriýalar' AS tablename,
+        COUNT(*) AS record_count
+    FROM categories
+    UNION ALL
+    SELECT
+        'Sapaklar' AS tablename,
+        COUNT(*) AS record_count
+    FROM lessons
+    UNION ALL
+    SELECT
+        'Makalalar' AS tablename,
+        COUNT(*) AS record_count
+    FROM articles
+    UNION ALL
+    SELECT
+        'Mugallymlar' AS tablename,
+        COUNT(*) AS record_count
+    FROM teachers
+");// assuming this is your stored procedure call
+
         return view('livewire.admin.dashboard-component', compact('teachers', 'items'))
             ->layout('components.layouts.admin-app');
     }

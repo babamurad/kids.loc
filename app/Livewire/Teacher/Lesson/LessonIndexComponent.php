@@ -50,11 +50,12 @@ class LessonIndexComponent extends Component
     {
         $lesson = Lesson::findOrFail($this->delId);
         $this->image = $lesson->image;
-        if (file_exists('images/lesson/images/'.$this->image)){
+        if (file_exists('images/lesson/images/'.$this->image) && $this->image){
             unlink('images/lesson/images/'.$this->image);
         }
         $this->video = $lesson->video;
-        if (file_exists('images/lesson/video/'.$this->video)){
+
+        if (file_exists('images/lesson/video/'.$this->video) && ($this->video)){
             unlink('images/lesson/video/'.$this->video);
         }
         $lesson->delete();

@@ -89,8 +89,9 @@
 
                                     </td>
                                     <td style="width: 10%;">
-                                        <div class="mt-2">{{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}</div>
-
+                                        <div class="mt-2">
+                                            <span class="badge badge-light" style="font-size: 90%;">{{ Carbon\Carbon::create($article->publish_date)->format('d.m.Y') }}</span>
+                                        </div>
                                     </td>
                                     <td style="width: 12%;">
                                         <a href="{{ route('admin.article.edit', ['id' => $article->id]) }}" class="btn btn-sm btn-success mr-2 mt-2"><i class="fas fa-edit"></i></a>

@@ -83,9 +83,21 @@
                                 <td class="pr-0 mr-0"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}"><img style="width: 15%;" src="{{ asset('images/teachers/'.$teacher->image) }}" alt=""></a>  </td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->firstname }}</a></td>
                                 <td style="width: 15%;"><a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}">{{ $teacher->lastname }}</a></td>
-                                <td style="width: 10%;">{{ $teacher->position }}</td>
-                                <td>{{ $teacher->order }}</td>
-                                <td>{{ $teacher->published }}</td>
+                                <td style="width: 10%;">
+                                    <span class="badge badge-light">{{ $teacher->position }}</span>
+                                </td>
+                                <td>
+                                    <span class="badge badge-secondary badge-pill"><strong>{{ $teacher->order }}</strong></span>
+                                </td>
+                                <td>
+                                    <label class="mt-2">
+                                        @if ( $teacher->published )
+                                            <span class="badge badge-success">Görkez</span>
+                                        @else
+                                            <span class="badge badge-danger">Görkezme</span>
+                                        @endif
+                                    </label>
+                                </td>
                                 <td style="width: 12%;">
                                     <a href="{{ route('admin.teachers.edit', ['id' => $teacher->id]) }}" class="btn btn-sm btn-success mr-2"><i class="fas fa-edit"></i></a>
                                     <a href="{{ route('admin.teachers.view', ['id' => $teacher->id]) }}" class="btn btn-sm btn-warning mr-2"><i class="fas fa-eye"></i></a>

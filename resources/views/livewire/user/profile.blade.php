@@ -27,7 +27,7 @@
                 <span>Dolandyryş</span>
             </a>
         @endif
-        <a wire:navigate wire:click.prevent="logout" class="dropdown-item d-flex align-items-center justify-content-between"
+        <a wire:click.prevent="logout" class="dropdown-item d-flex align-items-center justify-content-between"
            href="#">
             <span>Çykmak</span>
         </a>

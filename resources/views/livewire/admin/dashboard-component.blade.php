@@ -9,7 +9,7 @@
 @include('components.alerts')
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Opatix</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Administrator</a></li>
                         <li class="breadcrumb-item active">Dolandyryş</li>
                     </ol>
                 </div>
@@ -38,36 +38,34 @@
         @endforeach
     </div>
     <!-- end row -->
-
+{{-- Change Password--}}
     <div class="row">
         <div class="col-lg-4">
             <div class="card card-animate">
                 <div class="card-body">
                     <div>
-                        <h2>Изменение пароля</h2>
+                        <h2>Paroly üýtgetmek</h2>
 
                         <form wire:submit.prevent="resetPassword">
                             @csrf
-
                             <div class="mb-3">
-                                <label for="currentPassword" class="form-label">Текущий пароль</label>
+                                <label for="currentPassword" class="form-label">Häzirki parol</label>
                                 <input type="password" wire:model="currentPassword" id="currentPassword" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Новый пароль</label>
+                                <label for="password" class="form-label">Täze parol</label>
                                 <input type="password" wire:model="password" id="password" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password_confirmation" class="form-label">Подтверждение нового пароля</label>
+                                <label for="password_confirmation" class="form-label">Täze paroly tassyklamak</label>
                                 <input type="password" wire:model="password_confirmation" name="password_confirmation" id="password_confirmation" class="form-control" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Изменить пароль</button>
+                            <button type="submit" class="btn btn-primary">Paroly uýtgetmek</button>
                         </form>
                     </div>
-
 
                 </div>
             </div>
@@ -94,18 +92,18 @@
                     <div class="card-title">
                         <div class="row">
                             <h4 class="d-inline-block mr-3">
-                                Teachers
+                                Mugallymlar
                             </h4>
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Order</th>
-                                        <th>Actions</th>
+                                        <th>Surat</th>
+                                        <th>Ady</th>
+                                        <th>Wezipesi</th>
+                                        <th>Yzygiderligi</th>
+                                        <th>Hereketler</th>
                                     </tr>
                                     </thead>
                                     <tbody>
