@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\About;
+use App\Models\Banner;
 use App\Models\Company;
 use Livewire\Component;
 
@@ -21,7 +22,8 @@ class AboutUsComponent extends Component
     {
         $companies = Company::all();
         $about = About::first();
-        return view('livewire.about-us-component', compact('about', 'companies'));
+        $image = Banner::findOrFail(5);
+        return view('livewire.about-us-component', compact('about', 'companies', 'image'));
     }
 
     public function mailSend()
@@ -56,7 +58,7 @@ class AboutUsComponent extends Component
             session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy.');
         } else {
             $this->res = 'Siziň hatynyz ugradylmady.';
-            session()->flash('error', 'Siziň hatynyz ugradylmady.');
+            session()->flash('error', $this->res);
         }
 
     }

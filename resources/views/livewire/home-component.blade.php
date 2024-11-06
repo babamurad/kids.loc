@@ -1,5 +1,5 @@
 @section('title', 'Esasy')
-<div>    
+<div>
 @if (Route::currentRouteName() == 'home')
 @livewire('carousel-component', ['type' => 'carousel'])
 @else
@@ -138,7 +138,7 @@
                         <div class="card-body p-3">
                             <p class="mb-2">{{ \Carbon\Carbon::create($article->created_at)->locale('ru')->format('j F, Y') }}</p>
                             <a href="{{ route('single-article', ['id' => $article->id]) }}"  wire:navigate class="hover-color">
-                                <h2 class="m-0 lh-sm">{{ $article->title }}</h2>
+                                <h2 class="m-0 lh-sm">{{ str($article->title)->words(4) }}</h2>
                             </a>
                         </div>
                     </div>

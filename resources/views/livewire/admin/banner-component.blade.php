@@ -17,7 +17,7 @@
                             <table class="table mb-0">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Id</th>
                                     <th>Surat</th>
                                     <th>Ady</th>
                                     <th>Hereket</th>

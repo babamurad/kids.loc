@@ -58,7 +58,7 @@ class Profile extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        // return redirect()->route('/');
-        return $this->redirect('/login');
+         return redirect()->route('home');
+//        return $this->redirect('/login');
     }
 }

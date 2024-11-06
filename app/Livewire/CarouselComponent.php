@@ -17,7 +17,7 @@ class CarouselComponent extends Component
 
     public function render()
     {
-        $image = Banner::where('id', 3)->value('image');
+        $image = Banner::where('id', 2)->value('image');
         $carousel = Carousel::status()->orderBy('order')->get();
         return view('livewire.carousel-component', compact('carousel', 'image'));
     }

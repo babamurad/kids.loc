@@ -47,7 +47,22 @@ class ContactComponent extends Component
     public function mailSend()
     {
         $this->validate();
-        $to = 'korpe@korpe.com';
+
+        try {
+            $msg = new Message();
+            $msg->name = $this->name;
+            $msg->email = $this->email;
+            $msg->phone = $this->phone;
+            $msg->subject = $this->subject;
+            $msg->text = $this->text;
+            $msg->save();
+            $this->reset('name', 'email', 'phone', 'subject', 'text');
+            session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy.');
+        } catch (Exception $e) {
+            session()->flash('error', 'Siziň hatynyz ugradylmady.');
+        }
+
+        /*$to = 'babamurad2010@yandex.com';
         // HTML email message
         $message = '
         <!DOCTYPE html>
@@ -67,10 +82,10 @@ class ContactComponent extends Component
 
         // Headers for the email
         $headers  = "Content-type: text/html; charset=utf-8 \r\n";
-        $headers .= "From: $this->email\r\n";
+        $headers .= "From: $this->email\r\n";*/
 
         // Sending the email
-        if (mail($to, $this->subject, $message, $headers)) {
+        /*if (mail($to, $this->subject, $message, $headers)) {
             $msg = new Message();
             $msg->name = $this->name;
             $msg->email = $this->email;
@@ -82,7 +97,7 @@ class ContactComponent extends Component
             session()->flash('success', 'Siziň hatynyz üstunlikli ugradyldy.');
         } else {
             session()->flash('error', 'Siziň hatynyz ugradylmady.');
-        }
+        }*/
     }
 
     public function closeAlert()

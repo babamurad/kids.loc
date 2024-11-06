@@ -32,9 +32,9 @@
             @include('components.alerts')
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Sapaklar</h4>
-                <a href="{{ route('admin.admin-lessons.create') }}" class="btn btn-primary waves-effect waves-light">
+                {{--<a href="{{ route('admin.admin-lessons.create') }}" class="btn btn-primary waves-effect waves-light">
                     Döret
-                </a>
+                </a>--}}
                 <h5 class="h5">Kategoriva: <span class="badge badge-primary badge-pill">{{ $categoryId != 0 ? $categoryName : '' }}</span>
                     /
                     Mugallym: <span class="badge badge-success badge-pill">{{ $teacherId != 0 ? $teacherName : '' }}</span> </h5>
