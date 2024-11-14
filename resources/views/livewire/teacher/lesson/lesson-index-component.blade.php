@@ -64,7 +64,9 @@
                                 <tr wire:key="{{ $lesson->id }}">
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td class="pr-0 mr-0"><a href="{{ route('teacher.teacher-lessons.edit', ['id' => $lesson->id, 'teacherId' => $teacherId]) }}">
+                                        @if ($lesson->image)
                                             <img class="mr-3" style="width: 15%;" src="{{ asset('images/lesson/images/'.$lesson->image) }}" alt="">
+                                        @endif                                           
                                             <strong>{{ $lesson->title }}</strong>
                                         </a>
                                     </td>

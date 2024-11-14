@@ -38,7 +38,10 @@
         @endforeach
     </div>
     <!-- end row -->
+<<<<<<< Updated upstream
 {{-- Change Password--}}
+=======
+>>>>>>> Stashed changes
     <div class="row">
         <div class="col-lg-4">
             <div class="card card-animate">
@@ -66,6 +69,17 @@
                             <button type="submit" class="btn btn-primary">Paroly uýtgetmek</button>
                         </form>
                     </div>
+<<<<<<< Updated upstream
+=======
+                    <hr class="hr">
+                    <p>Alpine</p>
+                    <div x-data="{ counter : 0 }">
+                        <button class="btn btn-primary btn-sm mx-1" x-on:click="counter--">-</button>
+                        <span class="text-bg-success " x-text="counter"></span>
+                        <button class="btn btn-primary btn-sm mx-1" x-on:click="counter++">-</button>
+                    </div>
+                    <span x-text="counter"></span>
+>>>>>>> Stashed changes
 
                 </div>
             </div>

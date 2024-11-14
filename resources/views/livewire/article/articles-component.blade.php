@@ -84,7 +84,7 @@
         ];
     @endphp
     <section id="categories">
-        <div class="container padding-medium pt-0">
+        <div class="container padding-medium">
             <div class="row">
                 @foreach($categories as $category)
                     <div class="col my-4 my-lg-0 text-center">
