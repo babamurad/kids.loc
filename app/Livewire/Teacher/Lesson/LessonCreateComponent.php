@@ -29,6 +29,11 @@ class LessonCreateComponent extends Component
 
     public function render()
     {
+        // In your PHP script:
+        ini_set('upload_max_filesize', '100M');
+        ini_set('post_max_size', '100M');
+
+// ... your file upload code
         $categories = Category::all();
         return view('livewire.teacher.lesson.lesson-create-component', compact('categories'))
             ->layout('components.layouts.teacher-app');
